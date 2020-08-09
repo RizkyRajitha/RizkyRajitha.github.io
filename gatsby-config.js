@@ -29,7 +29,6 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        gfm: false,
         plugins: [
           {
             resolve: "gatsby-remark-embed-gist",
@@ -41,7 +40,6 @@ module.exports = {
 
               // a flag indicating whether the github default gist css should be included or not
               // default: true
-              includeDefaultCss: true,
             },
           },
           {

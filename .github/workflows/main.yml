@@ -6,7 +6,11 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
+
+    schedule:
+      # * is a special character in YAML so you have to quote this string
+      - cron: "0 8 * * *"
 
 jobs:
   buildAdnPublish:
@@ -49,3 +53,9 @@ jobs:
           BRANCH: master
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
+      - name: Notify
+        env:
+          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl https://api.telegram.org/bot"$TELEGRAM_BOT_ID"/sendMessage?chat_id"$TELEGRAM_CHAT_ID"&text=Hello%20from%20dev

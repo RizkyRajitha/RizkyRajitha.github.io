@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import "../styles/blogpost.css"
 import { Offline, Online, Detector } from "react-detect-offline"
 import Footerblogpost from "../components/footerblogpost"
 import Axios from "axios"
@@ -7,7 +6,8 @@ import Navbar from "../components/navbar"
 import "react-responsive-modal/styles.css"
 import { Modal } from "react-responsive-modal"
 import SEO from "../components/seo"
-
+import "../styles/gist.css"
+import "../styles/blogpost.css"
 const moments = require("moment/moment")
 const API = "https://blogrizky.herokuapp.com"
 // const API = "http://localhost:3001";
