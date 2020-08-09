@@ -39,10 +39,6 @@ export default function Blog(props) {
         // console.log(err);
       })
 
-    setTimeout(() => {
-      setblogviews(222)
-    }, 5000)
-
     Axios.get(`${API}/api/blog`, {
       location: window.location.href,
     })
