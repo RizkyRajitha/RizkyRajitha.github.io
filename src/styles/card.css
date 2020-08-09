@@ -1,0 +1,12 @@
+.postcard {
+    background-color: #243447;
+    /* background-color: black; */
+    display: inline !important ;
+  }
+  
+  .tagdiv {
+    display: inline !important;
+    width: 100px;
+    margin: 0% !important;
+  }
+  

@@ -1,0 +1,62 @@
+.blogpostcontainer {
+  /* background-color: black; */
+  color: #ffffff;
+  background-color: #243447;
+  font-family: "Montserrat", sans-serif;
+}
+
+.commentsection {
+  background-color: #243447 !important;
+}
+.commentmodal {
+  background-color: #243447 !important;
+}
+
+.commentfromnow {
+  margin-left: 2%;
+  font-size: 0.8rem;
+  align-self: center;
+}
+
+.commentheaderdiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loadskceliton {
+  height: 20px;
+  box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loadskceliton::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -150px;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #314358 10%,
+    transparent 100%
+  );
+  animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.h3 {
+  font-weight: 400 !important;
+}
+
+@keyframes load {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}

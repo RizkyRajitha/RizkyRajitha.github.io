@@ -1,0 +1,39 @@
+.notfound {
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfoundcontainer {
+  background-color: #243447;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  font-size: 4rem;
+  /* border: 3px solid green; */
+}
+.notfoundflexdiv {
+  /* display: flex; */
+  text-align: center;
+}
+
+.notfoundtext {
+  font-family: "Averia Sans Libre", cursive;
+}
+
+.notfoundbtn {
+  text-align: center;
+}
+
+.notfounditems {
+  font-family: "Averia Sans Libre", cursive !important;
+}
+
+.notfoundtextbottom {
+  font-family: "Averia Sans Libre", cursive;
+  font-size: 1rem;
+}
