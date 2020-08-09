@@ -58,4 +58,4 @@ jobs:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          curl https://api.telegram.org/bot"$TELEGRAM_BOT_ID"/sendMessage?chat_id"$TELEGRAM_CHAT_ID"&text=Hello%20from%20dev
+          curl -X POST https://api.telegram.org/bot"$TELEGRAM_BOT_ID"/sendMessage?chat_id"$TELEGRAM_CHAT_ID"&text=Hello%20from%20dev
