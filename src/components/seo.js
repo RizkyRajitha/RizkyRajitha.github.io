@@ -71,6 +71,15 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `og:image`,
+          content:
+            "https://res.cloudinary.com/dijjqfsto/image/upload/v1573326991/android-chrome-192x192_d205u8.png",
+        },
+        {
+          name: `og:locale`,
+          content: "si_LK",
+        },
       ].concat(meta)}
     />
   )
