@@ -8,9 +8,9 @@ on:
   push:
     branches: [dev]
 
-    schedule:
-      # * is a special character in YAML so you have to quote this string
-      - cron: "0 8 * * *"
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "0 8 * * *"
 
 jobs:
   buildAdnPublish:
