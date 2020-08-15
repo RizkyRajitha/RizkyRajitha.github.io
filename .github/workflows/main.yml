@@ -90,7 +90,7 @@ jobs:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           STATUS: true
-          CUSTOMMESSAGE: "Published 🚀 Blog via GitHub Actions"
+          CUSTOMMESSAGE: "Published Blog via GitHub Actions \xE2\x9C\x85 "
 
       - name: Notify via TELEGRAM BOT app Fail
         uses: RizkyRajitha/github_actions_notify_telegram@v1
@@ -99,4 +99,4 @@ jobs:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           STATUS: false
-          CUSTOMMESSAGE: "Publishing Blog 🛑 via GitHub Actions Failed"
+          CUSTOMMESSAGE: "Publishing Blog via GitHub Actions Failed"
