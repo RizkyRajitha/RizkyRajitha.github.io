@@ -40,7 +40,7 @@ jobs:
       - name: run yarn install and build # go to temp folder and run npm build to create files.
         run: |
           cd temp
-          yarn insta
+          yarn install
           yarn build
 
       - name: move files # move the dist files into root dir and remove others.
