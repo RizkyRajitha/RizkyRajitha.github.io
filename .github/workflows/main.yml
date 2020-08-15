@@ -15,39 +15,50 @@ on:
 jobs:
   buildAdnPublish:
     runs-on: [ubuntu-latest]
+
     steps:
       - name: checkout master  branch # checkout master  branch
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+
       - name: remove all files # remove files.
         run: |
           rm -rf *
+
       - name: create CNAME file # remove files.
         run: |
           echo "rizkyrajitha.me" > CNAME
+
       - name: checkout dev  branch #checkout dev  branch into temp folder.
         uses: actions/checkout@v2
         with:
           ref: dev
           path: temp
           persist-credentials: false
+
       - name: run yarn install and build # go to temp folder and run npm build to create files.
         run: |
           cd temp
           yarn install 
           yarn build
+
       - name: move files # move the dist files into root dir and remove others.
+        if: ${{ success() }}
         run: |
           mv temp/public/* ./
           rm -rf temp
-      - name: Commit files for change # commit changes
+
+      - name: Commit files for change # commit 
+        if: ${{ success() }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Add changes"
+          
       - name: Push changes #push files into master branch
+        if: ${{ success() }}
         uses: ad-m/github-push-action@master
         with:
           BRANCH: master
@@ -61,7 +72,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
         run: |
-          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20success'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"''
+          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20success'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"'' > /dev/null
       
       - name: Notify via TELEGRAM BOT faliure
         if: ${{ failure() }}
@@ -70,4 +81,4 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
         run: |
-          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20faliure'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"''
+          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20faliure'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"'' > /dev/null
