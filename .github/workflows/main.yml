@@ -53,10 +53,21 @@ jobs:
           BRANCH: master
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
-      - name: Notify via TELEGRAM BOT
+
+      - name: Notify via TELEGRAM BOT success
+        if: ${{ success() }}
         env:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
         run: |
-          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"''
+          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20success'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"''
+      
+      - name: Notify via TELEGRAM BOT faliure
+        if: ${{ failure() }}
+        env:
+          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
+        run: |
+          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20faliure'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"''
