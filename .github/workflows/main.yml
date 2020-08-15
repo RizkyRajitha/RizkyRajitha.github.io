@@ -85,7 +85,8 @@ jobs:
 
       - name: Notify via TELEGRAM BOT app
         uses: RizkyRajitha/github_actions_notify_telegram@v1
+        if: ${{ success() }}
         with:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          STATUS: ${{ success() }}
+          STATUS: true
