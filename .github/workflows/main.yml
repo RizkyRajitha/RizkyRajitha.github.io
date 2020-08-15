@@ -70,23 +70,33 @@ jobs:
         env:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
+
         run: |
-          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20success'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"'' > /dev/null
+          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20success%20Blog%20via%20GitHub%20Actions' > /dev/null
 
       - name: Notify via TELEGRAM BOT faliure
         if: ${{ failure() }}
         env:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
-        run: |
-          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20faliure'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"'' > /dev/null
 
-      - name: Notify via TELEGRAM BOT app
-        uses: RizkyRajitha/github_actions_notify_telegram@v3
+        run: |
+          curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20faliure%20Blog%20via%20GitHub%20Actions' > /dev/null
+
+      - name: Notify via TELEGRAM BOT app Success
+        uses: RizkyRajitha/github_actions_notify_telegram@v1
         if: ${{ success() }}
         with:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           STATUS: true
+          CUSTOMMESSAGE: "Published 🚀 Blog via GitHub Actions"
+
+      - name: Notify via TELEGRAM BOT app Fail
+        uses: RizkyRajitha/github_actions_notify_telegram@v1
+        if: ${{ failure() }}
+        with:
+          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          STATUS: false
+          CUSTOMMESSAGE: "Publishing Blog 🛑 via GitHub Actions Failed"
