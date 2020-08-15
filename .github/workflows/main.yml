@@ -49,14 +49,14 @@ jobs:
           mv temp/public/* ./
           rm -rf temp
 
-      - name: Commit files for change # commit 
+      - name: Commit files for change # commit
         if: ${{ success() }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Add changes"
-          
+
       - name: Push changes #push files into master branch
         if: ${{ success() }}
         uses: ad-m/github-push-action@master
@@ -73,7 +73,7 @@ jobs:
           WORKFLOW_CONCLUSION: ${{ env.WORKFLOW_CONCLUSION }}
         run: |
           curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20success'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"'' > /dev/null
-      
+
       - name: Notify via TELEGRAM BOT faliure
         if: ${{ failure() }}
         env:
@@ -83,11 +83,9 @@ jobs:
         run: |
           curl --location --request POST 'https://api.telegram.org/bot'"$TELEGRAM_BOT_ID"'/sendMessage?chat_id='"$TELEGRAM_CHAT_ID"'&text=Published%20faliure'"$WORKFLOW_CONCLUSION"'%20Blog%20via%20GitHub%20Actions'"$WORKFLOW_CONCLUSION"'' > /dev/null
 
-      - name: Notify via TELEGRAM BOT faliure
+      - name: Notify via TELEGRAM BOT app
         uses: RizkyRajitha/github_actions_notify_telegram@v1
         with:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          STATUS:  ${{ failure() }}
-
-          
+          STATUS: ${{ success() }}
