@@ -74,12 +74,12 @@ jobs:
           STATUS: true
           CUSTOMMESSAGE: "Published \xF0\x9F\x9A\x80 Blog via GitHub Actions "
           JOBSTATUS: ${{ job.status }}
-          GITHUB_RUN_NUMBER: ${{env.GITHUB_RUN_NUMBER}}
-          GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
-          GITHUB_RUN_ID: ${{env.GITHUB_RUN_ID}}
-          GITHUB_ACTOR: ${{env.GITHUB_ACTOR}}
-          GITHUB_EVENT_NAME: ${{env.GITHUB_EVENT_NAME}}
-          GITHUB_SHA: ${{env.GITHUB_SHA}}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_SHA: ${{ github.sha }}
 
       - name: Notify via TELEGRAM BOT app Fail
         uses: RizkyRajitha/github_actions_notify_telegram@v1
@@ -90,9 +90,9 @@ jobs:
           STATUS: false
           CUSTOMMESSAGE: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Failed"
           JOBSTATUS: ${{ job.status }}
-          GITHUB_RUN_NUMBER: ${{env.GITHUB_RUN_NUMBER}}
-          GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
-          GITHUB_RUN_ID: ${{env.GITHUB_RUN_ID}}
-          GITHUB_ACTOR: ${{env.GITHUB_ACTOR}}
-          GITHUB_EVENT_NAME: ${{env.GITHUB_EVENT_NAME}}
-          GITHUB_SHA: ${{env.GITHUB_SHA}}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_SHA: ${{ github.sha }}
