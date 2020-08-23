@@ -73,6 +73,13 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           STATUS: true
           CUSTOMMESSAGE: "Published \xF0\x9F\x9A\x80 Blog via GitHub Actions "
+          JOBSTATUS: ${{ job.status }}
+          GITHUB_RUN_NUMBER: ${{env.GITHUB_RUN_NUMBER}}
+          GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
+          GITHUB_RUN_ID: ${{env.GITHUB_RUN_ID}}
+          GITHUB_ACTOR: ${{env.GITHUB_ACTOR}}
+          GITHUB_EVENT_NAME: ${{env.GITHUB_EVENT_NAME}}
+          GITHUB_SHA: ${{env.GITHUB_SHA}}
 
       - name: Notify via TELEGRAM BOT app Fail
         uses: RizkyRajitha/github_actions_notify_telegram@v1
@@ -82,3 +89,10 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           STATUS: false
           CUSTOMMESSAGE: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Failed"
+          JOBSTATUS: ${{ job.status }}
+          GITHUB_RUN_NUMBER: ${{env.GITHUB_RUN_NUMBER}}
+          GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
+          GITHUB_RUN_ID: ${{env.GITHUB_RUN_ID}}
+          GITHUB_ACTOR: ${{env.GITHUB_ACTOR}}
+          GITHUB_EVENT_NAME: ${{env.GITHUB_EVENT_NAME}}
+          GITHUB_SHA: ${{env.GITHUB_SHA}}
