@@ -18,7 +18,7 @@ export default function HTML(props) {
           src="https://umami-k28ev29zw.vercel.app/umami.js"
           type="text/javascript"
         />
-        `{props.headComponents}
+        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
