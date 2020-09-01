@@ -65,14 +65,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
 
-      - name: Notify via TELEGRAM BOT app Success
+      - name: Notify via TELEGRAM BOT
         uses: RizkyRajitha/github_actions_notify_telegram@v1
-        if: ${{ success() }}
         with:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          STATUS: true
-          CUSTOMMESSAGE: "Published \xF0\x9F\x9A\x80 Blog via GitHub Actions "
+          CUSTOMMESSAGESUCCESS: "Published \xF0\x9F\x9A\x80 Blog via GitHub Actions"
+          CUSTOMMESSAGESFAILURE: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Failed"
+          CUSTOMMESSAGESCANCELLED: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Cancelled"
           JOBSTATUS: ${{ job.status }}
           GITHUB_RUN_NUMBER: ${{ github.run_number }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -81,18 +81,3 @@ jobs:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_SHA: ${{ github.sha }}
 
-      - name: Notify via TELEGRAM BOT app Fail
-        uses: RizkyRajitha/github_actions_notify_telegram@v1
-        if: ${{ failure() }}
-        with:
-          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          STATUS: false
-          CUSTOMMESSAGE: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Failed"
-          JOBSTATUS: ${{ job.status }}
-          GITHUB_RUN_NUMBER: ${{ github.run_number }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_SHA: ${{ github.sha }}
