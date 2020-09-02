@@ -15,8 +15,9 @@ export default function HTML(props) {
           async
           defer
           data-website-id="e4b26344-ed36-4d03-839e-55d08759c063"
-          src="https://umami-e7xjj40ab.vercel.app/umami.js"
+          src="https://umami-ahirnieit.vercel.app/umami.js"
         ></script>
+
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
