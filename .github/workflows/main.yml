@@ -28,8 +28,7 @@ jobs:
 
       - name: create CNAME file # remove files.
         run: |
-          echo "rizkyrajitha.me" > CNAME
-
+          echo "rizkyrajitha.xyz" > CNAME
       - name: checkout dev  branch #checkout dev  branch into temp folder.
         uses: actions/checkout@v2
         with:
