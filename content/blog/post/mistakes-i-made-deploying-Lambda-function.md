@@ -9,7 +9,10 @@
 
 <span style="font-size:1.18em;text-align: justify;" >
 
-after a long time i see you , so in this post, I'll walk through some of the mistakes I made developing an AWS lambda video transcoder and how I got through them.
+Hope you all are safe and sound.
+<br>
+
+So in this post, I'll walk through some of the mistakes I made developing an AWS lambda video transcoder and how I got through them.
 the lambda function I developed will trigger on an s3 create object event and it will transcode a video using [FFmpeg](https://www.ffmpeg.org/) library and it will upload the transcoded video to another s3 bucket.i used serveless framework to ease the process and it really did . i combined it with github action to deploy to AWS.
 at this point you might ask why don't you use aws [Elastic Transcoder](https://aws.amazon.com/elastictranscoder/) or AWS [ Elemental MediaConvert](https://aws.amazon.com/mediaconvert/) . for start they are pricy and in the other hand i can get more knowledge and expericane by doing it myself in lamda so i chose the hard way .
 
@@ -75,7 +78,10 @@ The next one is missing the decodeURIComponent on the s3 triggered event object 
 
 <span style="font-size:1.18em;text-align: justify;" >
 
-and like that everything was comming togather.
+and like that everything was comming together.
+here is [github repo](https://github.com/RizkyRajitha/serverless-transcoder) 
+
+
 
 
 Thanks for reading so far.<br>

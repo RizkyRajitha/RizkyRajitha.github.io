@@ -11,12 +11,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <script
-          async
-          defer
-          data-website-id="e4b26344-ed36-4d03-839e-55d08759c063"
-          src="https://umami-ahirnieit.vercel.app/umami.js"
-        ></script>
+    <script async defer data-website-id="02687704-8c50-4293-87a1-adfc7daf88b7" src="https://umami-five.vercel.app/umami.js"></script>
 
         {props.headComponents}
       </head>
