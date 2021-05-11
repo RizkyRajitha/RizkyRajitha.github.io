@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const baseUrl = 'https://rizkyrajitha.github.io'
+const baseUrl = "https://rizkyrajitha.github.io"
 
 const SEO = ({ description, lang, meta, title, ogimage }) => {
   const { site } = useStaticQuery(
@@ -59,7 +59,7 @@ const SEO = ({ description, lang, meta, title, ogimage }) => {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -82,6 +82,34 @@ const SEO = ({ description, lang, meta, title, ogimage }) => {
           name: `og:locale`,
           content: "si_LK",
         },
+        {
+          name: `og:site_name`,
+          content: "Rajitha's Blog",
+        },
+        {
+          name: `twitter:image:src`,
+          content: `${baseUrl}/ogimage/${ogimage}`,
+        },
+        {
+          name: `twitter:site`,
+          content: site.siteMetadata.social.twitter,
+        },
+        {
+          name: `twitter:widgets`,
+          content: `new-embed-design: "on"`,
+        },
+        {
+          name: `keywords`,
+          content: ` software, coding, development, engineering,`,
+        },
+
+        // twitter:card: "summary_large_image"
+        // twitter:creator: "@alagrede"
+        // twitter:description: "Are you using a markdown tool to take note?"
+        // twitter:image:src: "https://res.cloudinary.com/practicaldev/image/fetch/s--czsCcI7p--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4rs4uda5tjidpmsaa6kh.png"
+        // twitter:site: "@thepracticaldev"
+        // twitter:title: "Dev tool: A Markdown editor for developers 🔥"
+        // twitter:widgets:new-embed-design: "on"
       ].concat(meta)}
     />
   )
