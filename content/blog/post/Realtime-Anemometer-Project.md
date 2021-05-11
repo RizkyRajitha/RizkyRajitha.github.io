@@ -1,10 +1,10 @@
 ---
-      title : Realtime Anemometer Project
-      id : 600bd4c9593f500017f4d96d
-      date : "2021-01-23T07:48:25.137Z"
-      ogimage: "background.jpg"
-
+title: Realtime Anemometer Project
+id: 600bd4c9593f500017f4d96d
+date: "2021-01-23T07:48:25.137Z"
+ogimage: "Realtime-Anemometer-Project.png"
 ---
+
 ## Hello everyone,
 
 <span style="font-size:1.18em;">

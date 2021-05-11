@@ -2,6 +2,7 @@
       title : Mistakes i made deploying Lambda function
       id : 60914aee1818c80017828f81
       date : "2021-05-04T13:23:58.858Z"
+      ogimage: "mistakes-i-made-deploying-Lambda-function.png"
 
 ---
 
