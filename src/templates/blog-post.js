@@ -89,6 +89,7 @@ export default function Blogpost({ data }) {
           data.markdownRemark.frontmatter.description ||
           data.markdownRemark.excerpt
         }
+        ogimage={data.markdownRemark.frontmatter.ogimage}
       />
       <Detector
         onChange={con => {
@@ -250,6 +251,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        ogimage
       }
     }
   }
