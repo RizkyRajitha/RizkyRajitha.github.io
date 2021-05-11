@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const baseUrl = window.location.origin
+const baseUrl = 'https://rizkyrajitha.github.io'
 
 const SEO = ({ description, lang, meta, title, ogimage }) => {
   const { site } = useStaticQuery(
