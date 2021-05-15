@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react"
 import { Offline, Online, Detector } from "react-detect-offline"
 import Card from "../components/card"
 import Navbar from "../components/navbar"
-import "../styles/blog.css"
 import SEO from "../components/seo"
 import Footerblogpost from "../components/footerblogpost"
 import Axios from "axios"
+
+import "../styles/blog.css"
 
 const API = "https://blogrizky.herokuapp.com"
 
@@ -17,22 +18,17 @@ export default function Blog(props) {
   const [blogviews, setblogviews] = useState("")
 
   const postdata = props.data.allMarkdownRemark.edges
-  console.log(postdata)
+  // console.log(postdata)
 
   useEffect(() => {
-    // callMyPromise()
-    // setisloading(false)
     fetch("https://worldtimeapi.org/api/ip")
       .then(res => res.json())
       .then(result => {
-        // console.log(result.unixtime);
-
         var timeDiff = Math.abs(Date.now() / 1000 - result.unixtime)
-        // console.log("timediff", timeDiff);
         settimediff(timeDiff / 60)
         if (timeDiff > 600) {
           settimeoutsync(false)
-          // console.log("Data appears to be " + timeDiff / 60 + " minutes old.");
+          // console.log("Data appears to be " + timeDiff / 60 + " minutes old.")
         }
       })
       .catch(err => {
@@ -44,9 +40,6 @@ export default function Blog(props) {
     })
       .then(result => {
         if (result.data.err === false) {
-          // console.log("\n\n\n\n");
-          // console.log(result.data);
-
           setblogviews(result.data.blogviews)
         }
       })

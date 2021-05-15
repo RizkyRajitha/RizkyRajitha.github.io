@@ -12,7 +12,7 @@ const moments = require("moment/moment")
 const API = "https://blogrizky.herokuapp.com"
 // const API = "http://localhost:3001";
 export default function Blogpost({ data }) {
-  console.log(data)
+  // console.log(data)
 
   const [postdata, setpostdata] = useState({})
   const [open, setopen] = useState(false)
@@ -51,7 +51,7 @@ export default function Blogpost({ data }) {
       postid: id,
     }
 
-    console.log(payload)
+    // console.log(payload)
     Axios.post(`${API}/api/newcomment`, payload)
       .then(result => {
         setcomment("")

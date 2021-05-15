@@ -38,7 +38,7 @@ class Footer extends Component {
           </div>
           <div className="landingpagefooterdivitem">
             <a
-             rel="noopener noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
               className="landingpagefooterdivitemlink"
               href="https://twitter.com/RizkyRajitha"
@@ -49,7 +49,7 @@ class Footer extends Component {
           </div>
           <div className="landingpagefooterdivitem">
             <a
-             rel="noopener noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
               className="landingpagefooterdivitemlink"
               href="https://dev.to/rizkyrajitha"
@@ -59,21 +59,20 @@ class Footer extends Component {
               {/* <i className="fab fa-dev fa-3x"></i> */}
             </a>
           </div>
-          <div className="landingpagefooterdivitem">
+          {/* <div className="landingpagefooterdivitem">
             <a
              rel="noopener noreferrer"
               target="_blank"
               className="landingpagefooterdivitemlink"
               href="https://open.spotify.com/user/q5rqmuxjvzfbuqhzhp79ybgp9"
-            >
-              {" "}
-              <span className="icon-spotify iconsfooter"></span>
-              {/* <i className="fab fa-spotify fa-3x"></i> */}
-            </a>
-          </div>
+            > */}{" "}
+          {/* <span className="icon-spotify iconsfooter"></span> */}
+          {/* <i className="fab fa-spotify fa-3x"></i> */}
+          {/* </a>
+          </div> */}
           <div className="landingpagefooterdivitem">
             <a
-             rel="noopener noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
               className="landingpagefooterdivitemlink"
               href="https://ricosroom.blogspot.com/"

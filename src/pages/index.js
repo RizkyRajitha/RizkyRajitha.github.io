@@ -6,7 +6,7 @@ import BackgroundImage from "gatsby-background-image"
 import Footer from "../components/footer"
 
 const IndexPage = props => {
-  console.log(props)
+  // console.log(props)
 
   const nasadata = props.data.nasadata
   const imageData = props.data.file.childImageSharp.fluid
