@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Rajitha's blog]]></title><description><![CDATA[Personal blog of Rajitha Gunathilake]]></description><link>https://rizkyrajitha.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 May 2021 07:13:38 GMT</lastBuildDate><item><title><![CDATA[Mistakes i made deploying Lambda function]]></title><description><![CDATA[hi everyone, Hope you all are safe and sound.
+ So in this post, I’ll walk through some of the mistakes I made developing an AWS lambda video…]]></description><link>https://rizkyrajitha.github.io/post/mistakes-i-made-deploying-Lambda-function/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/mistakes-i-made-deploying-Lambda-function/</guid><pubDate>Tue, 04 May 2021 13:23:58 GMT</pubDate><content:encoded>&lt;h2&gt;hi everyone,&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;Hope you all are safe and sound.
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;So in this post, I’ll walk through some of the mistakes I made developing an AWS lambda video transcoder and how I got through them.
+the lambda function I developed will trigger on an s3 create object event and it will transcode a video using &lt;a href=&quot;https://www.ffmpeg.org/&quot;&gt;FFmpeg&lt;/a&gt; library and it will upload the transcoded video to another s3 bucket.i used serveless framework to ease the process and it really did . i combined it with github action to deploy to AWS.
+at this point you might ask why don’t you use aws &lt;a href=&quot;https://aws.amazon.com/elastictranscoder/&quot;&gt;Elastic Transcoder&lt;/a&gt; or AWS &lt;a href=&quot;https://aws.amazon.com/mediaconvert/&quot;&gt; Elemental MediaConvert&lt;/a&gt; . for start they are pricy and in the other hand i can get more knowledge and expericane by doing it myself in lamda so i chose the hard way .&lt;/p&gt;
+&lt;/span&gt;
+&lt;h2&gt;1 &lt;sup&gt;st&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;s3 bucket and triggering lambda function both should be in the same region. this is well specified in most resources but I missed it.&lt;/p&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;h2&gt;2 &lt;sup&gt;nd&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;br&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;I created and separate IAM roles to upload and get objects from the s3 buckets, and used that with AWS-SDK. this was the normal procedure, I’ve done it more than once so why bother, but turns out that was not essential, it will work but unnecessary because in AWS lambda you can specify the lambda Execution role
+so that I can access other AWS resources without any credentials.&lt;/p&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/645f4291ecdc0057ceec51f0fc9b544a/07e9f/lamdapolicy_hxp3xt.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 45.94594594594595%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAxUlEQVQoz32Q6w6DIAyFef+H2689wRJvmy4gt2IBd3DJotvkhFhSetrPiuvt8phGTyEwL2/hwhwQY4wpnR28CqnlrLWWT2uM8+ScLyJChHWtSmAAQUbyEvK6ppxSztv5npNSefpkIOGcs9aBk0AeQvwn1Blrx2lC8T4pEIBpSwsL3DNCwHX9oOb5gM3MMKMlxlZ+D+ZhuGM5BzMmA7j4va/4UdC2vVLHyUsIblsxvmh/agZ292Pmsira/FTBRvemaZVS++QLZTQQ/605MBkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;permissions in lamda function menu&quot; title=&quot;permissions in lamda function menu&quot; src=&quot;/static/645f4291ecdc0057ceec51f0fc9b544a/fcda8/lamdapolicy_hxp3xt.png&quot; srcset=&quot;/static/645f4291ecdc0057ceec51f0fc9b544a/12f09/lamdapolicy_hxp3xt.png 148w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/e4a3f/lamdapolicy_hxp3xt.png 295w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/fcda8/lamdapolicy_hxp3xt.png 590w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/efc66/lamdapolicy_hxp3xt.png 885w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/c83ae/lamdapolicy_hxp3xt.png 1180w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/07e9f/lamdapolicy_hxp3xt.png 1301w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+&lt;h2&gt;3 &lt;sup&gt;rd&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;only giving get s3 object permission will give &lt;code class=&quot;language-text&quot;&gt;403&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;access denied&lt;/code&gt; error if the specified key is not available in the bucket.&lt;/p&gt;
+&lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/cfb26e22c84982b3181132dfc6a3c77b/65c7b/accessdenied_gwnkpm.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 38.513513513513516%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABFUlEQVQY001QibJEMBD0/5+GHMQtS1krVoR9Hh+wHaFqp8Yxk+nu9Hhplud5UZRlWVXTNFVVndpWkWU5UiQp3o9Hg6xribln36tBDYOajfEoZUFIMBELEUUx41FIKJLzCEkZ4zz2/bCsaimlUqPWetu24zj2ffeESDBkYYwnNtKTgrOzGUM6zayslO/3ZIxZFvN/h4cBwJCEULBj2ApS2wEUYFDAFm7fdR3AsPb5/F1gHAMAz133BPc8w4vRenZx/uvprtd1RQfXvsDktAfnlPEgCNu2HZTq+9eAnYwjTKJ8nZV9FJaloHGB/SAEDKuGAs6cDu6mbzV8bdof19HLslzgpmlB2YNcWW63ycNt8w5X/HYc+AvAIqYy3GWTNAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;cloudwatch log 403&quot; title=&quot;cloudwatch log 403&quot; src=&quot;/static/cfb26e22c84982b3181132dfc6a3c77b/fcda8/accessdenied_gwnkpm.png&quot; srcset=&quot;/static/cfb26e22c84982b3181132dfc6a3c77b/12f09/accessdenied_gwnkpm.png 148w,
+/static/cfb26e22c84982b3181132dfc6a3c77b/e4a3f/accessdenied_gwnkpm.png 295w,
+/static/cfb26e22c84982b3181132dfc6a3c77b/fcda8/accessdenied_gwnkpm.png 590w,
+/static/cfb26e22c84982b3181132dfc6a3c77b/65c7b/accessdenied_gwnkpm.png 795w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;and because of this, I wasted time configuring IAM roles because I was confused that the lambda function didn’t have permission to access the bucket but, in the end, it was my stupid mistake because the key I passed didn’t exist, and guess what I didn’t gave permission to list bucket , so AWS-SDK will return access denied error instead of no key found . after configuring correct permission I got no key found error. but why you would specify a key that doesn’t exist huh, well next one explains that&lt;/p&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/62ab80508e61da79ddabf33b7c4d1f19/0eb6d/nokey_cdm9ax.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 33.108108108108105%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA4klEQVQY04VQ2ZKEIAz0//9vBxHwvkB2dEQ8oKzZVp/0ZZsuKiHpHARCxGmaZVmutVZSwY1FgpckzbgQZVk1TZvneVGWwzB8PuM0WWMma2drbUBCGtLozE6hjBinNGJMcH4wihgKS6WMMdu2fe8IjgzGXyRkXMRJyhgPQ4qK8BCq6wbs+9455717ipEtRFJV9fvdg20rkY1RldJoCCrVXeJlXvZ9f4rRsChKLN51GrOtJ5dlWddtPQF7PuG9v4l/XoQQqvUvvgOdcY+jwTk+B5Yx44nLcO62diClhPKKPwr/iz/8cYgx3dN4GAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;cloudwatch log 404&quot; title=&quot;cloudwatch log 404&quot; src=&quot;/static/62ab80508e61da79ddabf33b7c4d1f19/fcda8/nokey_cdm9ax.png&quot; srcset=&quot;/static/62ab80508e61da79ddabf33b7c4d1f19/12f09/nokey_cdm9ax.png 148w,
+/static/62ab80508e61da79ddabf33b7c4d1f19/e4a3f/nokey_cdm9ax.png 295w,
+/static/62ab80508e61da79ddabf33b7c4d1f19/fcda8/nokey_cdm9ax.png 590w,
+/static/62ab80508e61da79ddabf33b7c4d1f19/efc66/nokey_cdm9ax.png 885w,
+/static/62ab80508e61da79ddabf33b7c4d1f19/0eb6d/nokey_cdm9ax.png 913w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+&lt;h2&gt;4 &lt;sup&gt;th&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;The next one is missing the decodeURIComponent on the s3 triggered event object key.because s3 object keys are URL encoded, I thought I pass
+&lt;code class=&quot;language-text&quot;&gt;Capone - OhNo(Lyrics).mp4&lt;/code&gt; but actually what I passed was &lt;code class=&quot;language-text&quot;&gt;Capone+-+OhNo%28Lyrics%29.mp4&lt;/code&gt;. so I had to decode the key using &lt;code class=&quot;language-text&quot;&gt;decodeURIComponent&lt;/code&gt; and pass it .&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/35837d98db1ba2ba4586a733ed60852c/bb051/carbon_cmljtv.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 39.86486486486486%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABdklEQVQoz5WS20pCURCGfRdDTc291b3dWptQr6IHycNFqRGGVjeZBygy04ISy7Q8dVCMNI0O2nv9zdoqSFDUxcfMrFnrn/lhqeqdARi3z59odIfE4J8MlbcTHVXt6QPFuy5SuUvE03kkj86RyBDT8ReSmTxS2QLy1TaYFgm+Y48aSzYHXMtWqM0idHoBWoMADaEzUk5opmA1O5+dE6E32TCj4xGKxlBngtetF2wn0uCoIYgL4AWJoh0CDZDs8zByEqy8HZLZAZEig9VMTGuwUhSg1nLwhaIot/pQlZo9RGL7NFmEwMuQbTKssgsW2Q150QmTSLXDDcHuIpwKFqo5umcSJRh5CRq9BSurYVzdd6EqN/vYih8qqxs4G3Q0dWJR+5Nl2m5keWSbWfYFIyg99EiQLB8XqtjYicO/HoU3sAnvWljBEyDG+Xc8474/FEEwsouD0+JIsPr4pqyar7RwUmwge1Ejqn+khlyxjrObJv2UDirtV3wBIqxyWKjladsAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;decodeURIComponent&quot; title=&quot;decodeURIComponent&quot; src=&quot;/static/35837d98db1ba2ba4586a733ed60852c/fcda8/carbon_cmljtv.png&quot; srcset=&quot;/static/35837d98db1ba2ba4586a733ed60852c/12f09/carbon_cmljtv.png 148w,
+/static/35837d98db1ba2ba4586a733ed60852c/e4a3f/carbon_cmljtv.png 295w,
+/static/35837d98db1ba2ba4586a733ed60852c/fcda8/carbon_cmljtv.png 590w,
+/static/35837d98db1ba2ba4586a733ed60852c/efc66/carbon_cmljtv.png 885w,
+/static/35837d98db1ba2ba4586a733ed60852c/c83ae/carbon_cmljtv.png 1180w,
+/static/35837d98db1ba2ba4586a733ed60852c/bb051/carbon_cmljtv.png 1212w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;and like that everything was comming together.
+here is &lt;a href=&quot;https://github.com/RizkyRajitha/serverless-transcoder&quot;&gt;github repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Thanks for reading so far.&lt;br&gt;
+Stay safe folks 🙌
+&lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Realtime Anemometer Project]]></title><description><![CDATA[Hello everyone, Hope yall are doing well, and safe with this pandemic situation.
+Recently I started making an anemometer just for fun and…]]></description><link>https://rizkyrajitha.github.io/post/Realtime-Anemometer-Project/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/Realtime-Anemometer-Project/</guid><pubDate>Sat, 23 Jan 2021 07:48:25 GMT</pubDate><content:encoded>&lt;h2&gt;Hello everyone,&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;&quot;&gt;
+&lt;p&gt;Hope yall are doing well, and safe with this pandemic situation.&lt;br&gt;
+Recently I started making an anemometer just for fun and, got an idea for creating a real-time wind speed dashboard.&lt;/p&gt;
+&lt;p&gt;for this project, I used &lt;a href=&quot;https://mqtt.org/&quot;&gt;mqtt&lt;/a&gt; protocol for real-time communication with the client and from the sensor. mqtt is really fast and also reliable and also use low bandwidth. Which is the main reason it is widely used in IoT applications.&lt;/p&gt;
+&lt;p&gt;here we have 3 main parts&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;wind speed detector developed with and nodemcu&lt;/li&gt;
+&lt;li&gt;node API that handles historical data for the graph&lt;/li&gt;
+&lt;li&gt;react web application to show real-time data and also historical data of the wind speeds&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;wind speed is detected from an &lt;a href=&quot;https://en.wikipedia.org/wiki/Rotary_encoder#Optical_absolute_encoders&quot;&gt;optical encoder&lt;/a&gt; that counts how many turns the wind cups are turned within a given time. nothing fancy there.&lt;/p&gt;
+&lt;p&gt;and when coming to wind speed data, I only collected average and also max wind speeds within an hour and write that data to the database. from this data historical data graphs are created for the last day, last week, and you guessed it last month XD&lt;/p&gt;
+&lt;p&gt;and that’s pretty much it. most of the software is done now. only need a bit of polishing. but hardware is needed to be weatherproofed for actual uses&lt;/p&gt;
+&lt;p&gt;after developing the API I chose to deploy it on a local running &lt;a href=&quot;http://www.orangepi.org/orangepizero/&quot;&gt;orange pi&lt;/a&gt;. orange pi is a budget alternative for well-known &lt;a href=&quot;https://www.raspberrypi.org/&quot;&gt;raspberry pi&lt;/a&gt;. orangepi is an opensource and developed china based company. it is pretty good for a small project like this.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e089f886fa61a8e3ec1b1cb95932a02d/a530b/61XSmOKg85L._AC_SL1001_.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 126.35135135135134%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAG3pJJLpyBQnMJJdGgf/8QAHRAAAgICAwEAAAAAAAAAAAAAAQIAAxESBBMxM//aAAgBAQABBQJgYrBhLbGB7mzWdktzCGiVDXmfQRfP/8QAFhEBAQEAAAAAAAAAAAAAAAAAEAER/9oACAEDAQE/AdKf/8QAFhEBAQEAAAAAAAAAAAAAAAAAEAER/9oACAECAQE/AcIf/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAERMRAhgQL/2gAIAQEABj8CnzZrDiiZ2JjUdKFfGLP/xAAeEAACAgICAwAAAAAAAAAAAAAAAREhMUEQUYGhwf/aAAgBAQABPyGZqa0yQeS64l5CbQlvnU6yNaZZMlOroIRYtVttik9U+zGf/9oADAMBAAIAAwAAABCICgD/xAAWEQADAAAAAAAAAAAAAAAAAAABIGH/2gAIAQMBAT8QMI//xAAYEQADAQEAAAAAAAAAAAAAAAAAARExEP/aAAgBAgEBPxBWreYNP//EACEQAQACAgIBBQEAAAAAAAAAAAERIQBBMVEQYXGBkaGx/9oACAEBAAE/EIZ6IW09ej05c4hhKVsTvwXPqgz9mVumIGAd1rvHTELjWOamLC2Z45wtkME1N7wjJMkkXsJqD4z9T+mcjxX/2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;anemoneter dashboard&quot; title=&quot;anemoneter dashboard&quot; src=&quot;/static/e089f886fa61a8e3ec1b1cb95932a02d/1c72d/61XSmOKg85L._AC_SL1001_.jpg&quot; srcset=&quot;/static/e089f886fa61a8e3ec1b1cb95932a02d/a80bd/61XSmOKg85L._AC_SL1001_.jpg 148w,
+/static/e089f886fa61a8e3ec1b1cb95932a02d/1c91a/61XSmOKg85L._AC_SL1001_.jpg 295w,
+/static/e089f886fa61a8e3ec1b1cb95932a02d/1c72d/61XSmOKg85L._AC_SL1001_.jpg 590w,
+/static/e089f886fa61a8e3ec1b1cb95932a02d/a530b/61XSmOKg85L._AC_SL1001_.jpg 619w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p align=&quot;center&quot;&gt;orange pi  zero&lt;/p&gt;
+&lt;span style=&quot;font-size:1.18em;&quot;&gt;&lt;/span&gt;
+&lt;p&gt;my version is packed with H2 Quad-core processor and 512 Mb of ram, but not all of that is useful since it is shared with GPU after what useable ram is around 400mb. this version includes an ethernet port that supports &lt;a href=&quot;https://en.wikipedia.org/wiki/Power_over_Ethernet&quot;&gt;PEO&lt;/a&gt; , so that’s a good point is IoT based projects, but I used separate DC input to power this. orangepi runs ubuntu based operating system just like the raspberry pi.&lt;/p&gt;
+&lt;p&gt;when deploying I used &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;docker compose&lt;/a&gt; , but ultimately failed because this version doesn’t support it, so I had to do the docker networking part manually, to establish connections between server container and database container. and also this version had some trouble deploying &lt;a href=&quot;https://www.prisma.io/&quot;&gt;prisma&lt;/a&gt; and &lt;a href=&quot;https://nextjs.org/&quot;&gt;nextjs&lt;/a&gt; which was my original core libraries for ORM and frontend developing respectively. but both of them failed&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Prisma needs a dependency with OpenSSL for communicating with the database to generate prima client, but orangepi version was not compatible with that, so I had to use vanilla pg to handle all database stuff. not terrible since there weren’t any complex queries, just a few selects and one insert . that all.&lt;/li&gt;
+&lt;li&gt;nextjs shipped with &lt;a href=&quot;https://sharp.pixelplumbing.com/&quot;&gt;sharp&lt;/a&gt; which is a great image processing library . but the sad thing is that it sharp is based on &lt;a href=&quot;https://libvips.github.io/libvips/&quot;&gt;libvips&lt;/a&gt; . and guess what it needed a higher version of &lt;a href=&quot;https://www.gnu.org/software/libc/&quot;&gt;glibc&lt;/a&gt; to get working.so i tried &lt;a href=&quot;https://reactjs.org/&quot;&gt;react&lt;/a&gt; instead. it was working finally, but I could build react app on orange pi because it’s ram limitations, fo every time I need to build in I have to build it in my machine and then copy it to orange pi . which is a bit annoying.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;anyway, after these changes everything was working as expected. Below is an image of the dashboard. values are random since I didn’t fix the anemometer yet.&lt;/p&gt;
+&lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/0ce03fccc03c974e01499725a150c9c1/29114/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAA5klEQVQoz4VSYRNDMAz1M4zibmxTSrG7sf//w7Kk1Spa+/Au8ZK8PCFKnwIMkkeLsYOUj5ZLkcvlAnn32erE80HlmhMQlw3U0wIREQquYC0xb7ZIC1SO9VcPSaVrXkG/Q709k18loOtYqwdgYnUacngWFHo7DqshckaihrOQuxktOAcEzRnodfG5GmZgrw7seRyY2bjkwN8hhwfkXHp5t/+Gd71305XDxrqkZvoQyY5v7YzJqc8rWDQDFO14gQky89WdOYpewQzvxRT6NfpxFgw4ZIet5rdxOebMeAV9Nzlyyb8+vOEP7Is6QkzZH6QAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;anemoneter dashboard&quot; title=&quot;anemoneter dashboard&quot; src=&quot;/static/0ce03fccc03c974e01499725a150c9c1/fcda8/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png&quot; srcset=&quot;/static/0ce03fccc03c974e01499725a150c9c1/12f09/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 148w,
+/static/0ce03fccc03c974e01499725a150c9c1/e4a3f/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 295w,
+/static/0ce03fccc03c974e01499725a150c9c1/fcda8/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 590w,
+/static/0ce03fccc03c974e01499725a150c9c1/efc66/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 885w,
+/static/0ce03fccc03c974e01499725a150c9c1/c83ae/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 1180w,
+/static/0ce03fccc03c974e01499725a150c9c1/29114/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 1920w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p align=&quot;center&quot;&gt;anemoneter dashboard (mock values)&lt;/p&gt;
+&lt;span style=&quot;font-size:1.18em;&quot; &gt;
+Thanks for reading so far.&lt;br&gt;
+Stay safe folks 🙌
+&lt;/span&gt;</content:encoded></item><item><title><![CDATA[Rebuild Blog With Gatsby ☄]]></title><description><![CDATA[Hi everyone , I saw Gatsby quite some time ago and I was blown out by it’s speed. So I decided to move my blog to Gatsby and here’s how I…]]></description><link>https://rizkyrajitha.github.io/post/Rebuild-Blog-With-Gatsby-☄/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/Rebuild-Blog-With-Gatsby-☄/</guid><pubDate>Sun, 23 Aug 2020 13:36:28 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;I saw &lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt; quite some time ago and I was blown out by it’s speed. So I decided to move my blog to Gatsby and here’s how I did it.&lt;/p&gt;
+&lt;p&gt;My first challenge was to grasp the concepts of Gatsby, and it’s SSR stuff. After that, I managed to duplicate the UI from my old blog, nothing fancy there.&lt;/p&gt;
+&lt;p&gt;But the tricky part was how to manage data. previously i just rendered markdown in clientside via blog API.
+now I create pages(blog posts) programmatically from gatsby &lt;code class=&quot;language-text&quot;&gt;createPage&lt;/code&gt; API to render markdown, but all the comments and views will be dynamically rendered on the client-side. and that was working well. now every blog post has it’s own HTML file, and because of that SEO is also enhanced.&lt;/p&gt;
+&lt;p&gt;Now when I share Blog post URL it will show something similar.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/22c0735739e4109d48854642b9de226f/f84cf/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 145.27027027027026%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAdABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAY3SDDRRXRHpVIos/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAEREwIDECEiMv/aAAgBAQABBQLR8tGaUxB2Od2WMsZfmf/EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAEDAQE/ASP/xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8BZ3//xAAaEAABBQEAAAAAAAAAAAAAAAAAARAgIUGR/9oACAEBAAY/AlejZ5w//8QAHxABAAEDBAMAAAAAAAAAAAAAAQARITEQQVFxYYGR/9oACAEBAAE/ISeycFIQ32irG05LTtFFmsMaJGwQ8PydOOIABsj/2gAMAwEAAgADAAAAEGgXMf/EABcRAQEBAQAAAAAAAAAAAAAAAAARASH/2gAIAQMBAT8Q2tRHX//EABcRAAMBAAAAAAAAAAAAAAAAAAABERD/2gAIAQIBAT8QUrFKf//EAB8QAQACAgEFAQAAAAAAAAAAAAEAESExUUFhgZGh4f/aAAgBAQABPxBlhf5luR6QkL9XtiqthgbNcfJXK8sc+172xCLC64JQ8fJoA7hA3XTWkVKcMtINWoow1P/Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;telegram share url&quot; title=&quot;telegram share url&quot; src=&quot;/static/22c0735739e4109d48854642b9de226f/1c72d/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg&quot; srcset=&quot;/static/22c0735739e4109d48854642b9de226f/a80bd/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 148w,
+/static/22c0735739e4109d48854642b9de226f/1c91a/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 295w,
+/static/22c0735739e4109d48854642b9de226f/1c72d/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 590w,
+/static/22c0735739e4109d48854642b9de226f/f84cf/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 880w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/30dbeae2146c2a604a755af793845b63/47311/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 116.89189189189189%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQID/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABxLtTRM12PGAgH//EABsQAAICAwEAAAAAAAAAAAAAAAECAxIAEBMR/9oACAEBAAEFAo1s/DHWrQnyTrkps5O//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGRAAAwADAAAAAAAAAAAAAAAAABARASEx/9oACAEBAAY/AooU4U1iP//EABwQAAMBAAIDAAAAAAAAAAAAAAABESExUYGR8P/aAAgBAQABPyGFNo1+ZviEI7+zYKYIc4Sj3kT8jdP/2gAMAwEAAgADAAAAEAMHAP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EABwQAQEAAwEBAQEAAAAAAAAAAAERACExYVFx0f/aAAgBAQABPxAkPBZiNQ/b/mGxRAe9xYVg08xI6eGK/AAXhg8iFBbfcYdvF2uWUJr7c//Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;instagram share url&quot; title=&quot;instagram share url&quot; src=&quot;/static/30dbeae2146c2a604a755af793845b63/1c72d/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg&quot; srcset=&quot;/static/30dbeae2146c2a604a755af793845b63/a80bd/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 148w,
+/static/30dbeae2146c2a604a755af793845b63/1c91a/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 295w,
+/static/30dbeae2146c2a604a755af793845b63/1c72d/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 590w,
+/static/30dbeae2146c2a604a755af793845b63/a8a14/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 885w,
+/static/30dbeae2146c2a604a755af793845b63/47311/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 1080w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;after finishing up all the development work. I started working on a deployment workflow. Earlier i manually build and push build files to &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github pages&lt;/a&gt;. but with Gatsby modifications , it was not very practical since I need to build it every day because Blog’s landing page background is NASA’s &lt;a href=&quot;https://apod.nasa.gov/apod/astropix.html&quot;&gt;Astronomy Picture of the Day&lt;/a&gt; and that was updated every day. so I used Github actions for deployment.&lt;/p&gt;
+&lt;p&gt;It eased the workflow quite a lot since now everything is built and published by one push to GitHub . And also a &lt;code class=&quot;language-text&quot;&gt;cron&lt;/code&gt; job ensures the building site every day to keep up with the NASA image.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/RizkyRajitha/RizkyRajitha.github.io&quot;&gt;Blog Repo&lt;/a&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;h2&gt;Thanks for reading folks see y’all in next one 🙌.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Optimizing blog]]></title><description><![CDATA[Hi everyone , Recently I did some optimizations to this blog, so here i’ll talk about them.
+first, I changed the background of the landing…]]></description><link>https://rizkyrajitha.github.io/post/optimizing-blog/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/optimizing-blog/</guid><pubDate>Sun, 03 May 2020 18:17:26 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;Recently I did some optimizations to this blog, so here i’ll talk about them.
+first, I changed the background of the landing page to NASA’s &lt;a href=&quot;https://apod.nasa.gov/apod/astropix.html&quot;&gt;Astronomy Picture of the Day&lt;/a&gt; . and it turns out cool. most of the time it gives images but sometimes it post videos, so in that case, I show a previous good one.&lt;br&gt;&lt;br&gt;
+so everything worked great in development, but after deploying, it took ages to show the background image because those images were huge. but looks cool 😎.
+so to fix it I did some digging and found out &lt;a href=&quot;https://imagekit.io/&quot;&gt;ImageKit&lt;/a&gt; , a CDN service that optimizes images for web. they had soo many cool features, but one that suits me was optimizing images from a URL which is the one I’ve been looking for.
+so with it I get compressed images with a decent quality that had a better balance of both size and details of the picture . and it worked great making a significant difference . after that I used it to other images in the portfolio.&lt;br&gt;&lt;br&gt;
+next, I started messing up with unnecessary jquery files that came with bootstrap. after removing jquery navbar toggler didn’t work in mobile . and to fix it I used react-bootstrap .
+&lt;br&gt;&lt;br&gt;
+finally, I manage to get rid of the huge font awesome CSS asset and replace that with a custom font, with only icons that I used.
+&lt;a href=&quot;https://icomoon.io/app/#/select&quot;&gt;IcoMoon App&lt;/a&gt; allows us to create a custom font with the icons of our choice . and after that, we can add that custom icon pack to our project.
+&lt;br&gt;&lt;br&gt;
+after all these optimizations, I got 30% faster loading speeds, it is not the best but it was an improvement&lt;br&gt;
+&lt;br&gt;
+here are the scores of lighthouse&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/16452450c0bd18b6c58de3740fbff31f/29114/light_qbj9rp.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 37.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAuUlEQVQoz5VQXQ/CIBDb//+X88EHZ4BtwLjjox44zYzMxCbNXbimKR3wA4otRjdhtDeMYcJFK1gfTvXeewylFJwRlTEjUgAzo+T8ZE8riDGeG1bI1uaVDO687jn2W0efUsJwjFxeUwTE1AQVTr5ivWuKxWWYNb51x9kMe9+s59mtrZMmLGJiF2zbhpgKAsevlP2Eh2MgRggkvTCISHbpUTr6qOQfw9VaKG2gzAwtVErD1F3e3J68Z/gAKqMoeY6D+EkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;lighthouse scores&quot; title=&quot;lighthouse scores&quot; src=&quot;/static/16452450c0bd18b6c58de3740fbff31f/fcda8/light_qbj9rp.png&quot; srcset=&quot;/static/16452450c0bd18b6c58de3740fbff31f/12f09/light_qbj9rp.png 148w,
+/static/16452450c0bd18b6c58de3740fbff31f/e4a3f/light_qbj9rp.png 295w,
+/static/16452450c0bd18b6c58de3740fbff31f/fcda8/light_qbj9rp.png 590w,
+/static/16452450c0bd18b6c58de3740fbff31f/efc66/light_qbj9rp.png 885w,
+/static/16452450c0bd18b6c58de3740fbff31f/c83ae/light_qbj9rp.png 1180w,
+/static/16452450c0bd18b6c58de3740fbff31f/29114/light_qbj9rp.png 1920w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Thanks for reading folks see y’all in next one 🙌.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[what's inside QR codes]]></title><description><![CDATA[Hi everyone , so recently I used ShareMe app to share some files with my friends, and there we have to read a QR code and it connects to…]]></description><link>https://rizkyrajitha.github.io/post/whats-inside-qr-codes/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/whats-inside-qr-codes/</guid><pubDate>Sun, 22 Mar 2020 16:17:32 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;so recently I used &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.xiaomi.midrop&amp;#x26;hl=en&quot;&gt;ShareMe&lt;/a&gt; app to share some files with my friends, and there we have to read a QR code and it connects to send files.&lt;/p&gt;
+&lt;p&gt;so i was curious that what was in that QR code. it should be some information about the device so it can be recognized in the network.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/2038694f107332a09f70d2e82703806b/09d21/1_gabmcw.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 216.89189189189187%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAArABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQFBgEC/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABvnQBDh2MUsQGG9G3YYf/xAAdEAABBAIDAAAAAAAAAAAAAAABAAIDExIgBBAU/9oACAEBAAEFAtuSSBk8dSszXndrbIrZFbIv/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAHhAAAAYCAwAAAAAAAAAAAAAAAAECETKRECAhIqH/2gAIAQEABj8C2JjYF2PBcsJeazVYmqxNVj//xAAfEAABAwMFAAAAAAAAAAAAAAABABExICHxEEFRYZH/2gAIAQEAAT8hgwn6KFBXNdsi4EzsZ0KLLCDkaWTrw+aydf/aAAwDAQACAAMAAAAQ8ME848//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EF//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EF//xAAiEAEAAQIFBQEAAAAAAAAAAAABIQARIDFBYfAQUXGhwdH/2gAIAQEAAT8QXIbuUpPyoAQWwPxlEs9qXCoF+unQ9K6rF8ykXKSMotPnCS9rhNey8Gucfa//2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/2038694f107332a09f70d2e82703806b/09d21/1_gabmcw.jpg&quot; srcset=&quot;/static/2038694f107332a09f70d2e82703806b/a80bd/1_gabmcw.jpg 148w,
+/static/2038694f107332a09f70d2e82703806b/1c91a/1_gabmcw.jpg 295w,
+/static/2038694f107332a09f70d2e82703806b/09d21/1_gabmcw.jpg 540w&quot; sizes=&quot;(max-width: 540px) 100vw, 540px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;To find out what is in it, I used a QR code scanner and decode it. and this is what I got.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/2bd33f7ac912490e37a9e0095c86e377/38772/1_2_d6xbbz.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 211.48648648648648%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAqABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB6dfQykDcFCuQEgEIkMP/xAAfEAACAQMFAQAAAAAAAAAAAAAAAQMEFDECEBESEzD/2gAIAQEAAQUCtIBUtOWkG0UPmx5NOOEdV8P/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAbEAABBAMAAAAAAAAAAAAAAAABAAIRMxAwMv/aAAgBAQAGPwKsLhqrGCZnd//EAB4QAQACAQQDAAAAAAAAAAAAAAEAERAhMVFxYdHw/9oACAEBAAE/IQJKWk6X3PmcHvkVthNtZbzgWnglVi3jDOe8f//aAAwDAQACAAMAAAAQYwEMcw//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EF//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EF//xAAkEAEAAQIEBgMAAAAAAAAAAAABABEhEDFBcVFhgZHB0bHw8f/aAAgBAQABPxAKh3X3Dyg6WW8fs+2AteSIKXXzgWks+M5zvHW5reIKl3nPqYAUANorXKCZs6wXhNO5D4/GH//Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/2bd33f7ac912490e37a9e0095c86e377/1c72d/1_2_d6xbbz.jpg&quot; srcset=&quot;/static/2bd33f7ac912490e37a9e0095c86e377/a80bd/1_2_d6xbbz.jpg 148w,
+/static/2bd33f7ac912490e37a9e0095c86e377/1c91a/1_2_d6xbbz.jpg 295w,
+/static/2bd33f7ac912490e37a9e0095c86e377/1c72d/1_2_d6xbbz.jpg 590w,
+/static/2bd33f7ac912490e37a9e0095c86e377/38772/1_2_d6xbbz.jpg 606w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;hmmm, this looks like total gibberish but,
+it could make some sense when we look in a different perspective.
+is this could be a base64 encoded string.&lt;/p&gt;
+&lt;p&gt;Hmmmmmmmmmmmmmmm…👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀&lt;/p&gt;
+&lt;p&gt;so I used a base64 decoder to decode and look at what’s inside. I mean this is trial and error, it may or may not be decoded but I tried it anyway, and this is the result.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/cc40997b8b0e421101fad296408a77f3/72747/23_LI_ei7qbp.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 68.24324324324324%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdlzQxh//8QAGBABAQEBAQAAAAAAAAAAAAAAAAESIRH/2gAIAQEAAQUC8jLKSx11/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAEDEA/9oACAEBAAY/AtCv/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAFxkRFBUWH/2gAIAQEAAT8h8jAQOgkmqE9mqP/aAAwDAQACAAMAAAAQ9A//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPxCH/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRAAAgEEAwAAAAAAAAAAAAAAAREAECExkUFh0f/aAAgBAQABPxAYl3SABIZIDyLMfDa9idweo//Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/cc40997b8b0e421101fad296408a77f3/1c72d/23_LI_ei7qbp.jpg&quot; srcset=&quot;/static/cc40997b8b0e421101fad296408a77f3/a80bd/23_LI_ei7qbp.jpg 148w,
+/static/cc40997b8b0e421101fad296408a77f3/1c91a/23_LI_ei7qbp.jpg 295w,
+/static/cc40997b8b0e421101fad296408a77f3/1c72d/23_LI_ei7qbp.jpg 590w,
+/static/cc40997b8b0e421101fad296408a77f3/72747/23_LI_ei7qbp.jpg 764w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;here is a stringified JSON payload (i think🙄).&lt;/p&gt;
+&lt;p&gt;it decoded like a charm and it got the information about my phone model, some kind of a id and some codes that I don’t understand and here also some gibberish so, what do we do to gibrish.. we put the to base 64 decodes ain’t eh? 😁😁😁&lt;/p&gt;
+&lt;p&gt;well, it will not work always but this time it did.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/27fa8e947e043c23018098919879bcda/307d7/65_LI_2_hy6qny.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 60.13513513513513%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdtxYwD/xAAXEAADAQAAAAAAAAAAAAAAAAABEBEA/9oACAEBAAEFAmBFd//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAAMAAwAAAAAAAAAAAAAAAAABESFhcf/aAAgBAQABPyGImiMoeW+lKP/aAAwDAQACAAMAAAAQAA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAbEAADAAIDAAAAAAAAAAAAAAAAAREQUTFBYf/aAAgBAQABPxCnSE64Y8iCme9KWsH/2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/27fa8e947e043c23018098919879bcda/1c72d/65_LI_2_hy6qny.jpg&quot; srcset=&quot;/static/27fa8e947e043c23018098919879bcda/a80bd/65_LI_2_hy6qny.jpg 148w,
+/static/27fa8e947e043c23018098919879bcda/1c91a/65_LI_2_hy6qny.jpg 295w,
+/static/27fa8e947e043c23018098919879bcda/1c72d/65_LI_2_hy6qny.jpg 590w,
+/static/27fa8e947e043c23018098919879bcda/307d7/65_LI_2_hy6qny.jpg 760w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;here we can see some useful information such as my mac address and some flags I assume.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/5f36f4b9914ff9962699731dca05e52a/5e3a3/33_lcyf91.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 58.10810810810811%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABQklEQVQoz62TS07DMBCGfXPEEUCcAnEJWMACCcQOqYvacd7Oq23UVmqSn5lxHZWqCyQa6cuMH/lnPPEoExlYG8EYgyjyVhM2stDa0FiTH8majWluqbEUlmK19j7vc85B5XmOP1MQWY5MyASeD7YoCqi2bXEtqqqCqusa12IWbJrmKoggv/6T0SlSw67rZJFrwFG6zttQF38Cf4ogFPZut1vs9/sZHive3Pe9CM0CdYPD4YAJwDiMGMcR0zSJDf4wDLj0KFdSVEdUNcqyEPg+FXRFOAAL8Mcc4BSeY+Fz1NvnC14/nvH1/e6L2xLHo7HfEisqS9etsFlviLUE6vvN5QzvHm9wTzw83VJh3bHYjsQrsWXpsNvt5szCsUPm56g0yWBNjCzJqcViaaHFYiEtlSSxtKK1VmyapvMP8dn/vticzA8WcIm5IceJXgAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/5f36f4b9914ff9962699731dca05e52a/fcda8/33_lcyf91.png&quot; srcset=&quot;/static/5f36f4b9914ff9962699731dca05e52a/12f09/33_lcyf91.png 148w,
+/static/5f36f4b9914ff9962699731dca05e52a/e4a3f/33_lcyf91.png 295w,
+/static/5f36f4b9914ff9962699731dca05e52a/fcda8/33_lcyf91.png 590w,
+/static/5f36f4b9914ff9962699731dca05e52a/5e3a3/33_lcyf91.png 763w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;and in this payload, there goes my private IP address and I assume &lt;code class=&quot;language-text&quot;&gt;8181&lt;/code&gt; might be the port of this application.&lt;/p&gt;
+&lt;p&gt;so what can we get from this.well basically nothing important but staying curious will always lead us to find new problems so we can tackel with em.&lt;/p&gt;
+&lt;hr&gt;
+&lt;img src=&quot;/8ed8d6d03092c8717c87478c75a3abcf/230925670045202_vtogrw.gif&quot; alt=&quot;create new bot&quot; style=&quot;width:100%;&quot;&gt;
+&lt;hr&gt;
+&lt;p&gt;I tried Whatsapp QR but it didn’t give me any results worth sharing but if I found something new, yall will be the first to know.
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+Thanks for reading folks I’m out 🙌.&lt;/p&gt;
+&lt;/span&gt;</content:encoded></item><item><title><![CDATA[Awesome Js Tips.(Few of em )]]></title><description><![CDATA[Hi everyone , So Let’s get started. Promise.all()
+
+Promise.all is a very handy function when you want to make many promises and then resolve…]]></description><link>https://rizkyrajitha.github.io/post/Awesome-Js_Tips.(Few-of-em)/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/Awesome-Js_Tips.(Few-of-em)/</guid><pubDate>Tue, 26 Nov 2019 17:04:53 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+In this post, I&apos;ll walk you through with some awesome javascript features, that are super important in many situations.
+these are fairly popular but many of us don&apos;t use them.so I will give some examples where they come in handy
+&lt;h2&gt;So Let’s get started.&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Promise.all()
+&lt;br/&gt;
+Promise.all is a very handy function when you want to make many promises and then resolve them all at once.
+for example, let’s say that you get 10 files from frontend and you need to upload those 10 files to an aws s3 bucket.
+what you can do is make an array and push all the upload promises to that array. then call &lt;code class=&quot;language-text&quot;&gt;Promise.all()&lt;/code&gt; function with that promise array as the input parameter.
+then it will dispatch all the promises at once and after all the promises are fulfilled it will resolve an array of objects with the fulfilled individual promises.
+&lt;div id=&quot;gist99695289&quot; class=&quot;gist&quot;&gt;
+    &lt;div class=&quot;gist-file&quot;&gt;
+      &lt;div class=&quot;gist-data&quot;&gt;
+        &lt;div class=&quot;js-gist-file-update-container js-task-list-container file-box&quot;&gt;
+  &lt;div id=&quot;file-promiseall-js&quot; class=&quot;file my-2&quot;&gt;
+    
+  &lt;div itemprop=&quot;text&quot; class=&quot;Box-body p-0 blob-wrapper data type-javascript  &quot;&gt;
+      
+&lt;table class=&quot;highlight tab-size js-file-line-container&quot; data-tab-size=&quot;8&quot; data-paste-markdown-skip&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L1&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;1&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-k&gt;var&lt;/span&gt; &lt;span class=pl-s1&gt;files&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-s1&gt;req&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-c1&gt;files&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-k&gt;var&lt;/span&gt; &lt;span class=pl-s1&gt;promisarr&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-kos&gt;[&lt;/span&gt;&lt;span class=pl-kos&gt;]&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;span class=pl-c&gt;//initialize promises array&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-k&gt;function&lt;/span&gt; &lt;span class=pl-en&gt;multiplefiles3&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;resobj&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-smi&gt;console&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;log&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;resobj&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-c1&gt;originalname&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-k&gt;var&lt;/span&gt; &lt;span class=pl-s1&gt;params&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;    &lt;span class=pl-c1&gt;Bucket&lt;/span&gt;: &lt;span class=pl-s&gt;&amp;quot;******&amp;quot;&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;    &lt;span class=pl-c1&gt;Key&lt;/span&gt;: &lt;span class=pl-s1&gt;resobj&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-c1&gt;originalname&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;    &lt;span class=pl-c1&gt;Body&lt;/span&gt;: &lt;span class=pl-s1&gt;resobj&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-c1&gt;buffer&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-k&gt;return&lt;/span&gt; &lt;span class=pl-s1&gt;s3bucket&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;upload&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;params&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;promise&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-k&gt;var&lt;/span&gt; &lt;span class=pl-s1&gt;uploadsize&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-c1&gt;0&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-s1&gt;files&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;map&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;file&lt;/span&gt; &lt;span class=pl-c1&gt;=&amp;gt;&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-s1&gt;uploadsize&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-s1&gt;uploadsize&lt;/span&gt; &lt;span class=pl-c1&gt;+&lt;/span&gt; &lt;span class=pl-s1&gt;file&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-c1&gt;size&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-s1&gt;promisarr&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;push&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-en&gt;multiplefiles3&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;file&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;span class=pl-c&gt;//push individual promises to that array , i&amp;#39;ll refer them as child promises&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-v&gt;Promise&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;all&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;promisarr&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-c&gt;//evoke Promise.all() function , i&amp;#39;ll refer this as parent promise &lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;then&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;result&lt;/span&gt; &lt;span class=pl-c1&gt;=&amp;gt;&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;      &lt;span class=pl-c&gt;//this result is a array of objects from the fulfiled promise&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;catch&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;err&lt;/span&gt; &lt;span class=pl-c1&gt;=&amp;gt;&lt;/span&gt; &lt;span class=pl-smi&gt;console&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;log&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;err&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;span class=pl-c&gt;//if any of those promises get reject this whole promise will be rejected&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-promiseall-js-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-promiseall-js-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;/td&gt;
+      &lt;/tr&gt;
+&lt;/table&gt;
+
+
+  &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div class=&quot;gist-meta&quot;&gt;
+        &lt;a href=&quot;https://gist.github.com/RizkyRajitha/721ce1f1e8f6ed0a9f368c3de821a3da/raw/65e85e1e39381d5c0f14a1ed72eb03dea886609d/promiseall.js&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt;
+        &lt;a href=&quot;https://gist.github.com/RizkyRajitha/721ce1f1e8f6ed0a9f368c3de821a3da#file-promiseall-js&quot;&gt;promiseall.js&lt;/a&gt;
+        hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;span style=&quot;font-size:1.6rem ; color:red;&quot;&gt;
+keep in mind that this is all of it or none at all.
+So even if one of the child promises got rejected, we will get the whole thing (parent promise) rejected.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;for (let item of array)
+&lt;br/&gt;
+This is also another useful way of iterating through an array.But why we have &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; right. But the thing is you cannot use &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt; statements inside &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; so, let’s say after meeting a specific condition your &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt; loop needs to stop. But you can’t do it in &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt; loop. That’s where our friend &lt;code class=&quot;language-text&quot;&gt;for (let item of array)&lt;/code&gt; comes. This does exactly what &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; do, but we get the option to &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt; the &lt;code class=&quot;language-text&quot;&gt;forloop&lt;/code&gt; anytime we want in any breakpoint.
+Of course, you can use a regular for loop for this. But this is a pretty clean way to get the job done&lt;br&gt;
+&lt;div id=&quot;gist99695920&quot; class=&quot;gist&quot;&gt;
+    &lt;div class=&quot;gist-file&quot;&gt;
+      &lt;div class=&quot;gist-data&quot;&gt;
+        &lt;div class=&quot;js-gist-file-update-container js-task-list-container file-box&quot;&gt;
+  &lt;div id=&quot;file-forloop-js&quot; class=&quot;file my-2&quot;&gt;
+    
+  &lt;div itemprop=&quot;text&quot; class=&quot;Box-body p-0 blob-wrapper data type-javascript  &quot;&gt;
+      
+&lt;table class=&quot;highlight tab-size js-file-line-container&quot; data-tab-size=&quot;8&quot; data-paste-markdown-skip&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L1&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;1&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-k&gt;var&lt;/span&gt; &lt;span class=pl-s1&gt;arr1&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-kos&gt;[&lt;/span&gt;&lt;span class=pl-c1&gt;1&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-c1&gt;2&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-c1&gt;3&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-c1&gt;4&lt;/span&gt;&lt;span class=pl-kos&gt;]&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-k&gt;var&lt;/span&gt; &lt;span class=pl-s1&gt;arr2&lt;/span&gt; &lt;span class=pl-c1&gt;=&lt;/span&gt; &lt;span class=pl-kos&gt;[&lt;/span&gt;&lt;span class=pl-c1&gt;7&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-c1&gt;8&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-c1&gt;9&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-c1&gt;1&lt;/span&gt;&lt;span class=pl-kos&gt;]&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;loop1: &lt;span class=pl-k&gt;for&lt;/span&gt; &lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-k&gt;let&lt;/span&gt; &lt;span class=pl-s1&gt;element1&lt;/span&gt; &lt;span class=pl-k&gt;of&lt;/span&gt; &lt;span class=pl-s1&gt;arr1&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;span class=pl-c&gt;//define a breakpoint&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-k&gt;for&lt;/span&gt; &lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-k&gt;let&lt;/span&gt; &lt;span class=pl-s1&gt;element2&lt;/span&gt; &lt;span class=pl-k&gt;of&lt;/span&gt; &lt;span class=pl-s1&gt;arr2&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;    &lt;span class=pl-smi&gt;console&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;log&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;element1&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-s&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=pl-kos&gt;,&lt;/span&gt; &lt;span class=pl-s1&gt;element2&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;    &lt;span class=pl-k&gt;if&lt;/span&gt; &lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s1&gt;element1&lt;/span&gt; &lt;span class=pl-c1&gt;===&lt;/span&gt; &lt;span class=pl-s1&gt;element2&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt; &lt;span class=pl-kos&gt;{&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;      &lt;span class=pl-smi&gt;console&lt;/span&gt;&lt;span class=pl-kos&gt;.&lt;/span&gt;&lt;span class=pl-en&gt;log&lt;/span&gt;&lt;span class=pl-kos&gt;(&lt;/span&gt;&lt;span class=pl-s&gt;&amp;quot;duplicate numbers&amp;quot;&lt;/span&gt;&lt;span class=pl-kos&gt;)&lt;/span&gt;&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;      &lt;span class=pl-k&gt;break&lt;/span&gt; loop1&lt;span class=pl-kos&gt;;&lt;/span&gt;&lt;span class=pl-c&gt;//if a specific condition is met , break the loop&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;    &lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;  &lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td id=&quot;file-forloop-js-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;&lt;/td&gt;
+        &lt;td id=&quot;file-forloop-js-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=pl-kos&gt;}&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+&lt;/table&gt;
+
+
+  &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div class=&quot;gist-meta&quot;&gt;
+        &lt;a href=&quot;https://gist.github.com/RizkyRajitha/ef461d86fc6116f066fa694d2af5bf08/raw/d8e74bf7a1a80216becc857c88e1e0d031d86345/forloop.js&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt;
+        &lt;a href=&quot;https://gist.github.com/RizkyRajitha/ef461d86fc6116f066fa694d2af5bf08#file-forloop-js&quot;&gt;forloop.js&lt;/a&gt;
+        hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/span&gt;
+&lt;h2&gt;So, did i miss anything 👀,You can leave a comment and i’ll include your awesome tips in this article.And i will keep this post updated with my findings.&lt;/h2&gt;
+&lt;h2&gt;Cheers 🥂 , Have a Nice day.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[How i build my first npm package, a command line chat application]]></title><description><![CDATA[Hello everyone, I recently started developing a command line chat application . This idea was floating with me for quite sometime , i…]]></description><link>https://rizkyrajitha.github.io/post/How-i-build-my-first-npm-package command-line-chat-application/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/How-i-build-my-first-npm-package command-line-chat-application/</guid><pubDate>Mon, 18 Nov 2019 06:18:28 GMT</pubDate><content:encoded>&lt;h2&gt;Hello everyone,&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;I recently started developing a command line chat application . This idea was floating with me for quite sometime , i actually made a prototype few months ago , but it was for proof of concept kind of thing. So i recently build it with more features and little more tidy 😂 .&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;What exactly i build&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/662ea3522388bde056c10d29a09d0c42/8bd7c/aloha_y6rz3f.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.324324324324326%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAAA40lEQVQY05WQvWrDQBCE/cYO+AH8HGmSzhCTJk0IuAsuIhELY4zUGSKd/nVSoTNGAunL3TkikMKQhb3bXXZnhpmN48h/wuzbG52D/i5Scg6/dH3FmZmn73uyLKNtW6Re6LqONE0py5I8zymKAqWUnU2gNi5n5NMKsbhDbd9/Aeu6xnVdoihCCEEcx5YgCAI8z8P3fZIkwXEcS/qDyqZUPOxP3K/fePw4wjBcAZumoaoqwjC0aVQaVSYNkFE29WZviuPhmcNmjv+5xDutNYlW+NfDqb/lrfXRFHIH4gWqV61qa2ff0ep6Gq1XhvkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;aloha logo&quot; title=&quot;aloha logo&quot; src=&quot;/static/662ea3522388bde056c10d29a09d0c42/fcda8/aloha_y6rz3f.png&quot; srcset=&quot;/static/662ea3522388bde056c10d29a09d0c42/12f09/aloha_y6rz3f.png 148w,
+/static/662ea3522388bde056c10d29a09d0c42/e4a3f/aloha_y6rz3f.png 295w,
+/static/662ea3522388bde056c10d29a09d0c42/fcda8/aloha_y6rz3f.png 590w,
+/static/662ea3522388bde056c10d29a09d0c42/8bd7c/aloha_y6rz3f.png 845w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span style=&quot;font-size:1.28rem;&quot;&gt; well ,
+&lt;a href=&quot;https://www.npmjs.com/package/aloha-cli-chat&quot;&gt;Aloha-cli-chat&lt;/a&gt; is a real time command line chat application build with Nodejs. So this is a chat application , but it runs on your command line!.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size:1.28rem;&quot;&gt;for sometime i was goofing around with pusher services for my University second year project, and i came across with &lt;a href=&quot;https://pusher.com/chatkit&quot;&gt;pusher chatkit&lt;/a&gt; service. It is a awesome out of the box real time chat service you can integrate with many different environments. So i wanted to test it out. I could have implemented a node react web app to test , but it was very common. I wanted to do something different. so with some research i decided to build a command line chat application, it was easy to start with, and matched with my NodeJs skill set .&lt;/span&gt;
+&lt;br/&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;How i made it&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+Aloha-cli-chat&apos;s command line interface and backend server both are build with NodeJs. I used Mongodb for storing user data.but most hard part is done by pusher chatkit.
+&lt;p&gt;To get a better understanding, i’ll break down the process.&lt;/p&gt;
+&lt;p&gt;First a new user can signup to our chat application via command line.&lt;/p&gt;
+&lt;p&gt;After signing up a our system will create a new pusher chatkit user on behalf of that user , and we can authenticate this user with our system (from credentials we collected) .&lt;/p&gt;
+&lt;p&gt;in a successful authentication , our system will issue a &lt;code class=&quot;language-text&quot;&gt;auth token&lt;/code&gt; from pusher and send it to the client , so client can start chatting , creating chat rooms etc.
+&lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8a07e0ee70db8eb93a07ea08d50941a8/01dae/6tijxtzwqnuukcwyqjth.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 35.13513513513513%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsSAAALEgHS3X78AAAAzUlEQVQY03WQ226DMBBE/f/fh3hAiYgTS6EUGeo1t4KhJ7ZStUqYB2u0453ZXTVNk/deRMZxDCGs67osy7ZtECpIfd/zB2mPSH+6rmvbVjnnLhHWWhF3u15Pp7OIp7NpmqIoyrJE8uKtbenACCnLsjzPFTl4Y4EfgSECQggS9WEY0iy86Q8SsTgqGKV5niFbxP5EWIO5mfqj3g/wr/kVcRf565iQYlS6AbN91rW+6OpefUewGzNrrY0x8MPk39u6r8eG6eDMQmbaDelt8w/T4JYcozWOJQAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;high level overview&quot; title=&quot;high level overview&quot; src=&quot;/static/8a07e0ee70db8eb93a07ea08d50941a8/fcda8/6tijxtzwqnuukcwyqjth.png&quot; srcset=&quot;/static/8a07e0ee70db8eb93a07ea08d50941a8/12f09/6tijxtzwqnuukcwyqjth.png 148w,
+/static/8a07e0ee70db8eb93a07ea08d50941a8/e4a3f/6tijxtzwqnuukcwyqjth.png 295w,
+/static/8a07e0ee70db8eb93a07ea08d50941a8/fcda8/6tijxtzwqnuukcwyqjth.png 590w,
+/static/8a07e0ee70db8eb93a07ea08d50941a8/01dae/6tijxtzwqnuukcwyqjth.png 721w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;What i learned by building this&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+well ,
+I learned how to publish a npm package .
+How to get data from the command line.
+A better understanding about pusher chatkit service, and how i can integrate it in my future projects.
+&lt;p&gt;Although this is not ideal for common day-today use, this is a great beginner friendly project as a beginner myself, i learned a great deal from this project. &lt;br/&gt;you’ll find many things to improve, and more creative features to add. So i decided to make this a open source project so everyone can join with me to build a better , robust CLI chat application.
+PRs and issues are welcome .&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/RizkyRajitha/alohacli&quot;&gt;git repo&lt;/a&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;span style=&quot;font-size:2rem;&quot;&gt;
+ Thanks for Reading 🙌
+&lt;p&gt;what are your plans ? 💭&lt;/p&gt;
+&lt;p&gt;share them in the comments section.&lt;/p&gt;
+&lt;p&gt;I’d love to hear your feedback!
+&lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Heroku Gotchas, Before you deploy]]></title><description><![CDATA[Hi everyone , I’m pretty sure that you have heard about ,
+Heroku .
+if not don’t worry ,i got you covered. Heroku is a popular cloud PaaS…]]></description><link>https://rizkyrajitha.github.io/post/Heroku-Gotchas-Before-you-deploy/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/Heroku-Gotchas-Before-you-deploy/</guid><pubDate>Sun, 10 Nov 2019 17:13:22 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;I’m pretty sure that you have heard about ,
+&lt;a href=&quot;https://www.heroku.com/&quot;&gt;Heroku&lt;/a&gt; .
+if not don’t worry ,i got you covered. Heroku is a popular cloud PaaS(Platform as a service), which deliver awesome cloud solutions. Sounds cool right .
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/100b9ca19310cda5d90c180f7e51fef2/8c557/7jqmr55jkd2uk4ztitem.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 64.1891891891892%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABlklEQVQ4y2NwYJj5n5qYwZ5hBk5JfHI4DYRptGGYjoLJMQykB+xCR8aZ/wNEF/4PklgEx45Ms8DiMAzS4Mg0E0UMLs6IZKAt0DUePHP/N0Xv+Z/vuOl/ofPm/5V+2/+Hyi75b8ww6b8VwzQwBqkzZ5jy35Jh6n9rIB9EWwCxHdAQKygN9jJIoTvX3P8Vvtv/L2g8878+ZNf/CMWl/5MN1/xvidn7vzZo5/8JOYf/F7tu+b+w6cz/AqClvemH/lf77/g/Ke/I/3TTdf+bo/b8DxRfBLYIbKAX37z/ObYb/he5bP4/MffI/xybDf+T9Ff/Xz3h0v9ZVSf/r518+X9b/L7/+1bdAVuyvOvC/xnlJ/5vmnUNbOHWedfBwQQ20AZqYF3orv/Rqsv/l7htAbMjFJaCI8eZZRZYHuQLENuJedZ/b/75YO+5ss/+7845578X7zyEl0EBCVIYr7Xyf5wmEGusBLPdOOaAFYHkQb4AsZH59lC+HZQPjxQYAxTIVlBsiRTIZCUbWNSjJweKEjambWRmPWrnZQAO2AFpUwbtYQAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Heroku Logo&quot; title=&quot;Heroku Logo&quot; src=&quot;/static/100b9ca19310cda5d90c180f7e51fef2/fcda8/7jqmr55jkd2uk4ztitem.png&quot; srcset=&quot;/static/100b9ca19310cda5d90c180f7e51fef2/12f09/7jqmr55jkd2uk4ztitem.png 148w,
+/static/100b9ca19310cda5d90c180f7e51fef2/e4a3f/7jqmr55jkd2uk4ztitem.png 295w,
+/static/100b9ca19310cda5d90c180f7e51fef2/fcda8/7jqmr55jkd2uk4ztitem.png 590w,
+/static/100b9ca19310cda5d90c180f7e51fef2/8c557/7jqmr55jkd2uk4ztitem.png 700w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;h2&gt;So let’s get start 🤗 ,&lt;/h2&gt;
+&lt;h2&gt;but wait ✋, before you go and deploy your awesome apps in Heroku, you need to keep in mind few things.&lt;/h2&gt;
+&lt;h2&gt;what exactly is a heroku dyno?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+usually when you host a web app in heroku , your app will run on a Heroku dyno.
+dyno is a fancy name for container , where our app live but what is a container ? Hmmmmmmmmm.... that&apos;s a good question .
+&lt;p&gt;“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another” — &lt;a href=&quot;https://www.docker.com/resources/what-container&quot;&gt; docker resources &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Just think of it as a virtual machine, that it’s only job is to run our application, but very fast and efficient than a virtual machine. Also containers share much more resources than a virtual machine.&lt;/p&gt;
+&lt;p&gt;So when you deploy your web app, Heroku will create a container and the it will copy all your code-base to that container, and then install all necessary dependencies, and run your application.&lt;/p&gt;
+&lt;p&gt;Container’s need their own article, because it is a huge topic. So i will not going to touch it now. But feel free to research on containers because it is a trending, and very very interesting topic.
+&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;let’s start with gotchas👇&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;Heroku &lt;strong&gt;“free tier”&lt;/strong&gt; dynos(now you have a little idea about it) are going to sleep state, in 30 minutes of inactivity.
+inactivity meaning that, if your app doesn’t get any traffic in 30 minutes, it will go to a sleep state. After that next request will take some time (usually around 5-20 seconds based on the application) to respond to that request because your application have to change state from sleep to active, but after that everything will function normally until the next restart.&lt;br&gt;
+There are some ways to prevent this sleep.
+one way is, using &lt;a href=&quot;https://uptimerobot.com/&quot;&gt;uptime robot&lt;/a&gt; to send requests periodically so your dyno won’t sleep. But keep in mind that heroku &lt;strong&gt;“Free tier ”&lt;/strong&gt; gives you 550 free hours per month, so you might run out of free hours. —&lt;a href=&quot;https://devcenter.heroku.com/changelog-items/907&quot;&gt;heroku blog&lt;/a&gt; .
+But you can bump up to 1000 free hours, by adding a credit card . Meaning that you can run a single app 24/7 for ever 😍.&lt;/li&gt;
+&lt;li&gt;Heroku dynos have a ephemeral filesystem, meaning that “any changes to the filesystem whilst the dyno is running only last until that dyno is shut down or restarted. Each dyno boots with a clean copy of the filesystem from the most recent deploy” — &lt;a href=&quot;https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted&quot;&gt; Heroku resources &lt;/a&gt; .
+This basically says in plain English is that, if you save files to your servers file system , and directly serve files from that directory, the moment your dyno gets restarted, you’ll loose those files.
+for example, let’s say that you save users profile picture in &lt;code class=&quot;language-text&quot;&gt;/assests/profilepictures&lt;/code&gt; directory. This will not work as expected , after a server restart , and will throw errors because required files are missing.
+A simple example of above situation in a code snippet in NodeJs.
+&lt;code class=&quot;language-text&quot;&gt;app.use(&amp;quot;/static&amp;quot;, express.static(&amp;quot;./assets/profilepictures&amp;quot;));&lt;/code&gt;
+So what should you do to keep a persistent file storage.
+What i recommend and doing is , using a static file storage service like &lt;a href=&quot;https://aws.amazon.com/s3/&quot;&gt;AWS S3&lt;/a&gt; or &lt;a href=&quot;https://cloudinary.com/&quot;&gt;Cloudinary&lt;/a&gt; to manage all the static assets. This will make your web app more flexible and resilient to change in the future because the static assets are isolated from your app environment.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Fact : Did you knew that Heroku is build on top of AWS 🔥.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h2&gt;So, did I miss anything, You can leave a comment and I’ll include in this article? And I will update this article frequently with new gotchas, so keep in touch 😉.&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2&gt;Cheers 🥂 , Have a Nice day.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Sending messages with Telegram bot]]></title><description><![CDATA[Hi everyone, In this tutorial, we’re going to build a telegram bot ,and send messages to a group with a simple HTTP request. to get start…]]></description><link>https://rizkyrajitha.github.io/post/Sending-messages-with-Telegram-bot/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/Sending-messages-with-Telegram-bot/</guid><pubDate>Sun, 10 Nov 2019 09:16:50 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;In this tutorial, we’re going to build a telegram bot ,and send messages to a group with a simple HTTP request.&lt;/p&gt;
+&lt;p&gt;to get start lets create a new telegram bot with, it’s own API Botfather.
+&lt;/span&gt;&lt;/p&gt;
+&lt;h4&gt;One Bot To Rule Them All&lt;/h4&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+so go to telegram app on your phone, or log in with [telegram web](https://web.telegram.im/#/login)
+&lt;p&gt;and then search for bot father.
+create a new bot &lt;code class=&quot;language-text&quot;&gt;/newbot&lt;/code&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/d556ab859866f1cb65f04ebf9d31baff/15ec7/f61uzk32yd17rjoo8lc8.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 44.5945945945946%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHmLmpMR//EABgQAAMBAQAAAAAAAAAAAAAAAAABIRAR/9oACAEBAAEFArxKzGM//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAACAyUf/aAAgBAQAGPwKTCk//xAAbEAACAwADAAAAAAAAAAAAAAAAAREhMUFh4f/aAAgBAQABPyGaL9jNISng4Rk0z//aAAwDAQACAAMAAAAQpA//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxBH/8QAFhEBAQEAAAAAAAAAAAAAAAAAABFh/9oACAECAQE/EFx//8QAHBABAAICAwEAAAAAAAAAAAAAAQARIXExQaFR/9oACAEBAAE/ELCihsVuPkWrS9gy4jntDwJx7nqn/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/d556ab859866f1cb65f04ebf9d31baff/1c72d/f61uzk32yd17rjoo8lc8.jpg&quot; srcset=&quot;/static/d556ab859866f1cb65f04ebf9d31baff/a80bd/f61uzk32yd17rjoo8lc8.jpg 148w,
+/static/d556ab859866f1cb65f04ebf9d31baff/1c91a/f61uzk32yd17rjoo8lc8.jpg 295w,
+/static/d556ab859866f1cb65f04ebf9d31baff/1c72d/f61uzk32yd17rjoo8lc8.jpg 590w,
+/static/d556ab859866f1cb65f04ebf9d31baff/15ec7/f61uzk32yd17rjoo8lc8.jpg 690w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+now follow along with instructions.
+&lt;p&gt;type a name for your bot
+I had a hard time finding a username 😆
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/bec9492659b2ab1d5c1a8cbcc2c81771/eabd5/8muki02hmur8c1emb3xx.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 137.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAcABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAB5W41msEbgayr/8QAGxABAAEFAQAAAAAAAAAAAAAAAAECEBEhIhL/2gAIAQEAAQUC5Up9toctKU5ZZm3/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAaEAEAAgMBAAAAAAAAAAAAAAAAITEBEUEg/9oACAEBAAY/AkbU4l1WUQvHj//EABwQAQADAQEAAwAAAAAAAAAAAAEAESExYRBx0f/aAAgBAQABPyEK9YS7KqafiGTJ60V5ED34zI4+zFedq7PaILbP/9oADAMBAAIAAwAAABCkFnL/xAAXEQADAQAAAAAAAAAAAAAAAAAAARAR/9oACAEDAQE/EHcP/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxCNTjX/xAAeEAACAgICAwAAAAAAAAAAAAABEQAhMUFhcZGx0f/aAAgBAQABPxBE3q4W/MjR9yzRarAqKW1GNafFw0GDqAKGcrRhkg2GwO/IjlK7HyJqYQWYGZwiAyTmf//Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/bec9492659b2ab1d5c1a8cbcc2c81771/1c72d/8muki02hmur8c1emb3xx.jpg&quot; srcset=&quot;/static/bec9492659b2ab1d5c1a8cbcc2c81771/a80bd/8muki02hmur8c1emb3xx.jpg 148w,
+/static/bec9492659b2ab1d5c1a8cbcc2c81771/1c91a/8muki02hmur8c1emb3xx.jpg 295w,
+/static/bec9492659b2ab1d5c1a8cbcc2c81771/1c72d/8muki02hmur8c1emb3xx.jpg 590w,
+/static/bec9492659b2ab1d5c1a8cbcc2c81771/eabd5/8muki02hmur8c1emb3xx.jpg 711w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+now you&apos;ll get a token to authenticate with your bot.
+&lt;/span&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/b2c6bf0ad7ab477ea379e78926569151/eafa3/q0uwbdndewa1wy5gamea.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 108.1081081081081%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAWABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAECAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHzb6xc8yitYCgP/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERAhIhMf/aAAgBAQABBQLQSg8u6xQy9KQ//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHBAAAQMFAAAAAAAAAAAAAAAAAAEQkSAiMkGh/9oACAEBAAY/Am1Al6QZ8p//xAAdEAADAAICAwAAAAAAAAAAAAAAAREhMUFhcYHx/9oACAEBAAE/IUk2yaKe0OTYCMgq4ZjX6m2O9li0jwQ7Z//aAAwDAQACAAMAAAAQ7BA9/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAwEBPxAxX//EABcRAAMBAAAAAAAAAAAAAAAAAAABERD/2gAIAQIBAT8QpXv/xAAbEAEBAQADAQEAAAAAAAAAAAABEQAhMYFBUf/aAAgBAQABPxBYXlLqSKt4HCQwfoy6JxkjjpySHrQAgPwEvmseTW9D5qTZ5v/Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/b2c6bf0ad7ab477ea379e78926569151/1c72d/q0uwbdndewa1wy5gamea.jpg&quot; srcset=&quot;/static/b2c6bf0ad7ab477ea379e78926569151/a80bd/q0uwbdndewa1wy5gamea.jpg 148w,
+/static/b2c6bf0ad7ab477ea379e78926569151/1c91a/q0uwbdndewa1wy5gamea.jpg 295w,
+/static/b2c6bf0ad7ab477ea379e78926569151/1c72d/q0uwbdndewa1wy5gamea.jpg 590w,
+/static/b2c6bf0ad7ab477ea379e78926569151/eafa3/q0uwbdndewa1wy5gamea.jpg 702w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.8rem;color:red&quot;&gt;
+ keep the access token securely. Anyone with access token can manipulate your bot
+&lt;/span&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;alright, now we have the access token. The next question is how to send messages with the bot.
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;we will create a group with our bot. And then our bot will massage to that group&lt;/h4&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+it&apos;s simple as that😎
+&lt;p&gt;now let’s create a new group in telegram and add the bot to that group.&lt;/p&gt;
+&lt;p&gt;search with the username of your bot
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/89cfc818388e0edbb5857cddde14b656/721dc/jnfzasnmwb9r5klwcrdr.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 85.13513513513513%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHlzUVOsAAH/8QAGBABAQADAAAAAAAAAAAAAAAAEQABAiD/2gAIAQEAAQUCZmzs9f/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAAMBAAAAAAAAAAAAAAAAAAEQIDH/2gAIAQEABj8CeCv/xAAbEAACAgMBAAAAAAAAAAAAAAAAARFRICFhcf/aAAgBAQABPyGCW4ZwTsqniy//2gAMAwEAAgADAAAAEAcQQf/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EAB4QAAIBAwUAAAAAAAAAAAAAAAERACAhUTFBYYGR/9oACAEBAAE/EC0DEwYAB2dzm+xhm2AStBLYp//Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/89cfc818388e0edbb5857cddde14b656/1c72d/jnfzasnmwb9r5klwcrdr.jpg&quot; srcset=&quot;/static/89cfc818388e0edbb5857cddde14b656/a80bd/jnfzasnmwb9r5klwcrdr.jpg 148w,
+/static/89cfc818388e0edbb5857cddde14b656/1c91a/jnfzasnmwb9r5klwcrdr.jpg 295w,
+/static/89cfc818388e0edbb5857cddde14b656/1c72d/jnfzasnmwb9r5klwcrdr.jpg 590w,
+/static/89cfc818388e0edbb5857cddde14b656/721dc/jnfzasnmwb9r5klwcrdr.jpg 697w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;add our bot to the group
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8c505fa4ebed2afe670a6872c057aaef/80e3c/tecbrgdanamugyhi2ber.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.7027027027027%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAECAwQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAeLWVhAyzri6gCAP/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAEQEQISIDH/2gAIAQEAAQUCiymVCyNkP3r/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAVEAEBAAAAAAAAAAAAAAAAAAAwMf/aAAgBAQAGPwKv/8QAHBAAAgICAwAAAAAAAAAAAAAAAAERITFRIEFh/9oACAEBAAE/IWqWRgls8CWhiklY2djzTn//2gAMAwEAAgADAAAAEOcfDf8A/wD/xAAWEQADAAAAAAAAAAAAAAAAAAAQESD/2gAIAQMBAT8QCj//xAAWEQADAAAAAAAAAAAAAAAAAAAQESD/2gAIAQIBAT8QDj//xAAeEAEAAgIBBQAAAAAAAAAAAAABABExkXEgIVFhwf/aAAgBAQABPxDMkJdeILgpxFcrcsMq4ntagRpKZZQEMWyo7dv2FYrK6//Z&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/8c505fa4ebed2afe670a6872c057aaef/1c72d/tecbrgdanamugyhi2ber.jpg&quot; srcset=&quot;/static/8c505fa4ebed2afe670a6872c057aaef/a80bd/tecbrgdanamugyhi2ber.jpg 148w,
+/static/8c505fa4ebed2afe670a6872c057aaef/1c91a/tecbrgdanamugyhi2ber.jpg 295w,
+/static/8c505fa4ebed2afe670a6872c057aaef/1c72d/tecbrgdanamugyhi2ber.jpg 590w,
+/static/8c505fa4ebed2afe670a6872c057aaef/80e3c/tecbrgdanamugyhi2ber.jpg 720w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;after adding give admin permission to our bot, to give access to the bot to send messages to the group (not all the permissions are necessary but I will give because this is a demo group and nothing harmful will happen ).&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8a0cd8023701ecd80af0df12648536ec/80e3c/f8n3zcaodh3fh7xyrxq6.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.7027027027027%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAfN51Gs6CoYUkYJQP//EABkQAAIDAQAAAAAAAAAAAAAAAAERECAwQf/aAAgBAQABBQIoQ6cw/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAFhABAQEAAAAAAAAAAAAAAAAAATAx/9oACAEBAAY/AtG//8QAHBAAAQQDAQAAAAAAAAAAAAAAAAEQEUEgIXFR/9oACAEBAAE/IdCjNk+EimWjhlrhppw//9oADAMBAAIAAwAAABBXEX0IL//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QX//EACAQAAICAQMFAAAAAAAAAAAAAAERACExEEFhIFGh0eH/2gAIAQEAAT8QqLQUNHkSpaB9jHZPmMASU1z60FUCYe8IobVuPugrDZCUFARjiJ0f/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/8a0cd8023701ecd80af0df12648536ec/1c72d/f8n3zcaodh3fh7xyrxq6.jpg&quot; srcset=&quot;/static/8a0cd8023701ecd80af0df12648536ec/a80bd/f8n3zcaodh3fh7xyrxq6.jpg 148w,
+/static/8a0cd8023701ecd80af0df12648536ec/1c91a/f8n3zcaodh3fh7xyrxq6.jpg 295w,
+/static/8a0cd8023701ecd80af0df12648536ec/1c72d/f8n3zcaodh3fh7xyrxq6.jpg 590w,
+/static/8a0cd8023701ecd80af0df12648536ec/80e3c/f8n3zcaodh3fh7xyrxq6.jpg 720w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;now everything is set in this end.&lt;/p&gt;
+&lt;p&gt;The next thing we need is to get our group chat id to send messages to the group.&lt;/p&gt;
+&lt;p&gt;to get it we need to interact with the telegram API.&lt;/p&gt;
+&lt;p&gt;i hope yall have postman📬 ready. if not you can download &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;postman&lt;/a&gt; , since it is a useful tool in web dev.
+or alternatively, you can use &lt;a href=&quot;https://postwoman.io/&quot;&gt;postwoman&lt;/a&gt; which is a great way to build requests online.&lt;/p&gt;
+&lt;p&gt;before we sending requests, make sure to send some messages to our newly created group.&lt;/p&gt;
+&lt;p&gt;after that let’s fire up postman&lt;/p&gt;
+&lt;p&gt;send a &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; request to the following telegram API endpoint.&lt;/p&gt;
+&lt;p&gt;replace &lt;token&gt; with your access token we previously got from bot father&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/getUpdates&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and Send.&lt;/p&gt;
+&lt;p&gt;if you get something like this, try few more times. I don’t know the exact cause, but it sometimes returns empty arrays.(make sure you have some messages in the group)&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/339b338489a6b0b04cc31103468cc6f4/902ab/ybfbvfi933tbguv2zmjg.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 30.405405405405407%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd6QqD//xAAWEAADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCUP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABcQAAMBAAAAAAAAAAAAAAAAAAABEVH/2gAIAQEAAT8hSITiP//aAAwDAQACAAMAAAAQA8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAgMBAAAAAAAAAAAAAAABABEhMVFh/9oACAEBAAE/EPAleEpVDttxtn//2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/339b338489a6b0b04cc31103468cc6f4/1c72d/ybfbvfi933tbguv2zmjg.jpg&quot; srcset=&quot;/static/339b338489a6b0b04cc31103468cc6f4/a80bd/ybfbvfi933tbguv2zmjg.jpg 148w,
+/static/339b338489a6b0b04cc31103468cc6f4/1c91a/ybfbvfi933tbguv2zmjg.jpg 295w,
+/static/339b338489a6b0b04cc31103468cc6f4/1c72d/ybfbvfi933tbguv2zmjg.jpg 590w,
+/static/339b338489a6b0b04cc31103468cc6f4/a8a14/ybfbvfi933tbguv2zmjg.jpg 885w,
+/static/339b338489a6b0b04cc31103468cc6f4/fbd2c/ybfbvfi933tbguv2zmjg.jpg 1180w,
+/static/339b338489a6b0b04cc31103468cc6f4/902ab/ybfbvfi933tbguv2zmjg.jpg 1204w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;hopefully, you’ll receive something similar to this.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/f13e48331f42bc6fabf037127a978dc9/00d7d/ss5vjl1rb21xfp6lzuiz.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 52.70270270270271%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3qEUf//EABcQAAMBAAAAAAAAAAAAAAAAAAEQESD/2gAIAQEAAQUCUGP/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAYEAEAAwEAAAAAAAAAAAAAAAABABEgMf/aAAgBAQABPyEC5RAOGP/aAAwDAQACAAMAAAAQEM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAACAgMAAAAAAAAAAAAAAAABEQBBEDFh/9oACAEBAAE/EGE4CNEBllWYAN3n/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/f13e48331f42bc6fabf037127a978dc9/1c72d/ss5vjl1rb21xfp6lzuiz.jpg&quot; srcset=&quot;/static/f13e48331f42bc6fabf037127a978dc9/a80bd/ss5vjl1rb21xfp6lzuiz.jpg 148w,
+/static/f13e48331f42bc6fabf037127a978dc9/1c91a/ss5vjl1rb21xfp6lzuiz.jpg 295w,
+/static/f13e48331f42bc6fabf037127a978dc9/1c72d/ss5vjl1rb21xfp6lzuiz.jpg 590w,
+/static/f13e48331f42bc6fabf037127a978dc9/a8a14/ss5vjl1rb21xfp6lzuiz.jpg 885w,
+/static/f13e48331f42bc6fabf037127a978dc9/fbd2c/ss5vjl1rb21xfp6lzuiz.jpg 1180w,
+/static/f13e48331f42bc6fabf037127a978dc9/00d7d/ss5vjl1rb21xfp6lzuiz.jpg 1218w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;from here what we want is the chat id that starts with &lt;code class=&quot;language-text&quot;&gt;-&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;this is the group chat id of our group.&lt;/p&gt;
+&lt;p&gt;after that, the only thing left is to send messages.&lt;/p&gt;
+&lt;p&gt;so to send messages to our group.&lt;/p&gt;
+&lt;p&gt;use the following API endpoint&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/sendMessage?chat_id=&amp;lt;group chat id &amp;gt;&amp;amp;text=&amp;lt;our text&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;keep in mind that text should be URL Encoding String&lt;/p&gt;
+&lt;p&gt;ex - Hello%20World (spaces is replaced with %20)&lt;/p&gt;
+&lt;p&gt;checkout &lt;a href=&quot;https://www.w3schools.com/tags/ref_urlencode.asp&quot;&gt;w3school&lt;/a&gt; for more info&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/2979e2b2c3a0fb3ce327da41fada9e91/1839c/e1n9y2kf7xy53jxsxmlj.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 57.432432432432435%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe9VMqP/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAVEAEBAAAAAAAAAAAAAAAAAAABIP/aAAgBAQABPyEr/9oADAMBAAIAAwAAABADz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQACAwEAAAAAAAAAAAAAAAEAERAhUXH/2gAIAQEAAT8Q4o1K8iPCBu8M/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/2979e2b2c3a0fb3ce327da41fada9e91/1c72d/e1n9y2kf7xy53jxsxmlj.jpg&quot; srcset=&quot;/static/2979e2b2c3a0fb3ce327da41fada9e91/a80bd/e1n9y2kf7xy53jxsxmlj.jpg 148w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/1c91a/e1n9y2kf7xy53jxsxmlj.jpg 295w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/1c72d/e1n9y2kf7xy53jxsxmlj.jpg 590w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/a8a14/e1n9y2kf7xy53jxsxmlj.jpg 885w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/fbd2c/e1n9y2kf7xy53jxsxmlj.jpg 1180w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/1839c/e1n9y2kf7xy53jxsxmlj.jpg 1196w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;and &lt;code class=&quot;language-text&quot;&gt;wubba lubba dub dub&lt;/code&gt; your message is sent&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/bfe635ded3a1558995b9458e8dadaae9/80e3c/v3c57ifyl2npx5g3m63m.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.7027027027027%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB5UyuaSCtIWq4DQf/xAAbEAACAgMBAAAAAAAAAAAAAAAAEQEQEiAhIv/aAAgBAQABBQLLjHuq8kzNI//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BX//EABkQAAIDAQAAAAAAAAAAAAAAABARITAxof/aAAgBAQAGPwJKqeDT/8QAHBAAAwACAwEAAAAAAAAAAAAAAAERIVEgMWFx/9oACAEBAAE/Ida89ngvnRirCB6UYy2b+kI0f//aAAwDAQACAAMAAAAQjzHN8B//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPxBr/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8QY//EAB8QAQABBAEFAAAAAAAAAAAAAAERACExUXEQIGGBof/aAAgBAQABPxABJlJLiMURZEcNbr+++LNuRpL5uLH7QlcTylSsaBLoQUhZSXoP/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;create new bot&quot; src=&quot;/static/bfe635ded3a1558995b9458e8dadaae9/1c72d/v3c57ifyl2npx5g3m63m.jpg&quot; srcset=&quot;/static/bfe635ded3a1558995b9458e8dadaae9/a80bd/v3c57ifyl2npx5g3m63m.jpg 148w,
+/static/bfe635ded3a1558995b9458e8dadaae9/1c91a/v3c57ifyl2npx5g3m63m.jpg 295w,
+/static/bfe635ded3a1558995b9458e8dadaae9/1c72d/v3c57ifyl2npx5g3m63m.jpg 590w,
+/static/bfe635ded3a1558995b9458e8dadaae9/80e3c/v3c57ifyl2npx5g3m63m.jpg 720w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;/span&gt;
+&lt;h4&gt;This is a great way to monitor and notify your apps state. I use this for the backend of my web apps to report errors. you can also use it with frontends, CLI applications regardless of the language. you can use this creatively to do many things because this needs no 3rd party libraries or dependencies, just a simple HTTP request will do the work.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h3&gt;Thanks for following along with me 🙌&lt;/h3&gt;
+&lt;h2&gt;what are your plans ? 💭&lt;/h2&gt;
+&lt;h2&gt;share them in the comments section.&lt;/h2&gt;
+&lt;h2&gt;I’d love to hear your feedback!&lt;/h2&gt;
+&lt;h3&gt;originaly posted on &lt;a href=&quot;https://dev.to/rizkyrajitha/get-notifications-with-telegram-bot-537l&quot;&gt;Dev.to&lt;/a&gt;&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[First official post]]></title><description><![CDATA[Hi everyone, This is a MERN stack application.
+meaning
+backend powered by ExpressJs
+database is MongoDb and front end ReactJs . which is a…]]></description><link>https://rizkyrajitha.github.io/post/First-official-post/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/First-official-post/</guid><pubDate>Sun, 10 Nov 2019 06:19:45 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+This is the first official post of my personal Blog. 
+I won’t bore you with some code example , for now 😉.
+so i will give a small walk around about the tech stack this blog.
+&lt;p&gt;This is a MERN stack application.
+meaning
+backend powered by &lt;a href=&quot;https://expressjs.com/&quot;&gt;ExpressJs&lt;/a&gt;
+database is &lt;a href=&quot;https://www.mongodb.com/&quot;&gt;MongoDb&lt;/a&gt; and front end &lt;a href=&quot;https://reactjs.org/&quot;&gt;ReactJs&lt;/a&gt; . which is a quite popular tech stack in 2019.
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;a href=&quot;https://www.mongodb.com/&quot;&gt;Mongo&lt;/a&gt; &lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; &lt;a href=&quot;https://reactjs.org/&quot;&gt;React&lt;/a&gt; &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node&lt;/a&gt; makes the MERN acronym.&lt;/p&gt;
+&lt;p&gt;let’s start with the frontend.
+so as i said before i used react to build frontend app .bootstrap for styling. and responsive react modal for the popup in comment section.
+pretty standard stuff.&lt;/p&gt;
+&lt;p&gt;backend is build using ExpressJs . the reason whole backed is existing is because i implemented a commenting section .In original design i thought only to post without any comments, but later changed my mind as usual. after keeping track of comments, i implemented a views counter just out of curiosity.First version was not good. i mean i got a new view for every page refresh .So i improve it and now a bit better than the previous counter.&lt;/p&gt;
+&lt;p&gt;for hosting frontend is hosted in &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github pages&lt;/a&gt;.
+and backend is hosted in &lt;a href=&quot;https://www.heroku.com/home&quot;&gt;Heroku&lt;/a&gt; server.&lt;/p&gt;
+&lt;p&gt;I will later write a post about both of them&lt;/p&gt;
+&lt;p&gt;so that’s it.
+I’ll try to post frequently with my findings.&lt;/p&gt;
+&lt;p&gt;thanks for reading so far.
+have a nice day&lt;/p&gt;
+&lt;/span&gt;</content:encoded></item></channel></rss>
