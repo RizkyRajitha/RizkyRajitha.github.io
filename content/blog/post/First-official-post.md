@@ -2,6 +2,7 @@
 title: First official post
 id: 5dc7ac019b6e62001738620e
 date: "2019-11-10T06:19:45.704Z"
+ogimage: "First-official-post.png"
 ---
 
 ## Hi everyone,

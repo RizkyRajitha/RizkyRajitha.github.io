@@ -2,6 +2,7 @@
     title : Sending messages with Telegram bot
     id : 5dc7d58294f1ea0017c2d418
     date : "2019-11-10T09:16:50.771Z"
+    ogimage: "Sending-messages-with-Telegram-bot.png"
 ---
 ## Hi everyone,
 

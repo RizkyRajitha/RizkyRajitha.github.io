@@ -3,6 +3,8 @@
     id : 5eaf0ab69331ca00171e5f58
     date : "2020-05-03T18:17:26.074Z"
     description : "optimizations to this blog"
+    ogimage: "optimizing-blog.png"
+
 ---
 ## Hi everyone ,
 

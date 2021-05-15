@@ -1,9 +1,8 @@
 ---
-      title : Mistakes i made deploying Lambda function
-      id : 60914aee1818c80017828f81
-      date : "2021-05-04T13:23:58.858Z"
-      ogimage: "mistakes-i-made-deploying-Lambda-function.png"
-
+title: Mistakes i made deploying Lambda function
+id: 60914aee1818c80017828f81
+date: "2021-05-04T13:23:58.858Z"
+ogimage: "mistakes-i-made-deploying-Lambda-function.png"
 ---
 
 ## hi everyone,
@@ -29,6 +28,7 @@ s3 bucket and triggering lambda function both should be in the same region. this
 <br>
 
 ## 2 <sup>nd</sup> mistake
+
 <br>
 <span style="font-size:1.18em;text-align: justify;" >
 
@@ -41,8 +41,8 @@ so that I can access other AWS resources without any credentials.
 <img src="lamdapolicy_hxp3xt.png" alt="permissions in lamda function menu" style="width:100%;"/>
 <br>
 
-
 ## 3 <sup>rd</sup> mistake
+
 <span style="font-size:1.18em;text-align: justify;" >
 
 only giving get s3 object permission will give `403` `access denied` error if the specified key is not available in the bucket.
@@ -63,7 +63,6 @@ and because of this, I wasted time configuring IAM roles because I was confused 
 <img src="nokey_cdm9ax.png" alt="cloudwatch log 404" style="width:100%;"/>
 <br>
 
-
 ## 4 <sup>th</sup> mistake
 
 <span style="font-size:1.18em;text-align: justify;" >
@@ -80,10 +79,7 @@ The next one is missing the decodeURIComponent on the s3 triggered event object 
 <span style="font-size:1.18em;text-align: justify;" >
 
 and like that everything was comming together.
-here is [github repo](https://github.com/RizkyRajitha/serverless-transcoder) 
-
-
-
+here is [github repo](https://github.com/RizkyRajitha/serverless-transcoder)
 
 Thanks for reading so far.<br>
 Stay safe folks 🙌

@@ -2,6 +2,7 @@
 title: How i build my first npm package, a command line chat application
 id: 5dd237b4ce297f001796521b
 date: "2019-11-18T06:18:28.847Z"
+ogimage: "How-i-build-my-first-npm-package command-line-chat-application.png"
 ---
 
 ## Hello everyone,

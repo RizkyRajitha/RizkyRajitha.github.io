@@ -2,7 +2,7 @@
 title: Awesome Js Tips.(Few of em )
 id: 5ddd5b35e8da2700179c3d4e
 date: "2019-11-26T17:04:53.713Z"
-ogimage: "background.jpg"
+ogimage: "Awesome-Js_Tips.(Few-of-em).png"
 ---
 
 ## Hi everyone ,

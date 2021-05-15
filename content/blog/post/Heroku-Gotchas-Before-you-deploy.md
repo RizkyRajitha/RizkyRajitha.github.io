@@ -2,7 +2,7 @@
 title: Heroku Gotchas, Before you deploy
 id: 5dc8453252d6640017e5e22a
 date: "2019-11-10T17:13:22.756Z"
-ogimage: "background.jpg"
+ogimage: "Heroku-Gotchas-Before-you-deploy.png"
 ---
 
 ## Hi everyone ,
