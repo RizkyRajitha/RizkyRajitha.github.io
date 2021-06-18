@@ -31,7 +31,7 @@ for example, let’s say that you get 10 files from frontend and you need to upl
 what you can do is make an array and push all the upload promises to that array. then call <code class="language-text">Promise.all()</code> function with that promise array as the input parameter.
 then it will dispatch all the promises at once and after all the promises are fulfilled it will resolve an array of objects with the fulfilled individual promises.
 <div id="gist99695289" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-promiseall-js" class="file my-2">
@@ -165,7 +165,7 @@ So even if one of the child promises got rejected, we will get the whole thing (
 This is also another useful way of iterating through an array.But why we have <code class="language-text">array.forEach()</code> right. But the thing is you cannot use <code class="language-text">break</code> statements inside <code class="language-text">array.forEach()</code> so, let’s say after meeting a specific condition your <code class="language-text">forEach</code> loop needs to stop. But you can’t do it in <code class="language-text">forEach</code> loop. That’s where our friend <code class="language-text">for (let item of array)</code> comes. This does exactly what <code class="language-text">array.forEach()</code> do, but we get the option to <code class="language-text">break</code> the <code class="language-text">forloop</code> anytime we want in any breakpoint.
 Of course, you can use a regular for loop for this. But this is a pretty clean way to get the job done<br>
 <div id="gist99695920" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-forloop-js" class="file my-2">

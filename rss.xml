@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Rajitha's blog]]></title><description><![CDATA[Personal blog of Rajitha Gunathilake]]></description><link>https://rizkyrajitha.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 17 Jun 2021 08:10:02 GMT</lastBuildDate><item><title><![CDATA[Mistakes i made deploying Lambda function]]></title><description><![CDATA[hi everyone, Hope you all are safe and sound.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Rajitha's blog]]></title><description><![CDATA[Personal blog of Rajitha Gunathilake]]></description><link>https://rizkyrajitha.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 18 Jun 2021 08:09:20 GMT</lastBuildDate><item><title><![CDATA[Mistakes i made deploying Lambda function]]></title><description><![CDATA[hi everyone, Hope you all are safe and sound.
  So in this post, I’ll walk through some of the mistakes I made developing an AWS lambda video…]]></description><link>https://rizkyrajitha.github.io/post/mistakes-i-made-deploying-Lambda-function/</link><guid isPermaLink="false">https://rizkyrajitha.github.io/post/mistakes-i-made-deploying-Lambda-function/</guid><pubDate>Tue, 04 May 2021 13:23:58 GMT</pubDate><content:encoded>&lt;h2&gt;hi everyone,&lt;/h2&gt;
 &lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
 &lt;p&gt;Hope you all are safe and sound.
@@ -288,7 +288,7 @@ for example, let’s say that you get 10 files from frontend and you need to upl
 what you can do is make an array and push all the upload promises to that array. then call &lt;code class=&quot;language-text&quot;&gt;Promise.all()&lt;/code&gt; function with that promise array as the input parameter.
 then it will dispatch all the promises at once and after all the promises are fulfilled it will resolve an array of objects with the fulfilled individual promises.
 &lt;div id=&quot;gist99695289&quot; class=&quot;gist&quot;&gt;
-    &lt;div class=&quot;gist-file&quot;&gt;
+    &lt;div class=&quot;gist-file&quot; translate=&quot;no&quot;&gt;
       &lt;div class=&quot;gist-data&quot;&gt;
         &lt;div class=&quot;js-gist-file-update-container js-task-list-container file-box&quot;&gt;
   &lt;div id=&quot;file-promiseall-js&quot; class=&quot;file my-2&quot;&gt;
@@ -422,7 +422,7 @@ So even if one of the child promises got rejected, we will get the whole thing (
 This is also another useful way of iterating through an array.But why we have &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; right. But the thing is you cannot use &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt; statements inside &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; so, let’s say after meeting a specific condition your &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt; loop needs to stop. But you can’t do it in &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt; loop. That’s where our friend &lt;code class=&quot;language-text&quot;&gt;for (let item of array)&lt;/code&gt; comes. This does exactly what &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; do, but we get the option to &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt; the &lt;code class=&quot;language-text&quot;&gt;forloop&lt;/code&gt; anytime we want in any breakpoint.
 Of course, you can use a regular for loop for this. But this is a pretty clean way to get the job done&lt;br&gt;
 &lt;div id=&quot;gist99695920&quot; class=&quot;gist&quot;&gt;
-    &lt;div class=&quot;gist-file&quot;&gt;
+    &lt;div class=&quot;gist-file&quot; translate=&quot;no&quot;&gt;
       &lt;div class=&quot;gist-data&quot;&gt;
         &lt;div class=&quot;js-gist-file-update-container js-task-list-container file-box&quot;&gt;
   &lt;div id=&quot;file-forloop-js&quot; class=&quot;file my-2&quot;&gt;
