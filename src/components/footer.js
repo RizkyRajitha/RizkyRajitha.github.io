@@ -70,7 +70,7 @@ class Footer extends Component {
           {/* <i className="fab fa-spotify fa-3x"></i> */}
           {/* </a>
           </div> */}
-          <div className="landingpagefooterdivitem">
+          {/* <div className="landingpagefooterdivitem">
             <a
               rel="noopener noreferrer"
               target="_blank"
@@ -79,9 +79,9 @@ class Footer extends Component {
             >
               {" "}
               <span className="icon-blogger iconsfooter"></span>
-              {/* <i className="fab fa-blogger fa-3x"></i> */}
+              <i className="fab fa-blogger fa-3x"></i>
             </a>
-          </div>
+          </div> */}
           <div className="landingpagefooterdivitembr"></div>
         </div>
       </footer>

@@ -27,7 +27,7 @@ const IndexPage = props => {
             <div className="parallaxTextdiv">
               <span className="parallaxText">Hi </span>
               <br />
-              <span className="parallaxText">How you doing </span>
+              <span className="parallaxText">Nice to meet you </span>
               <br />
               <span className="parallaxText">I'am Rajitha </span>
               <br />
