@@ -141,7 +141,7 @@ export default function Blogpost({ data }) {
       </Modal>
       <div class="container ">
         <div class="row">
-          <div class="col-lg-9">
+          <div class="col-lg-9 col-xl-10 col-xxl-10">
             <h1 class="mt-4">{data.markdownRemark.frontmatter.title}</h1>
 
             <hr />
@@ -214,7 +214,7 @@ export default function Blogpost({ data }) {
             })}
           </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-xl-2 col-xxl-2 ">
             <div class="card my-4 commentsection">
               <h5 class="card-header">Views</h5>
               <div class="card-body">
