@@ -15,7 +15,10 @@ ogimage: "setup-prometheus-and-grafana-on-orange-pi.png"
 Hope yall are doing well,
 if you have been keeping up with my posts you know that I have an orange pi that is sitting down.
 I recently started doing some configuration management and infrastructure as code stuff with ansible and terraform.
-so I decided to spin Prometheus and grafana to monitor orange pi. I didn't use Ansible for setting up this in orange pi, because I didn't have any idea whether it was supported or not in that arm7 platform but it turned out to be working really well. so in this post, I will walk through my journey on setting orange pi monitoring with Prometheus and grafana.
+
+<br>
+
+So I decided to spin Prometheus and grafana to monitor orange pi. I didn't use Ansible for setting up this in orange pi, because I didn't have any idea whether it was supported or not in that arm7 platform but it turned out to be working really well. so in this post, I will walk through my journey on setting orange pi monitoring with Prometheus and grafana.
 
 so I get started with updating the orange pi.
 
@@ -43,8 +46,8 @@ cd prometheus-2.29.0-rc.0.linux-armv7/
 cp prometheus /usr/local/bin/
 ```
 
-after all that was set up, I created a service file for systemd to configure Prometheus as a service in `/etc/systemd/system/`.
-this directory is where we write systemd unit files. there are many places among this one but this I a conventional directory that is best suited in this scenario.
+after all that was set up, I created a service file for `systemd` to configure Prometheus as a service in `/etc/systemd/system/`.
+this directory is where we write `systemd` unit files. there are many places among this one but this I a conventional directory that is best suited in this scenario.
 
 `sudo nano /etc/systemd/system/prometheus.service`
 
@@ -68,7 +71,7 @@ WantedBy=multi-user.target
 
 in this file, I have added the `ExecStart` path to the Prometheus binary. here I also added some more arguments to configure Prometheus, because I want to run Prometheus behind an Nginx reverse proxy. and also added the config file in path `/home/batman/prometheus/prometheus.yml` so make sure you have the default `prometheus.yml` (comes with the `tar` archive) file in the specified path.
 
-after that is done. I restarted the systemd daemon and then enable the service.
+after that is done. I restarted the `systemd` `daemon` and then enable the service.
 enabling service will make sure that this service will run after a reboot. it might do many other things behind the back but I notice this when I used this service without enabling it.
 next stared Prometheus.
 
@@ -92,7 +95,7 @@ sudo cp node_exporter  /usr/local/bin/
 
 ```
 
-next, I repeated the same steps for creating the unit file for systemd.
+next, I repeated the same steps for creating the unit file for `systemd`.
 
 `sudo nano /etc/systemd/system/nodeexporter.service`
 
@@ -112,7 +115,7 @@ WantedBy=multi-user.target
 
 ```
 
-after setting up the node_exporter , reload systemd daemon and restarted node_exporter.
+after setting up the node_exporter , reload `systemd` `daemon` and restarted node_exporter.
 keep in mind the service will name after the name of the service file. here node_exporter service will be recognized as nodeexporter because I named the unit file `nodeexporter.service`
 
 ```bash
@@ -135,7 +138,7 @@ now that we have all in place, next add this nodeexporter to Prometheus as a tar
 
 after that restart, Prometheus to catch up with new changes. you can see the change at this point if you visit Prometheus via its opened port.
 
-after that, I set up [Grafana](grafana.com/) for the monitoring dashboard.
+after that, I set up [Grafana](https://grafana.com/) for the monitoring dashboard.
 
 For Grafana, it's a bit different than the last approach, hence it could be installed with apt.
 I pretty much followed they're [offcial documentation](https://grafana.com/docs/grafana/latest/installation/debian/)
