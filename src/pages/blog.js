@@ -15,7 +15,7 @@ export default function Blog(props) {
   // const [timeoutsync, settimeoutsync] = useState(true)
   // const [blogviews, setblogviews] = useState("")
 
-  console.log(props)
+  // console.log(props)
   const postdata = props.data.allMarkdownRemark.edges
 
   // useEffect(() => {

@@ -18,7 +18,7 @@ export default function Blogpost({ data }) {
 
   // const [onceoffline, setonceoffline] = useState(false)
 
-  console.log(data)
+  // console.log(data)
 
   // useEffect(() => {
   //   let id = data.markdownRemark.frontmatter.id
