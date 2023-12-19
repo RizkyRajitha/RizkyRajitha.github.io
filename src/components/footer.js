@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import {  } from "react-router-dom"
 import "../styles/footer.css"
 import "../styles/styles.css"
 class Footer extends Component {

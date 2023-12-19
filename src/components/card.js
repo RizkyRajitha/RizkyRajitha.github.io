@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import moments from "moment"
-
 import "../styles/card.css"
+import { formatDistanceToNow } from "date-fns"
 
 class Card extends Component {
   render() {
@@ -23,7 +22,7 @@ class Card extends Component {
           </Link>
         </div>
         <div className="card-footer postcard text-muted">
-          Posted {moments(this.props.postedon).fromNow()}
+          Posted {formatDistanceToNow(this.props.postedon)}
         </div>
       </div>
     )

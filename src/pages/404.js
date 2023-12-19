@@ -9,22 +9,17 @@ function Notfound(props) {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <span className="notfoundtext">
-                Whoops . it seems that you are Lost
-              </span>
+              <span className="notfoundtext">Whoops</span>
+              <br></br>
+              <span className="notfoundtext">it seems that you are Lost</span>
               <br />
-              <span className="notfoundtext">Don't worry </span>
-              <br />
-
-              <Link to="/blog" className="btn notfounditems large btn-primary">
+              <Link to="/blog" className="btn large btn-primary">
                 {" "}
-                let's try from the begining{" "}
+                Go Back
               </Link>
 
               <br />
-              <span className="notfoundtextbottom">
-                {/* {views} people have lost so far */}
-              </span>
+              <span className="notfoundtextbottom"></span>
             </div>
           </div>
           <br />

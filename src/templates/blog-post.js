@@ -1,89 +1,86 @@
-import React, { useState, useEffect } from "react"
-import { Offline, Online, Detector } from "react-detect-offline"
-import Footerblogpost from "../components/footerblogpost"
-import Axios from "axios"
-import Navbar from "../components/navbar"
-import "react-responsive-modal/styles.css"
-import { Modal } from "react-responsive-modal"
-import SEO from "../components/seo"
+import React from "react"
+import { graphql } from "gatsby"
+import Seo from "../components/seo"
 import "../styles/gist.css"
 import "../styles/blogpost.css"
-const moments = require("moment/moment")
-const API = "https://blogrizky.herokuapp.com"
-// const API = "http://localhost:3001";
+import Footerblogpost from "../components/footerblogpost"
+import Navbar from "../components/navbar"
+import { formatDistanceToNow } from "date-fns"
 export default function Blogpost({ data }) {
   // console.log(data)
 
-  const [postdata, setpostdata] = useState({})
-  const [open, setopen] = useState(false)
-  const [comment, setcomment] = useState("")
-  const [displayname, setdisplayname] = useState("")
-  const [email, setemail] = useState("")
-  const [comments, setcomments] = useState([])
+  // const [postdata, setpostdata] = useState({})
+  // const [open, setopen] = useState(false)
+  // const [comment, setcomment] = useState("")
+  // const [displayname, setdisplayname] = useState("")
+  // const [email, setemail] = useState("")
+  // const [comments, setcomments] = useState([])
 
-  const [onceoffline, setonceoffline] = useState(false)
+  // const [onceoffline, setonceoffline] = useState(false)
 
-  useEffect(() => {
-    let id = data.markdownRemark.frontmatter.id
+  console.log(data)
 
-    Axios.get(`${API}/api/getpost/${id}`)
-      .then(result2 => {
-        setpostdata(result2.data)
-      })
-      .catch(err => console.log(err))
+  // useEffect(() => {
+  //   let id = data.markdownRemark.frontmatter.id
 
-    Axios.get(`${API}/api/getcomments/${id}`)
-      .then(result3 => {
-        setcomments(result3.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  //   Axios.get(`${API}/api/getpost/${id}`)
+  //     .then(result2 => {
+  //       setpostdata(result2.data)
+  //     })
+  //     .catch(err => console.log(err))
 
-  const commentHandle = e => {
-    e.preventDefault()
-    let id = data.markdownRemark.frontmatter.id
-    var payload = {
-      displayName: displayname,
-      email: email,
-      content: comment,
-      postid: id,
-    }
+  //   Axios.get(`${API}/api/getcomments/${id}`)
+  //     .then(result3 => {
+  //       setcomments(result3.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }, [])
 
-    // console.log(payload)
-    Axios.post(`${API}/api/newcomment`, payload)
-      .then(result => {
-        setcomment("")
-        if (result.data.err === false) {
-          onCloseModal()
-          Axios.get(`${API}/api/getcomments/${id}`)
-            .then(result => {
-              setcomments(result.data)
-            })
-            .catch(err => {
-              console.log(err)
-            })
-        }
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+  // const commentHandle = e => {
+  //   e.preventDefault()
+  //   let id = data.markdownRemark.frontmatter.id
+  //   var payload = {
+  //     displayName: displayname,
+  //     email: email,
+  //     content: comment,
+  //     postid: id,
+  //   }
 
-  const onOpenModal = e => {
-    e.preventDefault()
-    setopen(true)
-  }
+  //   // // console.log(payload)
+  //   // Axios.post(`${API}/api/newcomment`, payload)
+  //   //   .then(result => {
+  //   //     setcomment("")
+  //   //     if (result.data.err === false) {
+  //   //       onCloseModal()
+  //   //       Axios.get(`${API}/api/getcomments/${id}`)
+  //   //         .then(result => {
+  //   //           setcomments(result.data)
+  //   //         })
+  //   //         .catch(err => {
+  //   //           console.log(err)
+  //   //         })
+  //   //     }
+  //   //   })
+  //   //   .catch(err => {
+  //   //     console.log(err)
+  //   //   })
+  // }
 
-  const onCloseModal = () => {
-    setopen(false)
-  }
+  // const onOpenModal = e => {
+  //   e.preventDefault()
+  //   setopen(true)
+  // }
+
+  // const onCloseModal = () => {
+  //   setopen(false)
+  // }
 
   return (
     <div className="blogpostcontainer">
       <Navbar />
-      <SEO
+      <Seo
         title={data.markdownRemark.frontmatter.title}
         description={
           data.markdownRemark.frontmatter.description ||
@@ -91,7 +88,7 @@ export default function Blogpost({ data }) {
         }
         ogimage={data.markdownRemark.frontmatter.ogimage}
       />
-      <Detector
+      {/* <Detector
         onChange={con => {
           setonceoffline(true)
         }}
@@ -104,8 +101,8 @@ export default function Blogpost({ data }) {
         <div hidden={!onceoffline} className="onlinediv">
           Welcome Back
         </div>
-      </Online>
-      <Modal
+      </Online> */}
+      {/* <Modal
         // className="commentmodal"
         open={open}
         onClose={onCloseModal}
@@ -138,7 +135,7 @@ export default function Blogpost({ data }) {
             Comment
           </button>
         </form>
-      </Modal>
+      </Modal> */}
       <div class="container ">
         <div class="row">
           <div class="col-lg-9 col-xl-10 col-xxl-10">
@@ -147,17 +144,18 @@ export default function Blogpost({ data }) {
             <hr />
             {/* {console.log(new Date().toISOString())} */}
             <p>
-              Posted {moments(data.markdownRemark.frontmatter.date).fromNow()}{" "}
+              Posted {formatDistanceToNow(data.markdownRemark.frontmatter.date)}
             </p>
 
             <hr />
 
-            <section
-              dangerouslySetInnerHTML={{
-                __html: data.markdownRemark.html,
-              }}
-            />
-
+            <div style={{ fontSize: "1.28em" }}>
+              <section
+                dangerouslySetInnerHTML={{
+                  __html: data.markdownRemark.html,
+                }}
+              />
+            </div>
             {/* <Markdown
               children={markdown}
               options={{
@@ -169,7 +167,7 @@ export default function Blogpost({ data }) {
               }}
             /> */}
 
-            <div class="card my-4 commentsection text-white ">
+            {/* <div class="card my-4 commentsection text-white ">
               <h5 class="card-header  ">Leave a Comment:</h5>
               <div class="card-body ">
                 <form onSubmit={onOpenModal}>
@@ -187,14 +185,13 @@ export default function Blogpost({ data }) {
                   </button>
                 </form>
               </div>
-            </div>
+            </div> */}
 
-            {comments.map((ele, index) => {
+            {/* {comments.map((ele, index) => {
               return (
                 <div class="media mb-4">
                   <img
                     class="d-flex mr-3 rounded-circle"
-                    // src="https://secure.gravatar.com/avatar/446d1e11e51072cd5a0c4e0daaf2de85?s=160&d=retro&r=pg"
                     src="https://img.icons8.com/pastel-glyph/64/000000/person-male.png"
                     alt=""
                   />
@@ -203,7 +200,6 @@ export default function Blogpost({ data }) {
                       <h3 class="mt-0">{ele.displayName}</h3>{" "}
                       <span className="commentfromnow">
                         {" "}
-                        {moments(ele.date).fromNow()}{" "}
                       </span>
                     </div>
 
@@ -211,10 +207,10 @@ export default function Blogpost({ data }) {
                   </div>
                 </div>
               )
-            })}
+            })} */}
           </div>
 
-          <div class="col-lg-3 col-xl-2 col-xxl-2 ">
+          {/* <div class="col-lg-3 col-xl-2 col-xxl-2 ">
             <div class="card my-4 commentsection">
               <h5 class="card-header">Views</h5>
               <div class="card-body">
@@ -227,7 +223,7 @@ export default function Blogpost({ data }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footerblogpost />
@@ -236,22 +232,41 @@ export default function Blogpost({ data }) {
 }
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug(
+    $id: String!
+    $previousPostId: String
+    $nextPostId: String
+  ) {
     site {
       siteMetadata {
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       html
       frontmatter {
-        id
         title
         date(formatString: "MMMM DD, YYYY")
         description
         ogimage
+      }
+    }
+    previous: markdownRemark(id: { eq: $previousPostId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+    next: markdownRemark(id: { eq: $nextPostId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
       }
     }
   }

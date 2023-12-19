@@ -48,6 +48,7 @@ a {
   font-family: "Space Mono", monospace;
   /* Set a specific height */
   height: 100vh;
+  position: relative;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
@@ -112,6 +113,7 @@ a {
   z-index: 20;
   /* color: #ffffff !important; */
   /* outline-color: #ffffff !important; */
+  text-transform: capitalize;
 }
 
 .portcarddeck {
@@ -168,3 +170,17 @@ a {
 /* at 600px
   background-position-x: 88%;
   background-position-y: 19%; */
+
+/* body::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(29, 75, 201, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #acb3bb;
+  outline: 1px solid rgb(50, 136, 223);
+  border-radius: 50px;
+} */
