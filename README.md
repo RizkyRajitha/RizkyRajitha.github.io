@@ -1,4 +1,3 @@
-
 <h1 align="center">
   Built with
 </h1>
@@ -11,8 +10,4 @@
 
 </p>
 
-
-
-![status](https://github.com/RizkyRajitha/blogfrontend/workflows/CI/badge.svg)
-
-
+[![CI](https://github.com/RizkyRajitha/RizkyRajitha.github.io/actions/workflows/main.yml/badge.svg?branch=dev)](https://github.com/RizkyRajitha/RizkyRajitha.github.io/actions/workflows/main.yml)

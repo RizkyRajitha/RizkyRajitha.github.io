@@ -121,7 +121,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: "#007bff",
         display: `minimal-ui`,
-        icon: `content/assets/android-chrome-512x512.png`,
+        icon: `content/assets/logo.png`,
       },
     },
   ],
