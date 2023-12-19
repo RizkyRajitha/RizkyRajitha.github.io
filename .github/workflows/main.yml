@@ -52,6 +52,7 @@ jobs:
         run: |
           cd temp
           npm install
+          npm run clean
           npm run build
 
       - name: move files # move the dist files into root dir and remove others.
