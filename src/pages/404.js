@@ -17,7 +17,7 @@ function Notfound(props) {
                 {" "}
                 Go Back
               </Link>
-
+                        
               <br />
               <span className="notfoundtextbottom"></span>
             </div>
