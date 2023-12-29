@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Card from "../components/card"
 import Navbar from "../components/navbar"
 import Seo from "../components/seo"
@@ -14,6 +14,14 @@ export default function Blog(props) {
   // const [timediff, settimediff] = useState(0)
   // const [timeoutsync, settimeoutsync] = useState(true)
   // const [blogviews, setblogviews] = useState("")
+  const [time, setTime] = useState(new Date())
+
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
 
   // console.log(props)
   const postdata = props.data.allMarkdownRemark.edges
@@ -85,23 +93,23 @@ export default function Blog(props) {
             </ul> */}
           </div>
           <div className="col-lg-3">
-            <div className="card my-4 commentsection">
+            {/* <div className="card my-4 commentsection">
               <h5 className="card-header">Total views All time</h5>
               <div className="card-body">
                 <div
-                // className={`input-group ${blogviews ? "" : "loadskceliton"} `}
+                  className={`input-group ${blogviews ? "" : "loadskceliton"} `}
                 >
-                  {/* <h5 className="">{blogviews}</h5> */}
+                  <h5 className="">{blogviews}</h5>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="card my-4 commentsection">
-              <h5 className="card-header">Total views All time</h5>
+              <h5 className="card-header">Time</h5>
               <div className="card-body">
                 <div
                 // className={`input-group ${blogviews ? "" : "loadskceliton"} `}
                 >
-                  {/* <h5 className="">{blogviews}</h5> */}
+                  <h5 className="">{time.toLocaleTimeString()}</h5>
                 </div>
               </div>
             </div>

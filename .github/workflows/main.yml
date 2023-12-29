@@ -52,7 +52,6 @@ jobs:
         run: |
           cd temp
           npm install
-          npm run clean
           npm run build
 
       - name: move files # move the dist files into root dir and remove others.
@@ -92,4 +91,3 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_SHA: ${{ github.sha }}
-
