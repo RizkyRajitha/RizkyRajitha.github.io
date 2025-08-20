@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Rajitha's blog RSS Feed]]></title><description><![CDATA[Personal blog of Rajitha]]></description><link>https://rizkyrajitha.xyz</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 20 Aug 2025 17:50:13 GMT</lastBuildDate><item><title><![CDATA[Updating Blog]]></title><description><![CDATA[Hi there Me after a long time It's been quite some time since I wrote a blog post here, many things have gone deprecated and obsolete so I…]]></description><link>https://rizkyrajitha.xyz/post/updateing-blog/updating-blog/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/updateing-blog/updating-blog/</guid><pubDate>Fri, 29 Dec 2023 17:04:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.52173913043478%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAeJNGEzHSa//xAAYEAADAQEAAAAAAAAAAAAAAAAAARECIf/aAAgBAQABBQLMsIJmekR//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAEREv/aAAgBAwEBPwGmJf/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAgEBPwGtv//EABUQAQEAAAAAAAAAAAAAAAAAACAh/9oACAEBAAY/Aqv/xAAaEAACAgMAAAAAAAAAAAAAAAAAASFhEBEx/9oACAEBAAE/IdULao6jGgVCo//aAAwDAQACAAMAAAAQl+//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEh/9oACAEDAQE/EKOK/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxCFpJ//xAAbEAADAAIDAAAAAAAAAAAAAAAAAREhMVFxgf/aAAgBAQABPxB9TemjIfAUIua9HiUgnLR9n//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt&quot;
+        title=&quot;&quot;
+        src=&quot;/static/345d830d79e5eb63affe4e729b0acc86/4d836/cover.jpg&quot;
+        srcset=&quot;/static/345d830d79e5eb63affe4e729b0acc86/e83b4/cover.jpg 230w,
+/static/345d830d79e5eb63affe4e729b0acc86/e41a8/cover.jpg 460w,
+/static/345d830d79e5eb63affe4e729b0acc86/4d836/cover.jpg 920w,
+/static/345d830d79e5eb63affe4e729b0acc86/89b2d/cover.jpg 1380w,
+/static/345d830d79e5eb63affe4e729b0acc86/5726f/cover.jpg 1840w,
+/static/345d830d79e5eb63affe4e729b0acc86/8d219/cover.jpg 4112w&quot;
+        sizes=&quot;(max-width: 920px) 100vw, 920px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;font-size:12px;&quot;&gt;
+  Photo by &lt;a href=&quot;https://unsplash.com/@zenz?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash&quot;&gt;Vincenzo Malagoli&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/photos/planet-illustration-flfhAlEwDq4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash&quot;&gt;Unsplash&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2&gt;Hi there Me after a long time&lt;/h2&gt;
+&lt;p&gt;It&apos;s been quite some time since I wrote a blog post here, many things have gone deprecated and obsolete so I updated everything to get things back on track.at the time I created this blog gatsby was a v2 and now it is v5, and some packages I used back then are now not maintained at all, so I had to rewrite and update those functionalities. with some effort everything is working great. I also added Cloudflare as DNS, I actually added it previously but removed it again due to a few debugging issues I had that time but this time I decided to keep it.&lt;/p&gt;
+&lt;p&gt;I originally added comments and view count sections for this blog and it was hosted in heroku, but heroku free tier was &lt;a href=&quot;https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq&quot;&gt;canceled&lt;/a&gt; by them (acctually quite some time ago), so i need to migrate those applications to some other place.and i am thinking of using a selfhost comments service like &lt;a href=&quot;https://remark42.com/demo/&quot;&gt;remark42&lt;/a&gt;. for analytics i use &lt;a href=&quot;https://umami.is/&quot;&gt;umami&lt;/a&gt; which is working great. it has an easy to use UI , plain and simple with many useful features.&lt;/p&gt;
+&lt;p&gt;Apart from blogs i setup &lt;a href=&quot;https://jellyfin.org/&quot;&gt;Jellyfin&lt;/a&gt; as my home media server. it was SuperDuper useful app, packed with tons of feature and ease of use. All devices that i use had support for jelly which is awesome.&lt;/p&gt;
+&lt;p&gt;Looking forward to write more blogs but time is the only enemy, which is same for all humans i guess.&lt;/p&gt;
+&lt;h2&gt;Cheers 🥂 , Have a Nice day.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Setup Prometheus and Grafana on Orange Pi]]></title><description><![CDATA[Hi everyone , Hope yall are doing well,
+if you have been keeping up with my posts you know that I have an orange pi that is sitting down.
+I…]]></description><link>https://rizkyrajitha.xyz/post/setup-prometheus-and-grafana-on-orange-pi/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/setup-prometheus-and-grafana-on-orange-pi/</guid><pubDate>Thu, 05 Aug 2021 06:35:51 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;!-- &lt;span style=&quot;font-size:1.28rem;&quot;&gt; --&gt;
+&lt;p&gt;Hope yall are doing well,
+if you have been keeping up with my posts you know that I have an orange pi that is sitting down.
+I recently started doing some configuration management and infrastructure as code stuff with ansible and terraform.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;So I decided to spin Prometheus and grafana to monitor orange pi. I didn&apos;t use Ansible for setting up this in orange pi, because I didn&apos;t have any idea whether it was supported or not in that arm7 platform but it turned out to be working really well. so in this post, I will walk through my journey on setting orange pi monitoring with Prometheus and grafana.&lt;/p&gt;
+&lt;p&gt;so I get started with updating the orange pi.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I first installed downloaded the Prometheus from their &lt;a href=&quot;https://github.com/prometheus/prometheus/releases/tag/v2.28.1&quot;&gt;github&lt;/a&gt; release. because my orangepi is base on arm7 architecture I downloaded the respective archive. here &lt;code class=&quot;language-text&quot;&gt;-OL&lt;/code&gt; in the curl will redirect if need and save the output file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-OL&lt;/span&gt; https://github.com/prometheus/prometheus/releases/download/v2.28.1/prometheus-2.28.1.linux-armv7.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after downloading the image extract it to a folder.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-xzvf&lt;/span&gt; prometheus-2.29.0-rc.0.linux-armv7.tar.gz prometheus-2.29.0-rc.0.linux-armv7/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;next, I copied the Prometheus binary to the &lt;code class=&quot;language-text&quot;&gt;/usr/local/bin/&lt;/code&gt; because that I generally where your binary files live in.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; prometheus-2.29.0-rc.0.linux-armv7/
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; prometheus /usr/local/bin/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after all that was set up, I created a service file for &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; to configure Prometheus as a service in &lt;code class=&quot;language-text&quot;&gt;/etc/systemd/system/&lt;/code&gt;.
+this directory is where we write &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; unit files. there are many places among this one but this I a conventional directory that is best suited in this scenario.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo nano /etc/systemd/system/prometheus.service&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;unit&quot;&gt;&lt;pre class=&quot;language-unit&quot;&gt;&lt;code class=&quot;language-unit&quot;&gt;[Unit]
+Description=Prometheus monitoring
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+                    --config.file /home/batman/prometheus/prometheus.yml \
+                    --web.route-prefix=/ \
+                    --web.external-url=http://rizky.lab/prometheus
+Restart=always
+
+[Install]
+WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;in this file, I have added the &lt;code class=&quot;language-text&quot;&gt;ExecStart&lt;/code&gt; path to the Prometheus binary. here I also added some more arguments to configure Prometheus, because I want to run Prometheus behind an Nginx reverse proxy. and also added the config file in path &lt;code class=&quot;language-text&quot;&gt;/home/batman/prometheus/prometheus.yml&lt;/code&gt; so make sure you have the default &lt;code class=&quot;language-text&quot;&gt;prometheus.yml&lt;/code&gt; (comes with the &lt;code class=&quot;language-text&quot;&gt;tar&lt;/code&gt; archive) file in the specified path.&lt;/p&gt;
+&lt;p&gt;after that is done. I restarted the &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;daemon&lt;/code&gt; and then enable the service.
+enabling service will make sure that this service will run after a reboot. it might do many other things behind the back but I notice this when I used this service without enabling it.
+next stared Prometheus.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl daemon-reload
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&quot;token builtin class-name&quot;&gt;enable&lt;/span&gt; prometheus
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl restart prometheus
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl status prometheus
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;next, we can start installing the &lt;a href=&quot;https://github.com/prometheus/node_exporter/releases/tag/v1.2.0&quot;&gt;node_exporter&lt;/a&gt; for orange pi
+here also, I looked the same way, searched for the &lt;code class=&quot;language-text&quot;&gt;armv7&lt;/code&gt; architecture binary.
+just as before download extract and copy it to the &lt;code class=&quot;language-text&quot;&gt;/usr/local/bin/&lt;/code&gt; directory.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-OL&lt;/span&gt; https://github.com/prometheus/node_exporter/releases/download/v1.2.0/node_exporter-1.2.0.linux-armv7.tar.gz
+&lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-xzvf&lt;/span&gt; node_exporter-1.2.0.linux-armv7.tar.gz node_exporter-1.2.0.linux-armv7/
+&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; node_exporter-1.2.0.linux-armv7/
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; node_exporter  /usr/local/bin/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;next, I repeated the same steps for creating the unit file for &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo nano /etc/systemd/system/nodeexporter.service&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;unit&quot;&gt;&lt;pre class=&quot;language-unit&quot;&gt;&lt;code class=&quot;language-unit&quot;&gt;[Unit]
+Description=node exporter for node monitoring
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node_exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after setting up the node_exporter , reload &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;daemon&lt;/code&gt; and restarted node_exporter.
+keep in mind the service will name after the name of the service file. here node_exporter service will be recognized as nodeexporter because I named the unit file &lt;code class=&quot;language-text&quot;&gt;nodeexporter.service&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl daemon-reload
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&quot;token builtin class-name&quot;&gt;enable&lt;/span&gt; nodeexporter
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl restart nodeexporter
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl status nodeexporter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;now that we have all in place, next add this nodeexporter to Prometheus as a target. to do that we need to edit the
+&lt;code class=&quot;language-text&quot;&gt;prometheus.yml&lt;/code&gt; file we specified earlier. I appended the following to the &lt;code class=&quot;language-text&quot;&gt;prometheus.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;job_name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node_exporter&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;token key atrule&quot;&gt;static_configs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;localhost:9100&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after that restart, Prometheus to catch up with new changes. you can see the change at this point if you visit Prometheus via its opened port.&lt;/p&gt;
+&lt;p&gt;after that, I set up &lt;a href=&quot;https://grafana.com/&quot;&gt;Grafana&lt;/a&gt; for the monitoring dashboard.&lt;/p&gt;
+&lt;p&gt;For Grafana, it&apos;s a bit different than the last approach, hence it could be installed with apt.
+I pretty much followed they&apos;re &lt;a href=&quot;https://grafana.com/docs/grafana/latest/installation/debian/&quot;&gt;offcial documentation&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;wget&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-O&lt;/span&gt; - https://packages.grafana.com/gpg.key &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; apt-key &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; -
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deb https://packages.grafana.com/oss/deb stable main&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-a&lt;/span&gt; /etc/apt/sources.list.d/grafana.list
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; update
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-y&lt;/span&gt; grafana
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl demon-reload
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&quot;token builtin class-name&quot;&gt;enable&lt;/span&gt; grafana-server
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl start grafana-server
+systemctl status grafana-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;hereafter setting up everything I need to alter come configurations in the &lt;code class=&quot;language-text&quot;&gt;grafana.ini&lt;/code&gt; file to allow Grafana to access behind a reverse proxy.
+this Grafana file lives in &lt;code class=&quot;language-text&quot;&gt;/etc/grafana&lt;/code&gt; directory by default.&lt;/p&gt;
+&lt;p&gt;in that configuration we have to set &lt;code class=&quot;language-text&quot;&gt;domain&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;root_url&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;serve_from_sub_path&lt;/code&gt; options.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token section&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# The public facing domain name used to access grafana from a browser&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;domain&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;rizky.lab&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# The full public facing url you use in browser, used for redirects and emails&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# If you use reverse proxy and sub path specify full url (with sub path)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# ;root_url = %(protocol)s://%(domain)s:%(http_port)s/&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;root_url&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;%(protocol)s://%(domain)s:%(http_port)s/grafana/&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Serve Grafana from subpath specified in `root_url` setting. By default it is set to `false` for compatibility reasons.&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;serve_from_sub_path&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after setting this up, restart Grafana to pick up with the latest changes.&lt;/p&gt;
+&lt;p&gt;now as the last step configure the Nginx as the reverse proxy to access our all mighty Grafana dashboard.&lt;/p&gt;
+&lt;p&gt;here I previously configured a site as &lt;code class=&quot;language-text&quot;&gt;rizky.lab&lt;/code&gt; , so I am editing that to suit the needs, but you can try any way you like.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;conf&quot;&gt;&lt;pre class=&quot;language-conf&quot;&gt;&lt;code class=&quot;language-conf&quot;&gt;server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root /var/www/rizky.lab;
+
+  index index.html;
+
+  server_name rizky.lab;
+
+         location /prometheus/ {
+                proxy_pass http://localhost:9090/;
+        }
+
+
+        location /grafana/ {
+                proxy_pass http://localhost:3000/;
+        }
+
+        location / {
+
+                try_files $uri $uri/ =404;
+        }
+
+        # Proxy Grafana Live WebSocket connections.
+        location /grafana/api/live {
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection &amp;quot;Upgrade&amp;quot;;
+                proxy_set_header Host $http_host;
+                proxy_pass http://localhost:3000/;
+        }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and after all that, we can access the all mighty Grafana Dashboard, and configure it as you wish.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e925b024a658cb6c3367aebf70ffce61/29114/grafanadashbaord.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 50.43478260869565%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABvUlEQVR42n1SybKbMBDkD2KeeYAQaEEbiw22Y/uSa56z+Gfy/5fOSCSVV6lUDl2jafVIMy1lolOomELdKLyWHHnBUJQt9q+c0GCf8gZFXCcwlFUHRvqaiRQLiqXskbMOGes0lOlhnYU0BsfDgO+PO749rnh+ueH5uOHr2w1CGzRSgwkFFRzsOqKfPcTssIYBP+6f8JwXZJ12GKcJl/MJy3LE+bTgelmxrgtOhMjP04hW9TDzCB0CDOVmGuAPM1pq5O4HvJkZn81EByqLspFp7Irar7iCsAG8t2iNQ+dciqyNI0ZrSFsLxDodRnSka6wB8xaFkDQyCaU34Fqj5iS0PfxlRLhMCB8nDNcZ/kyFZIdwJo0cYY4h7fukmzHeDmSFRVY1dEhvoHyApta1C+jIL9ZJ8kyBR9/o4QR14qYZyvmkb5VGI/RWa33S1a1AVnO5jUOxFVFokpCJKIh8tEKCi56K4kU66SvS/+H7jaM8dSjII2l8iqJ3qbChwopvXkVO0OO1xMc8Xh4vlb/0kRfKJX+zmrV42dfpv71H5P7F/28vcpmQEh92JfKXilBil/9eb9jlVeLeI+3lG/7mfwJgYRD4j0fXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Grafana Dashboard&quot; title=&quot;&quot; src=&quot;/static/e925b024a658cb6c3367aebf70ffce61/c0255/grafanadashbaord.png&quot; srcset=&quot;/static/e925b024a658cb6c3367aebf70ffce61/81c8e/grafanadashbaord.png 230w,
+/static/e925b024a658cb6c3367aebf70ffce61/08a84/grafanadashbaord.png 460w,
+/static/e925b024a658cb6c3367aebf70ffce61/c0255/grafanadashbaord.png 920w,
+/static/e925b024a658cb6c3367aebf70ffce61/b1001/grafanadashbaord.png 1380w,
+/static/e925b024a658cb6c3367aebf70ffce61/161ec/grafanadashbaord.png 1840w,
+/static/e925b024a658cb6c3367aebf70ffce61/29114/grafanadashbaord.png 1920w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;h3&gt;And with that I am over and out ✌&lt;/h3&gt;
+&lt;h3&gt;If you got any problemo shoot me in the comments sections 🔫&lt;/h3&gt;
+&lt;h3&gt;Cheers 🥂&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Mistakes i made deploying Lambda function]]></title><description><![CDATA[hi everyone, Hope you all are safe and sound.
+ So in this post, I'll walk through some of the mistakes I made developing an AWS lambda video…]]></description><link>https://rizkyrajitha.xyz/post/mistakes-i-made-deploying-Lambda-function/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/mistakes-i-made-deploying-Lambda-function/</guid><pubDate>Tue, 04 May 2021 13:23:58 GMT</pubDate><content:encoded>&lt;h2&gt;hi everyone,&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;Hope you all are safe and sound.
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;So in this post, I&apos;ll walk through some of the mistakes I made developing an AWS lambda video transcoder and how I got through them.
+the lambda function I developed will trigger on an s3 create object event and it will transcode a video using &lt;a href=&quot;https://www.ffmpeg.org/&quot;&gt;FFmpeg&lt;/a&gt; library and it will upload the transcoded video to another s3 bucket.i used serveless framework to ease the process and it really did . i combined it with github action to deploy to AWS.
+at this point you might ask why don&apos;t you use aws &lt;a href=&quot;https://aws.amazon.com/elastictranscoder/&quot;&gt;Elastic Transcoder&lt;/a&gt; or AWS &lt;a href=&quot;https://aws.amazon.com/mediaconvert/&quot;&gt; Elemental MediaConvert&lt;/a&gt; . for start they are pricy and in the other hand i can get more knowledge and expericane by doing it myself in lamda so i chose the hard way .&lt;/p&gt;
+&lt;/span&gt;
+&lt;h2&gt;1 &lt;sup&gt;st&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;s3 bucket and triggering lambda function both should be in the same region. this is well specified in most resources but I missed it.&lt;/p&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;h2&gt;2 &lt;sup&gt;nd&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;br&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;I created and separate IAM roles to upload and get objects from the s3 buckets, and used that with AWS-SDK. this was the normal procedure, I&apos;ve done it more than once so why bother, but turns out that was not essential, it will work but unnecessary because in AWS lambda you can specify the lambda Execution role
+so that I can access other AWS resources without any credentials.&lt;/p&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/645f4291ecdc0057ceec51f0fc9b544a/07e9f/lamdapolicy_hxp3xt.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 45.65217391304348%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAwUlEQVR42n2RUQ6CMBBEe//L+eMJ0ERAVKB0290t6NAaU0xgaAhsOn0zYM7VqXt2FJhVWaRcGmOc570lqmYYV02vu5us98EnhRDIe1jf+1qWxahGFvY0iQre50KxUE5RDvFsPK0oZOCkuFU+BYc6cl33wOYSYESEiNyEyyHvXkgUud1qFCyHiK0hMODAHjQEoLpc+37Ibb/mTF7hDjd/SG6stRsyijFL+sABf+fAXNfN+GeGM2FX7rKjbG7aNpN/8w8/uxDXrVQmGAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;permissions in lamda function menu&quot; title=&quot;&quot; src=&quot;/static/645f4291ecdc0057ceec51f0fc9b544a/c0255/lamdapolicy_hxp3xt.png&quot; srcset=&quot;/static/645f4291ecdc0057ceec51f0fc9b544a/81c8e/lamdapolicy_hxp3xt.png 230w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/08a84/lamdapolicy_hxp3xt.png 460w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/c0255/lamdapolicy_hxp3xt.png 920w,
+/static/645f4291ecdc0057ceec51f0fc9b544a/07e9f/lamdapolicy_hxp3xt.png 1301w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+&lt;h2&gt;3 &lt;sup&gt;rd&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;only giving get s3 object permission will give &lt;code class=&quot;language-text&quot;&gt;403&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;access denied&lt;/code&gt; error if the specified key is not available in the bucket.&lt;/p&gt;
+&lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 795px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/cfb26e22c84982b3181132dfc6a3c77b/65c7b/accessdenied_gwnkpm.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 38.260869565217384%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABGUlEQVR42k1QB5KEMAzj/09jIYWa0G/pISyw8IATAW5O48m4SLZjKxYiDCMhEyHEMI5ZliOMYxFFMcwPzqgoyizPkyQVUr7rd2eg1GRxz7NtBzzQGPcoZY5LYIRxhIRQxrhtv5ITadf1Sqlt247j2PfdgowZHmU8CELfD7jx0cXzfOQxuiiKNMv6fpimSWv9fWCBbbp7jkNkkgZhxDgnlF5iGOe+lAmcqvqBchzHZVkecQCEKJdVhQK2QnM13QAbmTOrJtjns2g9r+t6i12XYk+XUPzz5bg4GI5R103btn3fX7dpmhYvMlc4DAO+fYqd8zhUCImpqCqDe4UHl29eDWee53tyWZZN09R13Zre27oeN/Y//PcvXOJfr76mGGdTLtkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;cloudwatch log 403&quot; title=&quot;&quot; src=&quot;/static/cfb26e22c84982b3181132dfc6a3c77b/65c7b/accessdenied_gwnkpm.png&quot; srcset=&quot;/static/cfb26e22c84982b3181132dfc6a3c77b/81c8e/accessdenied_gwnkpm.png 230w,
+/static/cfb26e22c84982b3181132dfc6a3c77b/08a84/accessdenied_gwnkpm.png 460w,
+/static/cfb26e22c84982b3181132dfc6a3c77b/65c7b/accessdenied_gwnkpm.png 795w&quot; sizes=&quot;(max-width: 795px) 100vw, 795px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;and because of this, I wasted time configuring IAM roles because I was confused that the lambda function didn&apos;t have permission to access the bucket but, in the end, it was my stupid mistake because the key I passed didn&apos;t exist, and guess what I didn&apos;t gave permission to list bucket , so AWS-SDK will return access denied error instead of no key found . after configuring correct permission I got no key found error. but why you would specify a key that doesn&apos;t exist huh, well next one explains that&lt;/p&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 913px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/62ab80508e61da79ddabf33b7c4d1f19/0eb6d/nokey_cdm9ax.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 33.47826086956522%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA40lEQVR42oVQ2XKEIBD0/z/Qk1M36mJAERWP0mwveYmpVKULpmage66IUiaElLLsus+nUggpe79wIQmh1ePRNK0sSzj9MFg7TtM84c6z92uUplma5YEtoMyLIsthCJQFoXDxpZRyzm3bdl3X1w9EhNK8IHGcgs8YBztJsyRBSJGirpuPujbGbNv+hxgMyngdGMb0bftEn0CYosNRquv7Acp5Wc7z/C3mXJRVhcEh+K4A+HWFXQO890vAcRw3cRyjx0xrba1FBViMN44Ou4F1bnIBWFIYe7+JsWGtTeC5fb8l/hcv6kWIO5O4LzQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;cloudwatch log 404&quot; title=&quot;&quot; src=&quot;/static/62ab80508e61da79ddabf33b7c4d1f19/0eb6d/nokey_cdm9ax.png&quot; srcset=&quot;/static/62ab80508e61da79ddabf33b7c4d1f19/81c8e/nokey_cdm9ax.png 230w,
+/static/62ab80508e61da79ddabf33b7c4d1f19/08a84/nokey_cdm9ax.png 460w,
+/static/62ab80508e61da79ddabf33b7c4d1f19/0eb6d/nokey_cdm9ax.png 913w&quot; sizes=&quot;(max-width: 913px) 100vw, 913px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+&lt;h2&gt;4 &lt;sup&gt;th&lt;/sup&gt; mistake&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;The next one is missing the decodeURIComponent on the s3 triggered event object key.because s3 object keys are URL encoded, I thought I pass
+&lt;code class=&quot;language-text&quot;&gt;Capone - OhNo(Lyrics).mp4&lt;/code&gt; but actually what I passed was &lt;code class=&quot;language-text&quot;&gt;Capone+-+OhNo%28Lyrics%29.mp4&lt;/code&gt;. so I had to decode the key using &lt;code class=&quot;language-text&quot;&gt;decodeURIComponent&lt;/code&gt; and pass it .&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/35837d98db1ba2ba4586a733ed60852c/bb051/carbon_cmljtv.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 39.565217391304344%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVR42pWPyU7CUBSG+y5qaAXKVAplCMrO+CJEF6CQiGA3RIa4AoJuIKAICi0OEGVwiIK+1++5gAZdGF189/Se3P87PZw+nEAbTNAZvUMfvUEf/p/OA2XJw+C0wRi1Th+5UhWZfAXZQnlGcU7hd3L05ui4ipren/4Yp/XHULNFbMgyApsylq0yBJMT/BxBlMGbnd9gvdUFWE/N5GfCZu8JMTUDs9EBp+yFTXJBkhX6ViC7PTBa6G51w2WjHlWGnRBIYqAMb5KwItimjoveM7jzmxF2Eiks8TYK+eElqd0XhIPw+gMQnT5IniAk9zqxBklZh10JwkLvRBpusrpI6kBkP4XG7SMJ6YipaRhokplNpsqb52uylVldXFuc3QWqnysbSMgczS4JG3QUyk1Ek4fY2k0gFIkjFN6j+oPwAl/9OLajSUQP0siTg7m41v0r6ldDlC+7ODnTUKq1/85pmzI6KpStXw/RunvBB/q7czLUBTPCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;decodeURIComponent&quot; title=&quot;&quot; src=&quot;/static/35837d98db1ba2ba4586a733ed60852c/c0255/carbon_cmljtv.png&quot; srcset=&quot;/static/35837d98db1ba2ba4586a733ed60852c/81c8e/carbon_cmljtv.png 230w,
+/static/35837d98db1ba2ba4586a733ed60852c/08a84/carbon_cmljtv.png 460w,
+/static/35837d98db1ba2ba4586a733ed60852c/c0255/carbon_cmljtv.png 920w,
+/static/35837d98db1ba2ba4586a733ed60852c/bb051/carbon_cmljtv.png 1212w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;span style=&quot;font-size:1.18em;text-align: justify;&quot; &gt;
+&lt;p&gt;and like that everything was comming together.
+here is &lt;a href=&quot;https://github.com/RizkyRajitha/serverless-transcoder&quot;&gt;github repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Thanks for reading so far.&lt;br&gt;
+Stay safe folks 🙌
+&lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Realtime Anemometer Project]]></title><description><![CDATA[Hello everyone, Hope yall are doing well, and safe with this pandemic situation.
+Recently I started making an anemometer just for fun and…]]></description><link>https://rizkyrajitha.xyz/post/Realtime-Anemometer-Project/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/Realtime-Anemometer-Project/</guid><pubDate>Sat, 23 Jan 2021 07:48:25 GMT</pubDate><content:encoded>&lt;h2&gt;Hello everyone,&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.18em;&quot;&gt;
+&lt;p&gt;Hope yall are doing well, and safe with this pandemic situation.&lt;br&gt;
+Recently I started making an anemometer just for fun and, got an idea for creating a real-time wind speed dashboard.&lt;/p&gt;
+&lt;p&gt;for this project, I used &lt;a href=&quot;https://mqtt.org/&quot;&gt;mqtt&lt;/a&gt; protocol for real-time communication with the client and from the sensor. mqtt is really fast and also reliable and also use low bandwidth. Which is the main reason it is widely used in IoT applications.&lt;/p&gt;
+&lt;p&gt;here we have 3 main parts&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;wind speed detector developed with and nodemcu&lt;/li&gt;
+&lt;li&gt;node API that handles historical data for the graph&lt;/li&gt;
+&lt;li&gt;react web application to show real-time data and also historical data of the wind speeds&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;wind speed is detected from an &lt;a href=&quot;https://en.wikipedia.org/wiki/Rotary_encoder#Optical_absolute_encoders&quot;&gt;optical encoder&lt;/a&gt; that counts how many turns the wind cups are turned within a given time. nothing fancy there.&lt;/p&gt;
+&lt;p&gt;and when coming to wind speed data, I only collected average and also max wind speeds within an hour and write that data to the database. from this data historical data graphs are created for the last day, last week, and you guessed it last month XD&lt;/p&gt;
+&lt;p&gt;and that&apos;s pretty much it. most of the software is done now. only need a bit of polishing. but hardware is needed to be weatherproofed for actual uses&lt;/p&gt;
+&lt;p&gt;after developing the API I chose to deploy it on a local running &lt;a href=&quot;http://www.orangepi.org/orangepizero/&quot;&gt;orange pi&lt;/a&gt;. orange pi is a budget alternative for well-known &lt;a href=&quot;https://www.raspberrypi.org/&quot;&gt;raspberry pi&lt;/a&gt;. orangepi is an opensource and developed china based company. it is pretty good for a small project like this.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e089f886fa61a8e3ec1b1cb95932a02d/a530b/61XSmOKg85L._AC_SL1001_.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 126.52173913043478%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwL/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAG30gml4yBnz9lEvDIP/8QAHhAAAgEEAwEAAAAAAAAAAAAAAQIDABESMQQTIjP/2gAIAQEAAQUCYGlbIVLI4Pc14zkkt7ENSReeZ9V2uv/EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAEDAQE/AWP/xAAWEQEBAQAAAAAAAAAAAAAAAAAQARH/2gAIAQIBAT8Bwh//xAAcEAACAgIDAAAAAAAAAAAAAAAAARAREiECMbH/2gAIAQEABj8Cy49+y6ei8tiY1VClR//EAB0QAQACAwADAQAAAAAAAAAAAAEAESExQRBRcaH/2gAIAQEAAT8hvcHOQFx8R54sIB0gLstvG4qDll9jlhszAYDUAPvqNXNPyfommf/aAAwDAQACAAMAAAAQKMgw/8QAFhEBAQEAAAAAAAAAAAAAAAAAARBh/9oACAEDAQE/EHEZ/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARMf/aAAgBAgEBPxAWLVhf/8QAHhABAAICAgMBAAAAAAAAAAAAAREhAFExsRBBkaH/2gAIAQEAAT8Qg1qhbRp06cvuI8Ar2JvxMs8Al/TI0kYgQDdYBhC49OsiWQecXPGKKUCYhvhwtlUXMm6dR8z9bvxPe7z/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;anemoneter dashboard&quot; title=&quot;&quot; src=&quot;/static/e089f886fa61a8e3ec1b1cb95932a02d/a530b/61XSmOKg85L._AC_SL1001_.jpg&quot; srcset=&quot;/static/e089f886fa61a8e3ec1b1cb95932a02d/e83b4/61XSmOKg85L._AC_SL1001_.jpg 230w,
+/static/e089f886fa61a8e3ec1b1cb95932a02d/e41a8/61XSmOKg85L._AC_SL1001_.jpg 460w,
+/static/e089f886fa61a8e3ec1b1cb95932a02d/a530b/61XSmOKg85L._AC_SL1001_.jpg 619w&quot; sizes=&quot;(max-width: 619px) 100vw, 619px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p align=&quot;center&quot;&gt;orange pi  zero&lt;/p&gt;
+&lt;span style=&quot;font-size:1.18em;&quot;&gt;&lt;/span&gt;
+&lt;p&gt;my version is packed with H2 Quad-core processor and 512 Mb of ram, but not all of that is useful since it is shared with GPU after what useable ram is around 400mb. this version includes an ethernet port that supports &lt;a href=&quot;https://en.wikipedia.org/wiki/Power_over_Ethernet&quot;&gt;PEO&lt;/a&gt; , so that&apos;s a good point is IoT based projects, but I used separate DC input to power this. orangepi runs ubuntu based operating system just like the raspberry pi.&lt;/p&gt;
+&lt;p&gt;when deploying I used &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;docker compose&lt;/a&gt; , but ultimately failed because this version doesn&apos;t support it, so I had to do the docker networking part manually, to establish connections between server container and database container. and also this version had some trouble deploying &lt;a href=&quot;https://www.prisma.io/&quot;&gt;prisma&lt;/a&gt; and &lt;a href=&quot;https://nextjs.org/&quot;&gt;nextjs&lt;/a&gt; which was my original core libraries for ORM and frontend developing respectively. but both of them failed&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Prisma needs a dependency with OpenSSL for communicating with the database to generate prima client, but orangepi version was not compatible with that, so I had to use vanilla pg to handle all database stuff. not terrible since there weren&apos;t any complex queries, just a few selects and one insert . that all.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nextjs shipped with &lt;a href=&quot;https://sharp.pixelplumbing.com/&quot;&gt;sharp&lt;/a&gt; which is a great image processing library . but the sad thing is that it sharp is based on &lt;a href=&quot;https://libvips.github.io/libvips/&quot;&gt;libvips&lt;/a&gt; . and guess what it needed a higher version of &lt;a href=&quot;https://www.gnu.org/software/libc/&quot;&gt;glibc&lt;/a&gt; to get working.so i tried &lt;a href=&quot;https://reactjs.org/&quot;&gt;react&lt;/a&gt; instead. it was working finally, but I could build react app on orange pi because it&apos;s ram limitations, fo every time I need to build in I have to build it in my machine and then copy it to orange pi . which is a bit annoying.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;anyway, after these changes everything was working as expected. Below is an image of the dashboard. values are random since I didn&apos;t fix the anemometer yet.&lt;/p&gt;
+&lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/0ce03fccc03c974e01499725a150c9c1/29114/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 56.086956521739125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9klEQVR42o2SaRKCMAyFuYbaAi4VaCmrjuD97xWTLghSHH68SRuaj8cr0elewkpFi2omXbs3nJsB1/WiP585CgWpbCBawTINTCIw+/bi6gW8fOJa2T6dISBWes6wd7hJkI8xDDROcNiAqaJjltfOPYKEtNUD7xZY9MMWkBxWwOsRTgakrQhsnPoze4CkfJnVMfvJjuQd7wIaYV4YNOUj2gF4rm1voXJHhu7AfB+jI7b54u8tX8run0MCa6vZkFcQii6DwAT/p0R1cFY9pFi9EtVO4kUdjCkIjDFwcvbriOfVJOZueCGhtjLU7kL06tOZGwxmKhR8ANcfO+7phvhUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;anemoneter dashboard&quot; title=&quot;&quot; src=&quot;/static/0ce03fccc03c974e01499725a150c9c1/c0255/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png&quot; srcset=&quot;/static/0ce03fccc03c974e01499725a150c9c1/81c8e/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 230w,
+/static/0ce03fccc03c974e01499725a150c9c1/08a84/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 460w,
+/static/0ce03fccc03c974e01499725a150c9c1/c0255/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 920w,
+/static/0ce03fccc03c974e01499725a150c9c1/b1001/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 1380w,
+/static/0ce03fccc03c974e01499725a150c9c1/161ec/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 1840w,
+/static/0ce03fccc03c974e01499725a150c9c1/29114/React_App_Mozilla_Firefox_1_21_2021_10_54_45_PM_xqlnej.png 1920w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p align=&quot;center&quot;&gt;anemoneter dashboard (mock values)&lt;/p&gt;
+&lt;span style=&quot;font-size:1.18em;&quot; &gt;
+Thanks for reading so far.&lt;br&gt;
+Stay safe folks 🙌
+&lt;/span&gt;</content:encoded></item><item><title><![CDATA[Rebuild Blog With Gatsby ☄]]></title><description><![CDATA[Hi everyone , I saw Gatsby quite some time ago and I was blown out by it's speed. So I decided to move my blog to Gatsby and here's how I…]]></description><link>https://rizkyrajitha.xyz/post/Rebuild-Blog-With-Gatsby-☄/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/Rebuild-Blog-With-Gatsby-☄/</guid><pubDate>Sun, 23 Aug 2020 13:36:28 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;I saw &lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt; quite some time ago and I was blown out by it&apos;s speed. So I decided to move my blog to Gatsby and here&apos;s how I did it.&lt;/p&gt;
+&lt;p&gt;My first challenge was to grasp the concepts of Gatsby, and it&apos;s SSR stuff. After that, I managed to duplicate the UI from my old blog, nothing fancy there.&lt;/p&gt;
+&lt;p&gt;But the tricky part was how to manage data. previously i just rendered markdown in clientside via blog API.
+now I create pages(blog posts) programmatically from gatsby &lt;code class=&quot;language-text&quot;&gt;createPage&lt;/code&gt; API to render markdown, but all the comments and views will be dynamically rendered on the client-side. and that was working well. now every blog post has it&apos;s own HTML file, and because of that SEO is also enhanced.&lt;/p&gt;
+&lt;p&gt;Now when I share Blog post URL it will show something similar.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 880px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/22c0735739e4109d48854642b9de226f/f84cf/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 145.65217391304347%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAdABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgD/2gAMAwEAAhADEAAAAY3SFwwUG7JNKoFGP//EAB0QAAIBBAMAAAAAAAAAAAAAAAABEQIDEyEQEjL/2gAIAQEAAQUCs+Wi4ocQbN8syM7sz1n/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwEj/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAQ/9oACAECAQE/AWd//8QAGhAAAQUBAAAAAAAAAAAAAAAAAAEQICFBkf/aAAgBAQAGPwJXo2ecP//EAB8QAAIBBAIDAAAAAAAAAAAAAAABERAxQVEhYXGBkf/aAAgBAQABPyFV7KCEw8Dmh3G7EbiGvIrUZ4gXT8PHbRwJYcD/2gAMAwEAAgADAAAAEGv8Mf/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAwEBPxDa1ETX/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEREP/aAAgBAgEBPxBSsUp//8QAHxABAAMAAQQDAAAAAAAAAAAAAQARITFBUWGBkaHh/9oACAEBAAE/EGXF/mK6V7IVWdXyxGWzgbZ2ueU9sd2vm2IRYXXYlD2+oBxTyEDdPGoXKca4QMjUUxxP/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;telegram share url&quot; title=&quot;&quot; src=&quot;/static/22c0735739e4109d48854642b9de226f/f84cf/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg&quot; srcset=&quot;/static/22c0735739e4109d48854642b9de226f/e83b4/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 230w,
+/static/22c0735739e4109d48854642b9de226f/e41a8/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 460w,
+/static/22c0735739e4109d48854642b9de226f/f84cf/23288d23-33cd-48c2-8833-be81d0719236_jurbyb.jpg 880w&quot; sizes=&quot;(max-width: 880px) 100vw, 880px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/30dbeae2146c2a604a755af793845b63/47311/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 116.95652173913045%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQID/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABxLtTQM50PKAgH//EABsQAAICAwEAAAAAAAAAAAAAAAECAxIAEBMR/9oACAEBAAEFAo1s/DJFq0J8frkps5O//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGRAAAwADAAAAAAAAAAAAAAAAABARASEx/9oACAEBAAY/AooU4U1iP//EAB0QAAMAAgIDAAAAAAAAAAAAAAABESExYXGBkfH/2gAIAQEAAT8hlRaNOPZXMMR9mYKCHNJZzsTffkbp/9oADAMBAAIAAwAAABBTxwD/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEBAAIDAAMAAAAAAAAAAAABEQAhMUFRYXGB/9oACAEBAAE/EAR0HufuK1PtWAxCBx3imFg09MSOT8Yr7AALwZp4xEJr3CO7pZWWUJr25//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;instagram share url&quot; title=&quot;&quot; src=&quot;/static/30dbeae2146c2a604a755af793845b63/4d836/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg&quot; srcset=&quot;/static/30dbeae2146c2a604a755af793845b63/e83b4/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 230w,
+/static/30dbeae2146c2a604a755af793845b63/e41a8/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 460w,
+/static/30dbeae2146c2a604a755af793845b63/4d836/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 920w,
+/static/30dbeae2146c2a604a755af793845b63/47311/839eaf21-14a1-4bf2-84f2-37f7dd8a78be_nueu8c.jpg 1080w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;after finishing up all the development work. I started working on a deployment workflow. Earlier i manually build and push build files to &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github pages&lt;/a&gt;. but with Gatsby modifications , it was not very practical since I need to build it every day because Blog&apos;s landing page background is NASA&apos;s &lt;a href=&quot;https://apod.nasa.gov/apod/astropix.html&quot;&gt;Astronomy Picture of the Day&lt;/a&gt; and that was updated every day. so I used Github actions for deployment.&lt;/p&gt;
+&lt;p&gt;It eased the workflow quite a lot since now everything is built and published by one push to GitHub . And also a &lt;code class=&quot;language-text&quot;&gt;cron&lt;/code&gt; job ensures the building site every day to keep up with the NASA image.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/RizkyRajitha/RizkyRajitha.github.io&quot;&gt;Blog Repo&lt;/a&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;h2&gt;Thanks for reading folks see y&apos;all in next one 🙌.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Optimizing blog]]></title><description><![CDATA[Hi everyone , Recently I did some optimizations to this blog, so here i'll talk about them.
+first, I changed the background of the landing…]]></description><link>https://rizkyrajitha.xyz/post/optimizing-blog/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/optimizing-blog/</guid><pubDate>Sun, 03 May 2020 18:17:26 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;Recently I did some optimizations to this blog, so here i&apos;ll talk about them.
+first, I changed the background of the landing page to NASA&apos;s &lt;a href=&quot;https://apod.nasa.gov/apod/astropix.html&quot;&gt;Astronomy Picture of the Day&lt;/a&gt; . and it turns out cool. most of the time it gives images but sometimes it post videos, so in that case, I show a previous good one.&lt;br&gt;&lt;br&gt;
+so everything worked great in development, but after deploying, it took ages to show the background image because those images were huge. but looks cool 😎.
+so to fix it I did some digging and found out &lt;a href=&quot;https://imagekit.io/&quot;&gt;ImageKit&lt;/a&gt; , a CDN service that optimizes images for web. they had soo many cool features, but one that suits me was optimizing images from a URL which is the one I&apos;ve been looking for.
+so with it I get compressed images with a decent quality that had a better balance of both size and details of the picture . and it worked great making a significant difference . after that I used it to other images in the portfolio.&lt;br&gt;&lt;br&gt;
+next, I started messing up with unnecessary jquery files that came with bootstrap. after removing jquery navbar toggler didn&apos;t work in mobile . and to fix it I used react-bootstrap .
+&lt;br&gt;&lt;br&gt;
+finally, I manage to get rid of the huge font awesome CSS asset and replace that with a custom font, with only icons that I used.
+&lt;a href=&quot;https://icomoon.io/app/#/select&quot;&gt;IcoMoon App&lt;/a&gt; allows us to create a custom font with the icons of our choice . and after that, we can add that custom icon pack to our project.
+&lt;br&gt;&lt;br&gt;
+after all these optimizations, I got 30% faster loading speeds, it is not the best but it was an improvement&lt;br&gt;
+&lt;br&gt;
+here are the scores of lighthouse&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/16452450c0bd18b6c58de3740fbff31f/29114/light_qbj9rp.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 36.95652173913043%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAuUlEQVR42pWSjQrDIAyEff/nHOtG6b/GaKI3rdtg0A4aODwh+RKihpwFESHGCBH5KoliDhYPnvDkGR2P6O0KzwGq8pNbpao7x+Ag8vtchNDRiM4OBTjhvsxwnnEW3nuYnDNOVdEpIwojaCyd/uQW1SnNWbcGbHGjAT0vuxethfmwJqV0DvSB9900iIA8lS6KlTLmLV4HOiYwt31pTtjIIoTQCsv9MtA6j3VrP8A6V/y2ey6v/Jn8CPgCnMIobh89U/YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;lighthouse scores&quot; title=&quot;&quot; src=&quot;/static/16452450c0bd18b6c58de3740fbff31f/c0255/light_qbj9rp.png&quot; srcset=&quot;/static/16452450c0bd18b6c58de3740fbff31f/81c8e/light_qbj9rp.png 230w,
+/static/16452450c0bd18b6c58de3740fbff31f/08a84/light_qbj9rp.png 460w,
+/static/16452450c0bd18b6c58de3740fbff31f/c0255/light_qbj9rp.png 920w,
+/static/16452450c0bd18b6c58de3740fbff31f/b1001/light_qbj9rp.png 1380w,
+/static/16452450c0bd18b6c58de3740fbff31f/161ec/light_qbj9rp.png 1840w,
+/static/16452450c0bd18b6c58de3740fbff31f/29114/light_qbj9rp.png 1920w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Thanks for reading folks see y&apos;all in next one 🙌.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[what's inside QR codes]]></title><description><![CDATA[Hi everyone , so recently I used ShareMe app to share some files with my friends, and there we have to read a QR code and it connects to…]]></description><link>https://rizkyrajitha.xyz/post/whats-inside-qr-codes/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/whats-inside-qr-codes/</guid><pubDate>Sun, 22 Mar 2020 16:17:32 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;so recently I used &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.xiaomi.midrop&amp;#x26;hl=en&quot;&gt;ShareMe&lt;/a&gt; app to share some files with my friends, and there we have to read a QR code and it connects to send files.&lt;/p&gt;
+&lt;p&gt;so i was curious that what was in that QR code. it should be some information about the device so it can be recognized in the network.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/2038694f107332a09f70d2e82703806b/09d21/1_gabmcw.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 216.52173913043478%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAArABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAEEBgX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHvJAFKl1KxfAYSTdMIP//EAB4QAAEDBAMAAAAAAAAAAAAAAAACAxIBBBAgFCEx/9oACAEBAAEFAtrnzumHG5nH1momomo//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAHRAAAgEEAwAAAAAAAAAAAAAAAAEyEBEgkSExof/aAAgBAQAGPwLJHd6LmxLzGT2SZJ7P/8QAHxAAAQMDBQAAAAAAAAAAAAAAAQARIRAgUTFBYYHx/9oACAEBAAE/IZfRThCwyGyXfZGKbpZ6cUIHn3cV6tFf/9oADAMBAAIAAwAAABDzwDzjz//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QX//EACAQAQACAQMFAQAAAAAAAAAAAAEAESEQMVEgQWGR8XH/2gAIAQEAAT8QaYB83L4/cAGwdDWVILNuJYeyKzfjfSqL2rgu7KilXMjge/7pcvT6Seq5z6Sf/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/2038694f107332a09f70d2e82703806b/09d21/1_gabmcw.jpg&quot; srcset=&quot;/static/2038694f107332a09f70d2e82703806b/e83b4/1_gabmcw.jpg 230w,
+/static/2038694f107332a09f70d2e82703806b/e41a8/1_gabmcw.jpg 460w,
+/static/2038694f107332a09f70d2e82703806b/09d21/1_gabmcw.jpg 540w&quot; sizes=&quot;(max-width: 540px) 100vw, 540px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;To find out what is in it, I used a QR code scanner and decode it. and this is what I got.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 606px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/2bd33f7ac912490e37a9e0095c86e377/38772/1_2_d6xbbz.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 211.30434782608694%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAqABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAECAwQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB9vHqwLtBhG4hYIkAf//EABwQAAEEAwEAAAAAAAAAAAAAAAIAAQMQERMxMP/aAAgBAQABBQLWCBoSWsKjiGOn6h5hYbw//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAHRAAAAYDAQAAAAAAAAAAAAAAAAECETKRECIwgf/aAAgBAQAGPwKCaGpJPwQTWDZ+3//EAB0QAAEEAgMAAAAAAAAAAAAAAAEAEBEhUWEx0fH/2gAIAQEAAT8hh6CKmn0XmGOkZTVluV6GFqa1Jw8N/9oADAMBAAIAAwAAABBgygxjz//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QX//EACIQAQACAgAFBQAAAAAAAAAAAAEAESExEEFRgfBhobHB0f/aAAgBAQABPxAJVB5coMpUWsXtPHvqNOGLyCLNQX+8C9yE+WLqot3PQwK1F6ILsneF8yIOy6gC8GW+H//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/2bd33f7ac912490e37a9e0095c86e377/38772/1_2_d6xbbz.jpg&quot; srcset=&quot;/static/2bd33f7ac912490e37a9e0095c86e377/e83b4/1_2_d6xbbz.jpg 230w,
+/static/2bd33f7ac912490e37a9e0095c86e377/e41a8/1_2_d6xbbz.jpg 460w,
+/static/2bd33f7ac912490e37a9e0095c86e377/38772/1_2_d6xbbz.jpg 606w&quot; sizes=&quot;(max-width: 606px) 100vw, 606px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;hmmm, this looks like total gibberish but,
+it could make some sense when we look in a different perspective.
+is this could be a base64 encoded string.&lt;/p&gt;
+&lt;p&gt;Hmmmmmmmmmmmmmmm.....👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀&lt;/p&gt;
+&lt;p&gt;so I used a base64 decoder to decode and look at what&apos;s inside. I mean this is trial and error, it may or may not be decoded but I tried it anyway, and this is the result.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 764px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/cc40997b8b0e421101fad296408a77f3/72747/23_LI_ei7qbp.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 68.26086956521739%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe0mjQf/xAAYEAEBAQEBAAAAAAAAAAAAAAAAARIhEf/aAAgBAQABBQLyMspLHXX/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAWEAEBAQAAAAAAAAAAAAAAAAAAMRD/2gAIAQEABj8CRF3/xAAaEAABBQEAAAAAAAAAAAAAAAAAARFRcZFh/9oACAEBAAE/IeQwMEosumDyTD//2gAMAwEAAgADAAAAEHDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRAAAgIBBQAAAAAAAAAAAAAAAAERQXEQUWGB4f/aAAgBAQABPxBbXTRUJCInmcO/0K92B//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/cc40997b8b0e421101fad296408a77f3/72747/23_LI_ei7qbp.jpg&quot; srcset=&quot;/static/cc40997b8b0e421101fad296408a77f3/e83b4/23_LI_ei7qbp.jpg 230w,
+/static/cc40997b8b0e421101fad296408a77f3/e41a8/23_LI_ei7qbp.jpg 460w,
+/static/cc40997b8b0e421101fad296408a77f3/72747/23_LI_ei7qbp.jpg 764w&quot; sizes=&quot;(max-width: 764px) 100vw, 764px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;here is a stringified JSON payload (i think🙄).&lt;/p&gt;
+&lt;p&gt;it decoded like a charm and it got the information about my phone model, some kind of a id and some codes that I don&apos;t understand and here also some gibberish so, what do we do to gibrish.. we put the to base 64 decodes ain&apos;t eh? 😁😁😁&lt;/p&gt;
+&lt;p&gt;well, it will not work always but this time it did.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 760px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/27fa8e947e043c23018098919879bcda/307d7/65_LI_2_hy6qny.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 60%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdtxYxB//8QAFxAAAwEAAAAAAAAAAAAAAAAAARARAP/aAAgBAQABBQJgRXf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAYEAADAQEAAAAAAAAAAAAAAAAAARExcf/aAAgBAQABPyGIjIyjW+spR//aAAwDAQACAAMAAAAQIM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAbEAADAAIDAAAAAAAAAAAAAAAAAREQYTFBUf/aAAgBAQABPxCnSErhGorRZ7Cl5g//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/27fa8e947e043c23018098919879bcda/307d7/65_LI_2_hy6qny.jpg&quot; srcset=&quot;/static/27fa8e947e043c23018098919879bcda/e83b4/65_LI_2_hy6qny.jpg 230w,
+/static/27fa8e947e043c23018098919879bcda/e41a8/65_LI_2_hy6qny.jpg 460w,
+/static/27fa8e947e043c23018098919879bcda/307d7/65_LI_2_hy6qny.jpg 760w&quot; sizes=&quot;(max-width: 760px) 100vw, 760px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;here we can see some useful information such as my mac address and some flags I assume.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 763px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/5f36f4b9914ff9962699731dca05e52a/5e3a3/33_lcyf91.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 57.826086956521735%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABY0lEQVR42q2TvVLDMAzH/dgMTOwcC8/AMfAULHSCjalH43yncZwmaXNt8/FHkpsDSq8dIHe/kyzLsqRYSvs+AsL3NeFDaw3P88TmeRqade32gjCQ9WLBLAT29WT9gdVqBZVmKbIswyQzkml6sKWTPvFlOyZJEhewLEuchZwu+hDWWjRNA8XKf1AUBeq6/lvAkxkaYyQ6Y4+kYL/pvHfIZoLPM3meux5WVSUb7paSjO5G3mSmIFMW1jrfgvS2bbHf77Hb7bDdbkUqUxisN2sJxEgGxoojMGIYhh+MB/q+xziOOP6UySlAzmVaLJeZwOmzZBsfZLquQ985KZDt1Kdmb894IV7fZ9IvabJ1fZwaXnH5ZYWmbohaWsF/9GTAu8dr3D/d4PbhClEawlIAY3IqnZpdcKZLtJuWsnOZcZmO4Xc7yK6SKKXRCsEyDCMZsfl8LiMVx7QOaOSCQEYximN66Ocf9ieM+orZIUZ7JwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/5f36f4b9914ff9962699731dca05e52a/5e3a3/33_lcyf91.png&quot; srcset=&quot;/static/5f36f4b9914ff9962699731dca05e52a/81c8e/33_lcyf91.png 230w,
+/static/5f36f4b9914ff9962699731dca05e52a/08a84/33_lcyf91.png 460w,
+/static/5f36f4b9914ff9962699731dca05e52a/5e3a3/33_lcyf91.png 763w&quot; sizes=&quot;(max-width: 763px) 100vw, 763px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;and in this payload, there goes my private IP address and I assume &lt;code class=&quot;language-text&quot;&gt;8181&lt;/code&gt; might be the port of this application.&lt;/p&gt;
+&lt;p&gt;so what can we get from this.well basically nothing important but staying curious will always lead us to find new problems so we can tackel with em.&lt;/p&gt;
+&lt;hr&gt;
+&lt;img src=&quot;230925670045202_vtogrw.gif&quot; alt=&quot;create new bot&quot; style=&quot;width:100%;&quot;&gt;
+&lt;hr&gt;
+&lt;p&gt;I tried Whatsapp QR but it didn&apos;t give me any results worth sharing but if I found something new, yall will be the first to know.
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+Thanks for reading folks I&apos;m out 🙌.&lt;/p&gt;
+&lt;/span&gt;</content:encoded></item><item><title><![CDATA[Awesome Js Tips.(Few of em )]]></title><description><![CDATA[Hi everyone , So Let's get started. Promise.all()
+
+Promise.all is a very handy function when you want to make many promises and then resolve…]]></description><link>https://rizkyrajitha.xyz/post/Awesome-Js_Tips.(Few-of-em)/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/Awesome-Js_Tips.(Few-of-em)/</guid><pubDate>Tue, 26 Nov 2019 17:04:53 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+In this post, I&apos;ll walk you through with some awesome javascript features, that are super important in many situations.
+these are fairly popular but many of us don&apos;t use them.so I will give some examples where they come in handy
+&lt;h2&gt;So Let&apos;s get started.&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Promise.all()
+&lt;br/&gt;
+Promise.all is a very handy function when you want to make many promises and then resolve them all at once.
+for example, let&apos;s say that you get 10 files from frontend and you need to upload those 10 files to an aws s3 bucket.
+what you can do is make an array and push all the upload promises to that array. then call &lt;code class=&quot;language-text&quot;&gt;Promise.all()&lt;/code&gt; function with that promise array as the input parameter.
+then it will dispatch all the promises at once and after all the promises are fulfilled it will resolve an array of objects with the fulfilled individual promises.
+&lt;code class=&quot;language-text&quot;&gt;gist:RizkyRajitha/721ce1f1e8f6ed0a9f368c3de821a3da&lt;/code&gt;
+&lt;span style=&quot;font-size:1.6rem ; color:red;&quot;&gt;
+keep in mind that this is all of it or none at all.
+So even if one of the child promises got rejected, we will get the whole thing (parent promise) rejected.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;for (let item of array)
+&lt;br/&gt;
+This is also another useful way of iterating through an array.But why we have &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; right. But the thing is you cannot use &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt; statements inside &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; so, let&apos;s say after meeting a specific condition your &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt; loop needs to stop. But you can&apos;t do it in &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt; loop. That&apos;s where our friend &lt;code class=&quot;language-text&quot;&gt;for (let item of array)&lt;/code&gt; comes. This does exactly what &lt;code class=&quot;language-text&quot;&gt;array.forEach()&lt;/code&gt; do, but we get the option to &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt; the &lt;code class=&quot;language-text&quot;&gt;forloop&lt;/code&gt; anytime we want in any breakpoint.
+Of course, you can use a regular for loop for this. But this is a pretty clean way to get the job done&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;gist:RizkyRajitha/ef461d86fc6116f066fa694d2af5bf08&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/span&gt;
+&lt;h2&gt;So, did i miss anything 👀,You can leave a comment and i&apos;ll include your awesome tips in this article.And i will keep this post updated with my findings.&lt;/h2&gt;
+&lt;h2&gt;Cheers 🥂 , Have a Nice day.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[How i build my first npm package, a command line chat application]]></title><description><![CDATA[Hello everyone, I recently started developing a command line chat application . This idea was floating with me for quite sometime , i…]]></description><link>https://rizkyrajitha.xyz/post/How-i-build-my-first-npm-package command-line-chat-application/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/How-i-build-my-first-npm-package command-line-chat-application/</guid><pubDate>Mon, 18 Nov 2019 06:18:28 GMT</pubDate><content:encoded>&lt;h2&gt;Hello everyone,&lt;/h2&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;I recently started developing a command line chat application . This idea was floating with me for quite sometime , i actually made a prototype few months ago , but it was for proof of concept kind of thing. So i recently build it with more features and little more tidy 😂 .&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;What exactly i build&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 845px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/662ea3522388bde056c10d29a09d0c42/8bd7c/aloha_y6rz3f.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.347826086956523%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR42oWQTUvEMBCG9//6D7wInhcE/8PePa0XZWHPpRZawWIttKxJ+kVLa3vQto+dVt31IE6YQCZvnnkzK/6IcRz5L/phoNOK7vXwU1vJVlUVWZZRFAVt21LXNUmSYIwhTVPyPJ81Wuul2QSSeDcKc32Fujine3o8AuM4xnEcwjCcYb7vU5Yltm3jui5BEBBFEZZl8dH3i7t+YKNqNvsH1jc7tt7LAuwngTyW7gIWR+JWUlzKWe5Eo5SieWsW4LSs/ZrnuzNc75JA3R8dfs/sNIevb53Wfs92YNQ7RnML+RYabwZ+Ao94efTVYTnTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;aloha logo&quot; title=&quot;&quot; src=&quot;/static/662ea3522388bde056c10d29a09d0c42/8bd7c/aloha_y6rz3f.png&quot; srcset=&quot;/static/662ea3522388bde056c10d29a09d0c42/81c8e/aloha_y6rz3f.png 230w,
+/static/662ea3522388bde056c10d29a09d0c42/08a84/aloha_y6rz3f.png 460w,
+/static/662ea3522388bde056c10d29a09d0c42/8bd7c/aloha_y6rz3f.png 845w&quot; sizes=&quot;(max-width: 845px) 100vw, 845px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span style=&quot;font-size:1.28rem;&quot;&gt; well ,
+&lt;a href=&quot;https://www.npmjs.com/package/aloha-cli-chat&quot;&gt;Aloha-cli-chat&lt;/a&gt; is a real time command line chat application build with Nodejs. So this is a chat application , but it runs on your command line!.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size:1.28rem;&quot;&gt;for sometime i was goofing around with pusher services for my University second year project, and i came across with &lt;a href=&quot;https://pusher.com/chatkit&quot;&gt;pusher chatkit&lt;/a&gt; service. It is a awesome out of the box real time chat service you can integrate with many different environments. So i wanted to test it out. I could have implemented a node react web app to test , but it was very common. I wanted to do something different. so with some research i decided to build a command line chat application, it was easy to start with, and matched with my NodeJs skill set .&lt;/span&gt;
+&lt;br/&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;How i made it&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+Aloha-cli-chat&apos;s command line interface and backend server both are build with NodeJs. I used Mongodb for storing user data.but most hard part is done by pusher chatkit.
+&lt;p&gt;To get a better understanding, i&apos;ll break down the process.&lt;/p&gt;
+&lt;p&gt;First a new user can signup to our chat application via command line.&lt;/p&gt;
+&lt;p&gt;After signing up a our system will create a new pusher chatkit user on behalf of that user , and we can authenticate this user with our system (from credentials we collected) .&lt;/p&gt;
+&lt;p&gt;in a successful authentication , our system will issue a &lt;code class=&quot;language-text&quot;&gt;auth token&lt;/code&gt; from pusher and send it to the client , so client can start chatting , creating chat rooms etc.
+&lt;/span&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 721px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8a07e0ee70db8eb93a07ea08d50941a8/01dae/6tijxtzwqnuukcwyqjth.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 34.78260869565217%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1ElEQVR42nVQXQ+DIAzk//87n3wZTjExOj8QGaIgsAtsxizbPTRN22uvR7ZtWyK01s45a60xJiWoSCmVUphBJYTgvT+OAwPTNAkhCGhFUdR1zfmEvCoreqNKrcAwDHmeM8YwtwjBOZ/5vO87WlmWUUoJNqWzSLAYF9zhfASOg3a2ENHzHgoCFoFFkEGVj7XECR+AzFjdP/rwB29yeumKpGIcR/VU143fZBiwad21XXmv2rYzEXgMmmFH0zSntB9kHxViWi5yXbWNAAFWw1W8B5N+Xn4Bv3WWCDZHpPwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;high level overview&quot; title=&quot;&quot; src=&quot;/static/8a07e0ee70db8eb93a07ea08d50941a8/01dae/6tijxtzwqnuukcwyqjth.png&quot; srcset=&quot;/static/8a07e0ee70db8eb93a07ea08d50941a8/81c8e/6tijxtzwqnuukcwyqjth.png 230w,
+/static/8a07e0ee70db8eb93a07ea08d50941a8/08a84/6tijxtzwqnuukcwyqjth.png 460w,
+/static/8a07e0ee70db8eb93a07ea08d50941a8/01dae/6tijxtzwqnuukcwyqjth.png 721w&quot; sizes=&quot;(max-width: 721px) 100vw, 721px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;What i learned by building this&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+well ,
+I learned how to publish a npm package .
+How to get data from the command line.
+A better understanding about pusher chatkit service, and how i can integrate it in my future projects.
+&lt;p&gt;Although this is not ideal for common day-today use, this is a great beginner friendly project as a beginner myself, i learned a great deal from this project. &lt;br/&gt;you&apos;ll find many things to improve, and more creative features to add. So i decided to make this a open source project so everyone can join with me to build a better , robust CLI chat application.
+PRs and issues are welcome .&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/RizkyRajitha/alohacli&quot;&gt;git repo&lt;/a&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;span style=&quot;font-size:2rem;&quot;&gt;
+ Thanks for Reading 🙌
+&lt;p&gt;what are your plans ? 💭&lt;/p&gt;
+&lt;p&gt;share them in the comments section.&lt;/p&gt;
+&lt;p&gt;I&apos;d love to hear your feedback!
+&lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Heroku Gotchas, Before you deploy]]></title><description><![CDATA[Hi everyone , I'm pretty sure that you have heard about ,
+Heroku .
+if not don't worry ,i got you covered. Heroku is a popular cloud PaaS…]]></description><link>https://rizkyrajitha.xyz/post/Heroku-Gotchas-Before-you-deploy/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/Heroku-Gotchas-Before-you-deploy/</guid><pubDate>Sun, 10 Nov 2019 17:13:22 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone ,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;I&apos;m pretty sure that you have heard about ,
+&lt;a href=&quot;https://www.heroku.com/&quot;&gt;Heroku&lt;/a&gt; .
+if not don&apos;t worry ,i got you covered. Heroku is a popular cloud PaaS(Platform as a service), which deliver awesome cloud solutions. Sounds cool right .
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/100b9ca19310cda5d90c180f7e51fef2/8c557/7jqmr55jkd2uk4ztitem.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 64.34782608695653%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABqklEQVR42s2T3SuDURzHn2fekqxceLuVG8qdd8828+QlU2PKjGKF1RQXCHlvKW1JLZnHZtPICtMoISMvKUUibvw3X+ec55mXlAtRLj6d7zn9+v5+53d+h6vkVvCbcH9iqCMI3DI0BEHhx4bUTIz3wZS9gWYFU9Y69PzKF6pUimarV0HWb4a0msaMIOas5+jT7GG4/hCjDUcwZgZRxC1C4D2sckopt4QKshfiJJRRrfJAq5JYjI6TZEMa2JC2hqnWE/gmbjFmPIY5dxO2wl2WZNJ0ggX7FUYMRwhM3WFAPICr+xIz5ijmbZfoLY9gpi0Kg3qNJWUVGtOD6K/ax2D1Adz91+gpDsNeEkHY/QzP0A1Crkc4uy5wGHjBbPsZgo57+EnykPMBDsspdtxPqEvxvxs2kZ5Nt0RhyQlhnFQ43njMeirwyxATvSR7ADXJq9ATLSZ5UZ8WgI5ctTrVh1piVKf2Qxu7MhU02Fqwjc78LXTkyYgJPhak4yWSWXrTtFcaZQq0vHyu+TAVytjITS4nlCnQc/qCsZVp/vOI6PlvBluv8n7if/2U3zR8BQSlAcSRAeHrAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Heroku Logo&quot; title=&quot;&quot; src=&quot;/static/100b9ca19310cda5d90c180f7e51fef2/8c557/7jqmr55jkd2uk4ztitem.png&quot; srcset=&quot;/static/100b9ca19310cda5d90c180f7e51fef2/81c8e/7jqmr55jkd2uk4ztitem.png 230w,
+/static/100b9ca19310cda5d90c180f7e51fef2/08a84/7jqmr55jkd2uk4ztitem.png 460w,
+/static/100b9ca19310cda5d90c180f7e51fef2/8c557/7jqmr55jkd2uk4ztitem.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;h2&gt;So let&apos;s get start 🤗 ,&lt;/h2&gt;
+&lt;h2&gt;but wait ✋, before you go and deploy your awesome apps in Heroku, you need to keep in mind few things.&lt;/h2&gt;
+&lt;h2&gt;what exactly is a heroku dyno?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+usually when you host a web app in heroku , your app will run on a Heroku dyno.
+dyno is a fancy name for container , where our app live but what is a container ? Hmmmmmmmmm.... that&apos;s a good question .
+&lt;p&gt;&quot;A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another&quot; -- &lt;a href=&quot;https://www.docker.com/resources/what-container&quot;&gt; docker resources &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Just think of it as a virtual machine, that it&apos;s only job is to run our application, but very fast and efficient than a virtual machine. Also containers share much more resources than a virtual machine.&lt;/p&gt;
+&lt;p&gt;So when you deploy your web app, Heroku will create a container and the it will copy all your code-base to that container, and then install all necessary dependencies, and run your application.&lt;/p&gt;
+&lt;p&gt;Container&apos;s need their own article, because it is a huge topic. So i will not going to touch it now. But feel free to research on containers because it is a trending, and very very interesting topic.
+&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;let&apos;s start with gotchas👇&lt;/h3&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Heroku &lt;strong&gt;&quot;free tier&quot;&lt;/strong&gt; dynos(now you have a little idea about it) are going to sleep state, in 30 minutes of inactivity.
+inactivity meaning that, if your app doesn&apos;t get any traffic in 30 minutes, it will go to a sleep state. After that next request will take some time (usually around 5-20 seconds based on the application) to respond to that request because your application have to change state from sleep to active, but after that everything will function normally until the next restart.&lt;br&gt;
+There are some ways to prevent this sleep.
+one way is, using &lt;a href=&quot;https://uptimerobot.com/&quot;&gt;uptime robot&lt;/a&gt; to send requests periodically so your dyno won&apos;t sleep. But keep in mind that heroku &lt;strong&gt;&quot;Free tier &quot;&lt;/strong&gt; gives you 550 free hours per month, so you might run out of free hours. --&lt;a href=&quot;https://devcenter.heroku.com/changelog-items/907&quot;&gt;heroku blog&lt;/a&gt; .
+But you can bump up to 1000 free hours, by adding a credit card . Meaning that you can run a single app 24/7 for ever 😍.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Heroku dynos have a ephemeral filesystem, meaning that &quot;any changes to the filesystem whilst the dyno is running only last until that dyno is shut down or restarted. Each dyno boots with a clean copy of the filesystem from the most recent deploy&quot; -- &lt;a href=&quot;https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted&quot;&gt; Heroku resources &lt;/a&gt; .
+This basically says in plain English is that, if you save files to your servers file system , and directly serve files from that directory, the moment your dyno gets restarted, you&apos;ll loose those files.
+for example, let&apos;s say that you save users profile picture in &lt;code class=&quot;language-text&quot;&gt;/assests/profilepictures&lt;/code&gt; directory. This will not work as expected , after a server restart , and will throw errors because required files are missing.
+A simple example of above situation in a code snippet in NodeJs.
+&lt;code class=&quot;language-text&quot;&gt;app.use(&quot;/static&quot;, express.static(&quot;./assets/profilepictures&quot;));&lt;/code&gt;
+So what should you do to keep a persistent file storage.
+What i recommend and doing is , using a static file storage service like &lt;a href=&quot;https://aws.amazon.com/s3/&quot;&gt;AWS S3&lt;/a&gt; or &lt;a href=&quot;https://cloudinary.com/&quot;&gt;Cloudinary&lt;/a&gt; to manage all the static assets. This will make your web app more flexible and resilient to change in the future because the static assets are isolated from your app environment.
+&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Fact : Did you knew that Heroku is build on top of AWS 🔥.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h2&gt;So, did I miss anything, You can leave a comment and I&apos;ll include in this article? And I will update this article frequently with new gotchas, so keep in touch 😉.&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2&gt;Cheers 🥂 , Have a Nice day.&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Sending messages with Telegram bot]]></title><description><![CDATA[Hi everyone, In this tutorial, we’re going to build a telegram bot ,and send messages to a group with a simple HTTP request. to get start…]]></description><link>https://rizkyrajitha.xyz/post/Sending-messages-with-Telegram-bot/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/Sending-messages-with-Telegram-bot/</guid><pubDate>Sun, 10 Nov 2019 09:16:50 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;In this tutorial, we’re going to build a telegram bot ,and send messages to a group with a simple HTTP request.&lt;/p&gt;
+&lt;p&gt;to get start lets create a new telegram bot with, it&apos;s own API Botfather.
+&lt;/span&gt;&lt;/p&gt;
+&lt;h4&gt;One Bot To Rule Them All&lt;/h4&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+so go to telegram app on your phone, or log in with [telegram web](https://web.telegram.im/#/login)
+&lt;p&gt;and then search for bot father.
+create a new bot &lt;code class=&quot;language-text&quot;&gt;/newbot&lt;/code&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/d556ab859866f1cb65f04ebf9d31baff/15ec7/f61uzk32yd17rjoo8lc8.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 44.78260869565218%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAABzYdakKQ//8QAGRAAAgMBAAAAAAAAAAAAAAAAASEAEBEx/9oACAEBAAEFAngDVGHv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAACAyUf/aAAgBAQAGPwKTCk//xAAbEAACAgMBAAAAAAAAAAAAAAAAARExECGR4f/aAAgBAQABPyGdHYyyEp4xUsP/2gAMAwEAAgADAAAAECQP/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QR//EABYRAQEBAAAAAAAAAAAAAAAAAAARYf/aAAgBAgEBPxBcf//EAB0QAQABBAMBAAAAAAAAAAAAAAEAESExQWFxgaH/2gAIAQEAAT8QUCKitVXOo+5LsIqRvOUMHkx9z6J//9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/d556ab859866f1cb65f04ebf9d31baff/15ec7/f61uzk32yd17rjoo8lc8.jpg&quot; srcset=&quot;/static/d556ab859866f1cb65f04ebf9d31baff/e83b4/f61uzk32yd17rjoo8lc8.jpg 230w,
+/static/d556ab859866f1cb65f04ebf9d31baff/e41a8/f61uzk32yd17rjoo8lc8.jpg 460w,
+/static/d556ab859866f1cb65f04ebf9d31baff/15ec7/f61uzk32yd17rjoo8lc8.jpg 690w&quot; sizes=&quot;(max-width: 690px) 100vw, 690px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+now follow along with instructions.
+&lt;p&gt;type a name for your bot
+I had a hard time finding a username 😆
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 711px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/bec9492659b2ab1d5c1a8cbcc2c81771/eabd5/8muki02hmur8c1emb3xx.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 137.3913043478261%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAB5eo1khLrEHSK/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAECECIRITH/2gAIAQEAAQUCqNLGxBcQ0Xs//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGxAAAgIDAQAAAAAAAAAAAAAAADIhUSAxgaH/2gAIAQEABj8C0RHRvRixRChsP//EAB8QAQACAQMFAAAAAAAAAAAAAAEAETEQIWFBcZGhwf/aAAgBAQABPyG6Zyl2CnZHdhA0xm93U8QBz8wGoDXyTm+501//2gAMAwEAAgADAAAAEFQXQv/EABcRAAMBAAAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8Qdw//xAAXEQADAQAAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFdP/8QAHRABAAICAwEBAAAAAAAAAAAAAQARITFBUZFx0f/aAAgBAQABPxAqW7WZYmnJSmbTHE0GPGupZXlAGKAr+vyUGDjd7gldq9K34xAhN6rCLAvbKFbDyf/Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/bec9492659b2ab1d5c1a8cbcc2c81771/eabd5/8muki02hmur8c1emb3xx.jpg&quot; srcset=&quot;/static/bec9492659b2ab1d5c1a8cbcc2c81771/e83b4/8muki02hmur8c1emb3xx.jpg 230w,
+/static/bec9492659b2ab1d5c1a8cbcc2c81771/e41a8/8muki02hmur8c1emb3xx.jpg 460w,
+/static/bec9492659b2ab1d5c1a8cbcc2c81771/eabd5/8muki02hmur8c1emb3xx.jpg 711w&quot; sizes=&quot;(max-width: 711px) 100vw, 711px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+now you&apos;ll get a token to authenticate with your bot.
+&lt;/span&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 702px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/b2c6bf0ad7ab477ea379e78926569151/eafa3/q0uwbdndewa1wy5gamea.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 108.26086956521739%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAWABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAIDAQQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHzq2m56yFa8BAP/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERAhIhMf/aAAgBAQABBQLRCUHl3VIiMvSkP//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABsQAAEEAwAAAAAAAAAAAAAAAAABEDKRIEGh/9oACAEBAAY/Am1RNKJ8x//EAB0QAAMAAgIDAAAAAAAAAAAAAAABESExQWFxgfH/2gAIAQEAAT8hwbZNFPaHplAaCzVcMP7JFx3uFi0jwQ7Z/9oADAMBAAIAAwAAABBfEH3/xAAXEQADAQAAAAAAAAAAAAAAAAAAARAR/9oACAEDAQE/EDFf/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEREP/aAAgBAgEBPxCle//EABwQAQACAgMBAAAAAAAAAAAAAAEAETGBIVFxQf/aAAgBAQABPxAYOU7lkitvgYBEDsSs6Y86vYgoXsiCE/BS9S+R1LuB1LJutT//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/b2c6bf0ad7ab477ea379e78926569151/eafa3/q0uwbdndewa1wy5gamea.jpg&quot; srcset=&quot;/static/b2c6bf0ad7ab477ea379e78926569151/e83b4/q0uwbdndewa1wy5gamea.jpg 230w,
+/static/b2c6bf0ad7ab477ea379e78926569151/e41a8/q0uwbdndewa1wy5gamea.jpg 460w,
+/static/b2c6bf0ad7ab477ea379e78926569151/eafa3/q0uwbdndewa1wy5gamea.jpg 702w&quot; sizes=&quot;(max-width: 702px) 100vw, 702px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.8rem;color:red&quot;&gt;
+ keep the access token securely. Anyone with access token can manipulate your bot
+&lt;/span&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+&lt;p&gt;alright, now we have the access token. The next question is how to send messages with the bot.
+&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;we will create a group with our bot. And then our bot will massage to that group&lt;/h4&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+it&apos;s simple as that😎
+&lt;p&gt;now let&apos;s create a new group in telegram and add the bot to that group.&lt;/p&gt;
+&lt;p&gt;search with the username of your bot
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 697px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/89cfc818388e0edbb5857cddde14b656/721dc/jnfzasnmwb9r5klwcrdr.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 85.21739130434783%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHlxcVOsAAH/8QAGBABAQADAAAAAAAAAAAAAAAAEQABAiD/2gAIAQEAAQUCZmzs9f/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAAMBAAAAAAAAAAAAAAAAAAEQIDH/2gAIAQEABj8CeCv/xAAcEAACAQUBAAAAAAAAAAAAAAAAAREgMUFRYXH/2gAIAQEAAT8hglhnBPZNseKr/9oADAMBAAIAAwAAABBHEEH/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAeEAEAAgEEAwAAAAAAAAAAAAABABEhIDFBgVFhkf/aAAgBAQABPxBtE8VjADw7nu/ZkHGCqtidaf/Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/89cfc818388e0edbb5857cddde14b656/721dc/jnfzasnmwb9r5klwcrdr.jpg&quot; srcset=&quot;/static/89cfc818388e0edbb5857cddde14b656/e83b4/jnfzasnmwb9r5klwcrdr.jpg 230w,
+/static/89cfc818388e0edbb5857cddde14b656/e41a8/jnfzasnmwb9r5klwcrdr.jpg 460w,
+/static/89cfc818388e0edbb5857cddde14b656/721dc/jnfzasnmwb9r5klwcrdr.jpg 697w&quot; sizes=&quot;(max-width: 697px) 100vw, 697px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;add our bot to the group
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8c505fa4ebed2afe670a6872c057aaef/80e3c/tecbrgdanamugyhi2ber.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.82608695652172%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAECAwQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAeLWVhAzNcXUAQB//8QAGxAAAgIDAQAAAAAAAAAAAAAAAAEQEQISIDH/2gAIAQEAAQUCcWUynCyRsh+9f//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BX//EABUQAQEAAAAAAAAAAAAAAAAAADAx/9oACAEBAAY/Aq//xAAcEAACAgIDAAAAAAAAAAAAAAAAARExIWEgQVH/2gAIAQEAAT8hSrFEvTQaBkBZGzsecOf/2gAMAwEAAgADAAAAEOcXDf8A/wD/xAAWEQADAAAAAAAAAAAAAAAAAAAQESD/2gAIAQMBAT8QCj//xAAWEQADAAAAAAAAAAAAAAAAAAAQESD/2gAIAQIBAT8QDj//xAAfEAEBAQACAAcAAAAAAAAAAAABEQAxkSAhQVFhccH/2gAIAQEAAT8QCURLPbC8FPrK+rvUOXW+T1gjEjiUAziukeXt/cVFSeP/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/8c505fa4ebed2afe670a6872c057aaef/80e3c/tecbrgdanamugyhi2ber.jpg&quot; srcset=&quot;/static/8c505fa4ebed2afe670a6872c057aaef/e83b4/tecbrgdanamugyhi2ber.jpg 230w,
+/static/8c505fa4ebed2afe670a6872c057aaef/e41a8/tecbrgdanamugyhi2ber.jpg 460w,
+/static/8c505fa4ebed2afe670a6872c057aaef/80e3c/tecbrgdanamugyhi2ber.jpg 720w&quot; sizes=&quot;(max-width: 720px) 100vw, 720px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;after adding give admin permission to our bot, to give access to the bot to send messages to the group (not all the permissions are necessary but I will give because this is a demo group and nothing harmful will happen ).&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8a0cd8023701ecd80af0df12648536ec/80e3c/f8n3zcaodh3fh7xyrxq6.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.82608695652172%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAfN51Gs0wVDCkjBKB//EABkQAAIDAQAAAAAAAAAAAAAAAAERECAwQf/aAAgBAQABBQIoQ6cw/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAFhABAQEAAAAAAAAAAAAAAAAAATAx/9oACAEBAAY/AtG//8QAHRAAAQQCAwAAAAAAAAAAAAAAAAEQEUFRcSAhMf/aAAgBAQABPyHwZNk4JFMtGjLWjpp4f//aAAwDAQACAAMAAAAQdNd9CC//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EF//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EF//xAAgEAEAAgEEAgMAAAAAAAAAAAABESEAEDFBUSBhodHh/9oACAEBAAE/EJwBwUoSWZVmBPTnc/OKE2Jj39aCNm5POJRtXJ+6GqYWBQZJ6yB4f//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/8a0cd8023701ecd80af0df12648536ec/80e3c/f8n3zcaodh3fh7xyrxq6.jpg&quot; srcset=&quot;/static/8a0cd8023701ecd80af0df12648536ec/e83b4/f8n3zcaodh3fh7xyrxq6.jpg 230w,
+/static/8a0cd8023701ecd80af0df12648536ec/e41a8/f8n3zcaodh3fh7xyrxq6.jpg 460w,
+/static/8a0cd8023701ecd80af0df12648536ec/80e3c/f8n3zcaodh3fh7xyrxq6.jpg 720w&quot; sizes=&quot;(max-width: 720px) 100vw, 720px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;now everything is set in this end.&lt;/p&gt;
+&lt;p&gt;The next thing we need is to get our group chat id to send messages to the group.&lt;/p&gt;
+&lt;p&gt;to get it we need to interact with the telegram API.&lt;/p&gt;
+&lt;p&gt;i hope yall have postman📬 ready. if not you can download &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;postman&lt;/a&gt; , since it is a useful tool in web dev.
+or alternatively, you can use &lt;a href=&quot;https://postwoman.io/&quot;&gt;postwoman&lt;/a&gt; which is a great way to build requests online.&lt;/p&gt;
+&lt;p&gt;before we sending requests, make sure to send some messages to our newly created group.&lt;/p&gt;
+&lt;p&gt;after that let&apos;s fire up postman&lt;/p&gt;
+&lt;p&gt;send a &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; request to the following telegram API endpoint.&lt;/p&gt;
+&lt;p&gt;replace &lt;token&gt; with your access token we previously got from bot father&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;https://api.telegram.org/bot&amp;lt;token&gt;/getUpdates&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and Send.&lt;/p&gt;
+&lt;p&gt;if you get something like this, try few more times. I don&apos;t know the exact cause, but it sometimes returns empty arrays.(make sure you have some messages in the group)&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/339b338489a6b0b04cc31103468cc6f4/902ab/ybfbvfi933tbguv2zmjg.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 30.434782608695656%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3qEB/8QAFhAAAwAAAAAAAAAAAAAAAAAAABAR/9oACAEBAAEFAlD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAXEAEBAQEAAAAAAAAAAAAAAAABABFB/9oACAEBAAE/IQsscC//2gAMAwEAAgADAAAAEAAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxAAAgEFAAAAAAAAAAAAAAAAAREAITFRYZH/2gAIAQEAAT8Q0CJgciiUGWaXM//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/339b338489a6b0b04cc31103468cc6f4/4d836/ybfbvfi933tbguv2zmjg.jpg&quot; srcset=&quot;/static/339b338489a6b0b04cc31103468cc6f4/e83b4/ybfbvfi933tbguv2zmjg.jpg 230w,
+/static/339b338489a6b0b04cc31103468cc6f4/e41a8/ybfbvfi933tbguv2zmjg.jpg 460w,
+/static/339b338489a6b0b04cc31103468cc6f4/4d836/ybfbvfi933tbguv2zmjg.jpg 920w,
+/static/339b338489a6b0b04cc31103468cc6f4/902ab/ybfbvfi933tbguv2zmjg.jpg 1204w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;hopefully, you&apos;ll receive something similar to this.&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/f13e48331f42bc6fabf037127a978dc9/00d7d/ss5vjl1rb21xfp6lzuiz.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 52.60869565217391%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3qEUf//EABYQAAMAAAAAAAAAAAAAAAAAABARIP/aAAgBAQABBQIKP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABgQAQADAQAAAAAAAAAAAAAAAAEAESAx/9oACAEBAAE/IQLlEAcMf//aAAwDAQACAAMAAAAQE8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAbEAACAQUAAAAAAAAAAAAAAAABEQAQMUFRYf/aAAgBAQABPxBhOAjZAZZW4AL5r//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/f13e48331f42bc6fabf037127a978dc9/4d836/ss5vjl1rb21xfp6lzuiz.jpg&quot; srcset=&quot;/static/f13e48331f42bc6fabf037127a978dc9/e83b4/ss5vjl1rb21xfp6lzuiz.jpg 230w,
+/static/f13e48331f42bc6fabf037127a978dc9/e41a8/ss5vjl1rb21xfp6lzuiz.jpg 460w,
+/static/f13e48331f42bc6fabf037127a978dc9/4d836/ss5vjl1rb21xfp6lzuiz.jpg 920w,
+/static/f13e48331f42bc6fabf037127a978dc9/00d7d/ss5vjl1rb21xfp6lzuiz.jpg 1218w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;from here what we want is the chat id that starts with &lt;code class=&quot;language-text&quot;&gt;-&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;this is the group chat id of our group.&lt;/p&gt;
+&lt;p&gt;after that, the only thing left is to send messages.&lt;/p&gt;
+&lt;p&gt;so to send messages to our group.&lt;/p&gt;
+&lt;p&gt;use the following API endpoint&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;https://api.telegram.org/bot&amp;lt;token&gt;/sendMessage?chat_id=&amp;lt;group chat id &gt;&amp;amp;text=&amp;lt;our text&gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;keep in mind that text should be URL Encoding String&lt;/p&gt;
+&lt;p&gt;ex - Hello%20World (spaces is replaced with %20)&lt;/p&gt;
+&lt;p&gt;checkout &lt;a href=&quot;https://www.w3schools.com/tags/ref_urlencode.asp&quot;&gt;w3school&lt;/a&gt; for more info&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 920px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/2979e2b2c3a0fb3ce327da41fada9e91/1839c/e1n9y2kf7xy53jxsxmlj.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 57.826086956521735%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe8tMqP/xAAWEAADAAAAAAAAAAAAAAAAAAAQESD/2gAIAQEAAQUCCj//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAaEAACAgMAAAAAAAAAAAAAAAAAARARMWGB/9oACAEBAAE/IeFaEiwqFP8A/9oADAMBAAIAAwAAABBAz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQADAQEAAAAAAAAAAAAAAAEAEVEQQf/aAAgBAQABPxADyKYgNGMCoKV4z//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/2979e2b2c3a0fb3ce327da41fada9e91/4d836/e1n9y2kf7xy53jxsxmlj.jpg&quot; srcset=&quot;/static/2979e2b2c3a0fb3ce327da41fada9e91/e83b4/e1n9y2kf7xy53jxsxmlj.jpg 230w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/e41a8/e1n9y2kf7xy53jxsxmlj.jpg 460w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/4d836/e1n9y2kf7xy53jxsxmlj.jpg 920w,
+/static/2979e2b2c3a0fb3ce327da41fada9e91/1839c/e1n9y2kf7xy53jxsxmlj.jpg 1196w&quot; sizes=&quot;(max-width: 920px) 100vw, 920px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;p&gt;and &lt;code class=&quot;language-text&quot;&gt;wubba lubba dub dub&lt;/code&gt; your message is sent&lt;/p&gt;
+&lt;hr&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/bfe635ded3a1558995b9458e8dadaae9/80e3c/v3c57ifyl2npx5g3m63m.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.82608695652172%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB5UyuaSCtIWq4DQf/xAAbEAABBAMAAAAAAAAAAAAAAAABABAREiAhIv/aAAgBAQABBQK2pVs4blEl/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAZEAACAwEAAAAAAAAAAAAAAAAQESEwMaH/2gAIAQEABj8CSqng0//EABwQAAMAAgMBAAAAAAAAAAAAAAABESFRIDFhcf/aAAgBAQABPyHWvPZ4K52YqwgelGMtm/pCLR//2gAMAwEAAgADAAAAEI8xzfQf/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qa//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EGP/xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMWFxIFGB/9oACAEBAAE/EA5NpZb1qFWxXTPZn750bx2MTOVbMGC+k5YqulWq6iFtLZxJ/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;create new bot&quot; title=&quot;&quot; src=&quot;/static/bfe635ded3a1558995b9458e8dadaae9/80e3c/v3c57ifyl2npx5g3m63m.jpg&quot; srcset=&quot;/static/bfe635ded3a1558995b9458e8dadaae9/e83b4/v3c57ifyl2npx5g3m63m.jpg 230w,
+/static/bfe635ded3a1558995b9458e8dadaae9/e41a8/v3c57ifyl2npx5g3m63m.jpg 460w,
+/static/bfe635ded3a1558995b9458e8dadaae9/80e3c/v3c57ifyl2npx5g3m63m.jpg 720w&quot; sizes=&quot;(max-width: 720px) 100vw, 720px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;hr&gt;
+&lt;/span&gt;
+&lt;h4&gt;This is a great way to monitor and notify your apps state. I use this for the backend of my web apps to report errors. you can also use it with frontends, CLI applications regardless of the language. you can use this creatively to do many things because this needs no 3rd party libraries or dependencies, just a simple HTTP request will do the work.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h3&gt;Thanks for following along with me 🙌&lt;/h3&gt;
+&lt;h2&gt;what are your plans ? 💭&lt;/h2&gt;
+&lt;h2&gt;share them in the comments section.&lt;/h2&gt;
+&lt;h2&gt;I&apos;d love to hear your feedback!&lt;/h2&gt;
+&lt;h3&gt;originaly posted on &lt;a href=&quot;https://dev.to/rizkyrajitha/get-notifications-with-telegram-bot-537l&quot;&gt;Dev.to&lt;/a&gt;&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[First official post]]></title><description><![CDATA[Hi everyone, This is a MERN stack application.
+meaning
+backend powered by ExpressJs
+database is MongoDb and front end ReactJs . which is a…]]></description><link>https://rizkyrajitha.xyz/post/First-official-post/</link><guid isPermaLink="false">https://rizkyrajitha.xyz/post/First-official-post/</guid><pubDate>Sun, 10 Nov 2019 06:19:45 GMT</pubDate><content:encoded>&lt;h2&gt;Hi everyone,&lt;/h2&gt;
+&lt;hr&gt;
+&lt;span style=&quot;font-size:1.28rem;&quot;&gt;
+This is the first official post of my personal Blog. 
+I won’t bore you with some code example , for now 😉.
+so i will give a small walk around about the tech stack this blog.
+&lt;p&gt;This is a MERN stack application.
+meaning
+backend powered by &lt;a href=&quot;https://expressjs.com/&quot;&gt;ExpressJs&lt;/a&gt;
+database is &lt;a href=&quot;https://www.mongodb.com/&quot;&gt;MongoDb&lt;/a&gt; and front end &lt;a href=&quot;https://reactjs.org/&quot;&gt;ReactJs&lt;/a&gt; . which is a quite popular tech stack in 2019.
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;a href=&quot;https://www.mongodb.com/&quot;&gt;Mongo&lt;/a&gt; &lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; &lt;a href=&quot;https://reactjs.org/&quot;&gt;React&lt;/a&gt; &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node&lt;/a&gt; makes the MERN acronym.&lt;/p&gt;
+&lt;p&gt;let&apos;s start with the frontend.
+so as i said before i used react to build frontend app .bootstrap for styling. and responsive react modal for the popup in comment section.
+pretty standard stuff.&lt;/p&gt;
+&lt;p&gt;backend is build using ExpressJs . the reason whole backed is existing is because i implemented a commenting section .In original design i thought only to post without any comments, but later changed my mind as usual. after keeping track of comments, i implemented a views counter just out of curiosity.First version was not good. i mean i got a new view for every page refresh .So i improve it and now a bit better than the previous counter.&lt;/p&gt;
+&lt;p&gt;for hosting frontend is hosted in &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github pages&lt;/a&gt;.
+and backend is hosted in &lt;a href=&quot;https://www.heroku.com/home&quot;&gt;Heroku&lt;/a&gt; server.&lt;/p&gt;
+&lt;p&gt;I will later write a post about both of them&lt;/p&gt;
+&lt;p&gt;so that&apos;s it.
+I&apos;ll try to post frequently with my findings.&lt;/p&gt;
+&lt;p&gt;thanks for reading so far.
+have a nice day&lt;/p&gt;
+&lt;/span&gt;</content:encoded></item></channel></rss>
