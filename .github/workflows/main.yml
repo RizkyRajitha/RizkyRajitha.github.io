@@ -27,7 +27,7 @@ jobs:
 
       - name: create CNAME file # remove files.
         run: |
-          echo "rizkyrajitha.xyz" > CNAME
+          echo "rizkyrajitha.com" > CNAME
       - name: checkout dev  branch #checkout dev  branch into temp folder.
         uses: actions/checkout@v2
         with:
@@ -91,3 +91,4 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_SHA: ${{ github.sha }}
+
