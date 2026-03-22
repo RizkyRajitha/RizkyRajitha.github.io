@@ -7,7 +7,7 @@ import { rehypeBlurImageWrapper } from './src/plugins/rehypeBlurImageWrapper';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://RizkyRajitha.github.io',
+  site: 'https://rizkyrajitha.github.io',
   integrations: [icon()],
   image: {
     layout: 'constrained',
