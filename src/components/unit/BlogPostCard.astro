@@ -1,6 +1,6 @@
 ---
 import { DateTime } from "luxon";
-const BASE_URL = import.meta.env.BLOG_URL;
+// const BASE_URL = import.meta.env.;
 
 const { post } = Astro.props;
 console.log("post - - - - ");
@@ -16,7 +16,7 @@ console.log(relative);
     <div class="card-body postcard">
         <h2 class="card-title">{post.data.title}</h2>
         <p class="card-text">{post.data.description}</p>
-        <a href={`${BASE_URL}/post/${post.id}`} class="btn btn-outline-primary">
+        <a href={`/post/${post.id}`} class="btn btn-outline-primary">
             Read More &rarr;
         </a>
     </div>

@@ -44,23 +44,3 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-
-
-
-
- (+10ms) 
-12:55:48   ├─ /post/my-custom-id/index.html5 months ago
- (+5ms) 
-12:55:48   ├─ /post/my-custom-id11111/index.html5 months ago
- (+3ms) 
-12:55:48   ├─ /post/updating-blog/index.html2 years ago
- (+1ms) 
-12:55:48   ├─ /index.html12:55:48 [ERROR] Error: Input file is missing: /home/rizky/Documents/dev/rizkyblogrevamp/rizkyblog/dist/.prerender/assets/backdrop.jpg
-    at Sharp.toBuffer (/home/aaaaaaaaaa/Documents/dev/aaaaaaaaaablogrevamp/aaaaaaaaaablog/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/output.js:163:17)
-    at file:///home/aaaaaaaaaa/Documents/dev/aaaaaaaaaablogrevamp/aaaaaaaaaablog/dist/.prerender/chunks/index_Cd43fKwf.mjs:384:110
-12:55:48 [ERROR] [build] Caught error rendering /: Error: Input file is missing: /home/aaaaaaaaaa/Documents/dev/aaaaaaaaaablogrevamp/aaaaaaaaaablog/dist/.prerender/assets/backdrop.jpg
-Input file is missing: /home/aaaaaaaaaa/Documents/dev/aaaaaaaaaablogrevamp/aaaaaaaaaablog/dist/.prerender/assets/backdrop.jpg
-  Stack trace:
-    at Sharp.toBuffer (/home/aaaaaaaaaa/Documents/dev/aaaaaaaaaablogrevamp/aaaaaaaaaablog/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/output.js:163:17)
- ELIFECYCLE  Command failed with exit code 1.
