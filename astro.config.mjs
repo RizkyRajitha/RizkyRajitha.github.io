@@ -14,7 +14,7 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkBlurImages],
-    rehypePlugins: [rehypeBlurImageWrapper],   // 👈 add this
+    rehypePlugins: [rehypeBlurImageWrapper],
     shikiConfig: {
       theme: 'catppuccin-macchiato',
     },
