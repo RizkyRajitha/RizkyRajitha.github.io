@@ -1,0 +1,66 @@
+---
+import "../styles/blog.css";
+import BlogPostCard from "../components/unit/BlogPostCard.astro";
+import BlogFooter from "./unit/BlogFooter.astro";
+import { Icon } from "astro-icon/components";
+
+const { posts } = Astro.props;
+console.log("posts - - - - ");
+// console.log(posts);
+---
+
+<div class="maindiv">
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        <div class="container">
+            <a class="navbarhome navbar-brand" href="/"> Rizky's Blog </a>
+            <div class="justify-content-end" id="basic-navbar-nav">
+                <span class="navbar-text navbarhome">
+                    <div class="d-flex align-items-center">
+                        <a href="/blog" class="d-flex align-items-center gap-1">
+                            <Icon
+                                name="fa7-regular:home"
+                                height={20}
+                                width={20}
+                            />
+                            Home
+                        </a>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="my-4">
+                    Blogged by &ensp;
+                    <span class="smlltextblogheading">Rizky</span>
+                </h1>
+
+                {
+                    posts.map((post) => {
+                        return <BlogPostCard post={post} />;
+                    })
+                }
+            </div>
+            <!-- <div class="col-lg-3">
+                <div class="card my-4 commentsection">
+                    <h5 class="card-header">Time</h5>
+                    <div class="card-body">
+                        <div>
+                            <h5 class="">{time.toLocaleTimeString()}</h5> 
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>{" "}
+    <BlogFooter />
+</div>
+
+<style>
+    :global(a) {
+        text-decoration: none;
+    }
+</style>

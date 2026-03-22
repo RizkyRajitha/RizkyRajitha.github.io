@@ -1,0 +1,122 @@
+---
+import "../styles/index.css";
+import backDropImage from "../assets/backdrop.jpg";
+import { getImage } from "astro:assets";
+import sharp from "sharp";
+import { fileURLToPath } from "node:url";
+import { Icon } from "astro-icon/components";
+import path from "node:path";
+
+const fullImage = await getImage({
+    src: backDropImage,
+    format: "webp",
+    quality: 85,
+});
+
+const imagePath = path.resolve(process.cwd(), "src/assets/backdrop.jpg");
+
+const tinyBuffer = await sharp(imagePath)
+    .resize(300, 300, { fit: "cover" })
+    .blur(5)
+    .jpeg({ quality: 20 })
+    .toBuffer();
+
+const base64Placeholder = `data:image/jpeg;base64,${tinyBuffer.toString("base64")}`;
+// console.log(base64Placeholder);
+---
+
+<div>
+    <main>
+        <div
+            class="bg-placeholder"
+            style={`background-image: url('${base64Placeholder}');`}
+        >
+        </div>
+
+        <img id="bg-full" src={fullImage.src} alt="" aria-hidden="true" />
+
+        <div class="parallaxTextdiv">
+            <span class="parallaxText">Hi </span>
+            <br />
+            <span class="parallaxText">Nice to meet you </span>
+            <br />
+            <span class="parallaxText">I'am Rajitha </span>
+            <br />
+
+            <a class="btn visitblogbtn btn-outline-primary" href="/blog">
+                visit my blog
+            </a>
+        </div>
+    </main>
+    <footer class="landingpagefooter">
+        Photo by <a
+            href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >NASA</a
+        > on <a
+            href="https://unsplash.com/photos/hubble-space-telescope-above-earths-atmosphere-S3hQU-5_yjg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Unsplash</a
+        >
+
+        <a
+            class="imgcreditanchor"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://apod.nasa.gov/apod/astropix.html"
+        >
+            NASA
+        </a>
+        <div class="landingpagefooterdiv">
+            <div class="landingpagefooterdivitembr"></div>
+            <div class="landingpagefooterdivitem">
+                <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="landingpagefooterdivitemlink"
+                    href="https://github.com/RizkyRajitha"
+                >
+                    <Icon name="fa7-brands:github" height={60} width={60} />
+                </a>
+            </div>
+            <div class="landingpagefooterdivitem">
+                <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    class="landingpagefooterdivitemlink"
+                    href="https://twitter.com/RizkyRajitha"
+                >
+                    <span class="icon-twitter iconsfooter"></span>
+                    <Icon name="fa7-brands:twitter" height={60} width={60} />
+                </a>
+            </div>
+            <div class="landingpagefooterdivitem">
+                <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    class="landingpagefooterdivitemlink"
+                    href="https://dev.to/rizkyrajitha"
+                >
+                    <Icon name="fa7-brands:dev" height={60} width={60} />
+                </a>
+            </div>
+            <div class="landingpagefooterdivitembr"></div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const full = document.getElementById("bg-full") as HTMLImageElement;
+    const placeholder = document.querySelector(
+        ".bg-placeholder",
+    ) as HTMLElement;
+
+    const reveal = () => {
+        full.classList.add("loaded");
+        placeholder.classList.add("fade-out");
+    };
+
+    if (full.complete) {
+        reveal();
+    } else {
+        full.addEventListener("load", reveal);
+    }
+</script>
