@@ -1,3 +1,7 @@
+---
+const baseUrl = "https://rizkyrajitha.com";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,6 +10,26 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Rajitha's Blog</title>
+		<meta name="description" content="Personal blog of Rajitha" />
+		<meta name="og:type" content="website" />
+		<meta
+			name="og:image"
+			content={`${baseUrl}/ogimage/updating-blog.png`}
+		/>
+
+		<meta property="og:locale" content="en_US" />
+		<meta name="og:site_name" content="Rajitha's Blog" />
+
+		<meta
+			name="twitter:site"
+			content={`https://twitter.com/rizkyrajitha`}
+		/>
+		<meta
+			name="keywords"
+			content="software, coding, development, engineering"
+		/>
+
+		<meta name="og:title" content="Personal blog of Rajitha" />
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
 			rel="stylesheet"
