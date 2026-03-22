@@ -1,0 +1,44 @@
+---
+import { DateTime } from "luxon";
+const BASE_URL = import.meta.env.BLOG_URL;
+
+const { post } = Astro.props;
+console.log("post - - - - ");
+console.log(post.data);
+
+const relative = DateTime.fromISO(
+    post.data.publishedDate.toISOString(),
+).toRelative();
+console.log(relative);
+---
+
+<div class="card mb-4">
+    <div class="card-body postcard">
+        <h2 class="card-title">{post.data.title}</h2>
+        <p class="card-text">{post.data.description}</p>
+        <a href={`${BASE_URL}/post/${post.id}`} class="btn btn-outline-primary">
+            Read More &rarr;
+        </a>
+    </div>
+    <div class="card-footer postcard postedat">
+        Posted {relative}
+    </div>
+</div>
+
+<style>
+    .postcard {
+        background-color: #243447;
+        /* background-color: black; */
+        display: inline !important;
+    }
+
+    h2,
+    p {
+        color: #fff;
+        /* Example: Sets all text color to blue */
+    }
+
+    .postedat {
+        color: #758293;
+    }
+</style>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import Blog from "../components/Blog.astro";
+import IndexLayout from "../layouts/IndexLayout.astro";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+    (a, b) => new Date(b.data.publishedDate) - new Date(a.data.publishedDate),
+);
+---
+
+<IndexLayout>
+    <Blog posts={sortedPosts} />
+</IndexLayout>

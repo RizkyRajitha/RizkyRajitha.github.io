@@ -1,169 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 * {
-  /* font-family: "Montserrat", sans-serif; */
+    font-family: "Space Mono", monospace;
 }
 
+
 .partlofiodiv {
-  height: 100vh;
-  margin-top: 0%;
-  color: #000000;
-  scroll-snap-align: start;
+    height: 100vh;
+    margin-top: 0%;
+    color: #000000;
+    scroll-snap-align: start;
 }
 
 a {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .partlofiodiv2 {
-  margin-top: 5%;
-  color: #000000;
+    margin-top: 5%;
+    color: #000000;
 }
 
 .protlolioheading {
-  color: #ffffff;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 3%;
-  /* margin-top: 3%; */
-}
-
-.githublinkicon {
-  font-size: 1.5rem;
-  padding-right: 0.9rem;
-}
-
-.superroot {
-  /* width: 100vw; */
-
-  /* Specifies that each element’s snap area should
-       align with a 100px offset from the top edge. */
-
-  /* Encourages scrolling to end at a snap position when the
-        operation completes, if it is near a snap position */
+    color: #ffffff;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 3%;
+    /* margin-top: 3%; */
 }
 
 .parallax {
-  scroll-snap-align: start;
-  /* The image used */
-  /* background-image: url("./998152.jpg"); */
-  font-family: "Space Mono", monospace;
-  /* Set a specific height */
-  height: 100vh;
-  position: relative;
+    scroll-snap-align: start;
+    /* The image used */
+    /* background-image: url("./998152.jpg"); */
+    font-family: "Space Mono", monospace;
+    /* Set a specific height */
+    height: 100vh;
+    position: relative;
 
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .parallaxText {
-  color: #ffffff;
-  font-size: 3rem;
-  /* text-align: center; */
-  /* flex: 0.5 0.5; */
-}
-
-.porfolioimg {
-  object-fit: cover;
-  width: 100%;
-  height: 182px;
-}
-
-.protfoliocardtitle {
-  text-transform: uppercase;
-}
-
-.protfoliocardtext {
-  color: #ffffff;
-}
-
-.protfoliocard {
-  background-color: #243447 !important;
-}
-
-.bgimagenasa {
-  color: #ffffff;
-  font-size: 1.4rem;
+    color: #ffffff;
+    font-size: 3rem;
+    /* text-align: center; */
+    /* flex: 0.5 0.5; */
 }
 
 .parallaxTextdiv {
-  /* width: 90%; */
-  margin-left: 10%;
-  padding-top: 12%;
-  /* margin-top: 10%; */
-  /* display: flex; */
+    /* width: 90%; */
+    margin-left: 10%;
+    padding-top: 12%;
+    /* margin-top: 10%; */
+    /* display: flex; */
 }
+
 .landigpadediv2 {
-  background-color: #666666;
-  /* height: 100vh; */
-  text-align: center;
-  /* width: 100vw;  */
+    background-color: #666666;
+    /* height: 100vh; */
+    text-align: center;
+    /* width: 100vw;  */
 }
+
 .text2 {
-  padding-top: 5%;
-  color: black;
-  font-size: 3rem;
+    padding-top: 5%;
+    color: black;
+    font-size: 3rem;
 }
 
 .visitblogbtn {
-  color: #ffffff !important;
-  margin-top: 1%;
-  /* background-color: #000000 !important; */
-  z-index: 20;
-  /* color: #ffffff !important; */
-  /* outline-color: #ffffff !important; */
-  text-transform: capitalize;
+    color: #ffffff !important;
+    margin-top: 1%;
+    /* background-color: #000000 !important; */
+    z-index: 20;
+    /* color: #ffffff !important; */
+    /* outline-color: #ffffff !important; */
+    text-transform: capitalize;
 }
 
 .portcarddeck {
-  margin-top: -3%;
+    margin-top: -3%;
 }
 
 @media only screen and (max-device-width: 600px) {
-  .protlolioheading {
-    font-size: 1.2rem;
-  }
-  .parallax {
-    background-position-x: 28%;
-    background-position-y: 19%;
-    /* background-attachment: scroll; */
-  }
-  .visitblogbtn {
-    margin-top: 18%;
-    z-index: 20;
-  }
-  .parallaxTextdiv {
-    text-align: center;
-    margin-left: 0%;
-    /* margin-top: 10%; */
-    /* display: flex; */
-  }
-  .parallaxText {
-    color: #ffffff;
-    font-size: 2rem;
-    /* text-align: center; */
-    /* flex: 0.5 0.5; */
-  }
+    .protlolioheading {
+        font-size: 1.2rem;
+    }
+
+    .parallax {
+        background-position-x: 28%;
+        background-position-y: 19%;
+        /* background-attachment: scroll; */
+    }
+
+    .visitblogbtn {
+        margin-top: 18%;
+        z-index: 20;
+    }
+
+    .parallaxTextdiv {
+        text-align: center;
+        margin-left: 0%;
+        /* margin-top: 10%; */
+        /* display: flex; */
+    }
+
+    .parallaxText {
+        color: #ffffff;
+        font-size: 2rem;
+        /* text-align: center; */
+        /* flex: 0.5 0.5; */
+    }
 }
 
 @media screen and (max-width: 890px) {
-  .visitblogbtn {
-    margin-top: 8%;
-    z-index: 20;
-  }
-  .parallaxTextdiv {
-    text-align: center;
-    margin-left: 0%;
-    /* margin-top: 10%; */
-    /* display: flex; */
-  }
-  .parallaxText {
-    color: #ffffff;
-    font-size: 2rem;
-    /* text-align: center; */
-    /* flex: 0.5 0.5; */
-  }
+    .visitblogbtn {
+        margin-top: 8%;
+        z-index: 20;
+    }
+
+    .parallaxTextdiv {
+        text-align: center;
+        margin-left: 0%;
+        /* margin-top: 10%; */
+        /* display: flex; */
+    }
+
+    .parallaxText {
+        color: #ffffff;
+        font-size: 2rem;
+        /* text-align: center; */
+        /* flex: 0.5 0.5; */
+    }
 }
 
 /* @ :-moz-user-disabled */
@@ -184,3 +157,371 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid rgb(50, 136, 223);
   border-radius: 50px;
 } */
+
+
+.bg-placeholder,
+#bg-full {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Tiny image stretched + heavily blurred = free placeholder */
+.bg-placeholder {
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px);
+    transform: scale(1.15);
+    /* hides blurry edges */
+    transition: opacity 0.5s ease;
+}
+
+.bg-placeholder.fade-out {
+    opacity: 0;
+}
+
+/* Full image */
+#bg-full {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+#bg-full.loaded {
+    opacity: 1;
+}
+
+.landingpagefooter {
+    margin: 0 auto;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+
+    height: 20%;
+
+    text-align: center;
+}
+
+.imgcredit {
+    margin-bottom: 1%;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.imgcreditanchor {
+    margin-bottom: 1%;
+    font-size: 1rem;
+}
+
+.otherfotter {
+    margin: 0 auto;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* position: fixed; */
+
+    /* height: 20%; */
+
+    text-align: center;
+}
+
+.landingpagefooterdiv {
+    display: flex;
+    margin-top: 2%;
+}
+
+.landingpagefooterdivitembr {
+    flex: 0;
+}
+
+.landingpagefooterdivitem {
+    color: #ffffff;
+    flex: 0.7;
+    justify-content: space-around !important;
+    text-decoration: none !important;
+}
+
+.landingpagefooterdivitemlink {
+    color: #dfdfdf;
+    flex: 0.7;
+    justify-content: space-around !important;
+}
+
+.iconsfooter {
+    text-decoration: none;
+
+    font-size: 3rem;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+    .landingpagefooterdiv {
+        display: flex;
+        /* flex-direction: column; */
+    }
+
+    .landingpagefooterdivitembr {
+        flex: 0;
+    }
+
+    .imgcredit {
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+
+    .iconsfooter {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .landingpagefooterdivitembr {
+        flex: 0;
+    }
+
+    .landingpagefooterdiv {
+        display: flex;
+    }
+
+    .imgcredit {
+        margin-bottom: 1%;
+        font-size: 1rem;
+    }
+
+    .imgcredit {
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+}
+
+.smlltextblogheading {
+    font-size: 1.2rem;
+}
+
+.maindiv {
+    font-family: "Montserrat", sans-serif;
+    background-color: #243447;
+    /* background-color: black; */
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.sidecomponent {
+    /* background-color: black; */
+    color: white;
+    background-color: #243447;
+}
+
+.offlinediv {
+    background-color: red;
+    margin: 0 auto;
+    z-index: 1;
+    /* left: 0; */
+    top: 0;
+    width: 100%;
+    position: sticky;
+    height: 10%;
+    text-align: center;
+}
+
+.timesync {
+    background-color: rgb(241, 226, 14);
+    margin: 0 auto;
+    z-index: 1;
+    /* left: 0; */
+    color: #000000;
+    top: 0;
+    width: 100%;
+    position: sticky;
+    height: 10%;
+    text-align: center;
+}
+
+.onlinediv {
+    background-color: green;
+    margin: 0 auto;
+    z-index: 1;
+    /* left: 0; */
+    top: 0;
+    width: 100%;
+    position: sticky;
+    height: 10%;
+    text-align: center;
+    animation: swipdown 5s forwards;
+}
+
+.loadskceliton {
+    height: 20px;
+    box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loadskceliton::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            #314358 10%,
+            transparent 100%);
+    animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.commentsection {
+    background-color: #243447 !important;
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes swipdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+.landingpagefooter {
+    margin: 0 auto;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+
+    height: 20%;
+
+    text-align: center;
+}
+
+.imgcredit {
+    margin-bottom: 1%;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.imgcreditanchor {
+    margin-bottom: 1%;
+    font-size: 1rem;
+}
+
+.otherfotter {
+    margin: 0 auto;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* position: fixed; */
+
+    /* height: 20%; */
+
+    text-align: center;
+}
+
+.landingpagefooterdiv {
+    display: flex;
+    margin-top: 2%;
+}
+
+.landingpagefooterdivitembr {
+    flex: 0;
+}
+
+.landingpagefooterdivitem {
+    color: #ffffff;
+    flex: 0.7;
+    justify-content: space-around !important;
+    text-decoration: none !important;
+}
+
+.landingpagefooterdivitemlink {
+    color: #dfdfdf;
+    flex: 0.7;
+    justify-content: space-around !important;
+}
+
+.iconsfooter {
+    text-decoration: none;
+
+    font-size: 3rem;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+    .landingpagefooterdiv {
+        display: flex;
+        /* flex-direction: column; */
+    }
+
+    .landingpagefooterdivitembr {
+        flex: 0;
+    }
+
+    .imgcredit {
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+
+    .iconsfooter {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .landingpagefooterdivitembr {
+        flex: 0;
+    }
+
+    .landingpagefooterdiv {
+        display: flex;
+    }
+
+    .imgcredit {
+        margin-bottom: 1%;
+        font-size: 1rem;
+    }
+
+    .imgcredit {
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+}
