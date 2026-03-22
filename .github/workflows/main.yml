@@ -17,6 +17,17 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+
       - name: remove all files # remove files.
         run: |
           rm -rf *
