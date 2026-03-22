@@ -39,7 +39,7 @@ jobs:
       - name: checkout dev  branch #checkout dev  branch into temp folder.
         uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: dev-revamp
           path: temp
           persist-credentials: false
 
