@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    currentPage?: string;
+}
+
+const { currentPage = "" } = Astro.props;
+---
+
+<nav class="flex items-center justify-between py-8 mb-12">
+    <a
+        href="/"
+        class="text-zinc-100 font-medium tracking-tight hover:text-white transition-colors flex items-center gap-2"
+    >
+        <span
+            class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-sm"
+        >
+            R
+        </span>
+        Rizky Rajitha
+    </a>
+    <div class="flex gap-6 text-sm text-zinc-400">
+        <a
+            href="/blog"
+            class:list={[
+                "hover:text-zinc-100 transition-colors",
+                { "text-zinc-100": currentPage === "blog" },
+            ]}
+        >
+            Blog
+        </a>
+        <a href="/" class="hover:text-zinc-100 transition-colors">About</a>
+        <a href="/" class="hover:text-zinc-100 transition-colors">Projects</a>
+    </div>
+</nav>

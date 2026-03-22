@@ -1,44 +1,47 @@
 ---
 import { DateTime } from "luxon";
-// const BASE_URL = import.meta.env.;
 
 const { post } = Astro.props;
-console.log("post - - - - ");
-console.log(post.data);
 
 const relative = DateTime.fromISO(
     post.data.publishedDate.toISOString(),
 ).toRelative();
-console.log(relative);
+
+const formattedDate = DateTime.fromISO(
+    post.data.publishedDate.toISOString(),
+).toFormat("LLL dd, yyyy");
 ---
 
-<div class="card mb-4">
-    <div class="card-body postcard">
-        <h2 class="card-title">{post.data.title}</h2>
-        <p class="card-text">{post.data.description}</p>
-        <a href={`/post/${post.id}`} class="btn btn-outline-primary">
-            Read More &rarr;
-        </a>
-    </div>
-    <div class="card-footer postcard postedat">
-        Posted {relative}
-    </div>
-</div>
+<article class="group cursor-pointer flex flex-col items-start">
+    <a href={`/post/${post.id}`} class="block w-full">
+        <div
+            class="flex items-center gap-3 text-sm text-zinc-500 mb-3 font-mono"
+        >
+            <time>{formattedDate}</time>
+            <span>·</span>
+            <span>{relative}</span>
+        </div>
 
-<style>
-    .postcard {
-        background-color: #243447;
-        /* background-color: black; */
-        display: inline !important;
-    }
+        <h2
+            class="text-xl md:text-2xl font-medium text-zinc-200 group-hover:text-white transition-colors mb-3"
+        >
+            {post.data.title}
+        </h2>
 
-    h2,
-    p {
-        color: #fff;
-        /* Example: Sets all text color to blue */
-    }
+        <p
+            class="text-zinc-400 leading-relaxed max-w-2xl group-hover:text-zinc-300 transition-colors"
+        >
+            {post.data.description}
+        </p>
 
-    .postedat {
-        color: #758293;
-    }
-</style>
+        <div
+            class="mt-4 flex items-center text-sm font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors"
+        >
+            Read article
+            <span
+                class="ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                >→</span
+            >
+        </div>
+    </a>
+</article>
