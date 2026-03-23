@@ -4,6 +4,7 @@ slug: first-official-post
 publishedDate: "2019-11-10"
 description: Welcome to very first post on my personal blog, a fully custom MERN stack blog with Bootstrap frontend, comments, view counter, GitHub Pages + Heroku setup. The journey awaits.
 ogImage: "First-official-post.png"
+featured: true
 ---
 
 ## Hi everyone,

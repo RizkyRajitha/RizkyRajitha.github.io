@@ -4,6 +4,7 @@ description: In detail walkthrough on creating a Telegram bot with BotFather, gr
 publishedDate : "2019-11-10T09:16:50.771Z"
 slug: Sending-messages-with-Telegram-bot
 ogImage: "Realtime-Anemometer-Project.png"
+featured: true
 ---
 ## Hi everyone,
 

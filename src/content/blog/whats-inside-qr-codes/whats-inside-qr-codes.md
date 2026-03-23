@@ -4,6 +4,7 @@ publishedDate: "2020-03-22"
 slug: whats-inside-qr-codes
 description: Curious what’s really hidden inside a ShareMe QR code? I decoded one and found Base64 JSON containing phone model, MAC address, private IP, and port.
 ogImage: "whats-inside-qr-codes.png"
+featured: true
 ---
 
 ## Hi everyone ,
