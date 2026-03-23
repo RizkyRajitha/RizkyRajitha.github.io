@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 import BlogFooter from "../components/unit/BlogFooter.astro";
 import Navigation from "../components/unit/Navigation.astro";
 import { DateTime } from "luxon";
+import "@fontsource/space-mono";
 
 const baseUrl = "https://rizkyrajitha.com";
 
@@ -89,17 +90,19 @@ const formattedDate = DateTime.fromISO(
                         >
                             <div class="flex items-center gap-2">
                                 <Icon
-                                    name="fa7-regular:calendar"
-                                    class="w-4 h-4"
-                                />
-                                <time>{formattedDate}</time>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <Icon
                                     name="fa7-regular:clock"
                                     class="w-4 h-4"
                                 />
-                                <span>Posted {relative}</span>
+                                <span
+                                    class="group/tooltip relative cursor-help border-b border-dotted border-zinc-600 hover:border-zinc-400 transition-colors"
+                                >
+                                    Posted {relative}
+                                    <span
+                                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-zinc-200 shadow-lg z-10 before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[5px] before:border-transparent before:border-t-zinc-800"
+                                    >
+                                        {formattedDate}
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </header>
@@ -263,20 +266,5 @@ const formattedDate = DateTime.fromISO(
     div.markdown-image-bg-placeholder {
         border-radius: 0.75rem;
         margin: 4%;
-    }
-
-    /* Animation */
-    @keyframes fadeSlideIn {
-        from {
-            opacity: 0;
-            transform: translateY(16px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    .animate-fade-in {
-        animation: fadeSlideIn 0.7s ease-out both;
     }
 </style>

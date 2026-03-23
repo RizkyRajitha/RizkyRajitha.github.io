@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { DateTime } from "luxon";
 
 const { post } = Astro.props;
@@ -17,13 +18,21 @@ const formattedDate = DateTime.fromISO(
         <div
             class="flex items-center gap-3 text-sm text-zinc-500 mb-3 font-mono"
         >
-            <time>{formattedDate}</time>
-            <span>·</span>
-            <span>{relative}</span>
+            <Icon name="fa7-solid:clock" class="w-4 h-4" />
+            <span
+                class="group/tooltip relative cursor-help border-b border-dotted border-zinc-600 hover:border-zinc-400 transition-colors"
+            >
+                {relative}
+                <span
+                    class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-zinc-200 shadow-lg z-10 before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[5px] before:border-transparent before:border-t-zinc-800"
+                >
+                    {formattedDate}
+                </span>
+            </span>
         </div>
 
         <h2
-            class="text-xl md:text-2xl font-medium text-zinc-200 group-hover:text-white transition-colors mb-3"
+            class="text-lg md:text-xl font-medium text-zinc-200 group-hover:text-white transition-colors mb-3"
         >
             {post.data.title}
         </h2>

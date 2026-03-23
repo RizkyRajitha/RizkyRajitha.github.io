@@ -1,5 +1,6 @@
 ---
 import BlogPostCard from "../components/unit/BlogPostCard.astro";
+import BlogFooter from "./unit/BlogFooter.astro";
 import Navigation from "./unit/Navigation.astro";
 
 const { posts } = Astro.props;
@@ -13,7 +14,7 @@ const { posts } = Astro.props;
             <h1
                 class="text-4xl md:text-5xl font-semibold tracking-tight text-zinc-100"
             >
-                Writing
+                Blog
             </h1>
             <p class="text-zinc-400 text-lg max-w-xl leading-relaxed">
                 Thoughts on software engineering, design, and building things
@@ -27,18 +28,4 @@ const { posts } = Astro.props;
     </div>
 </main>
 
-<style>
-    @keyframes fadeSlideIn {
-        from {
-            opacity: 0;
-            transform: translateY(16px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    .animate-fade-in {
-        animation: fadeSlideIn 0.7s ease-out both;
-    }
-</style>
+<BlogFooter />

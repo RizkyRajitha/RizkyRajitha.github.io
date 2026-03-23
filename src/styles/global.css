@@ -1,7 +1,6 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
 
 @theme {
-  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  --font-sans: "Space Mono", monospace;
+  --font-mono: ui-monospace, "Space Mono", monospace;
 }
