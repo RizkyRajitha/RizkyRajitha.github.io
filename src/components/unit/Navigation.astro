@@ -11,10 +11,10 @@ const { currentPage = "" } = Astro.props;
 <nav class="flex items-center justify-between py-8 mb-12">
     <a
         href="/"
-        class="text-zinc-100 font-medium tracking-tight hover:text-white transition-colors flex items-center gap-2"
+        class="text-zinc-100 font-medium tracking-tight hover:text-white transition-colors flex items-center blinking-cursor"
     >
-        RizkyRajitha
-    </a>
+        rizkyrajitha@web:~$</a
+    >
     <div class="flex gap-6 text-sm text-zinc-400">
         <a
             href="/blog"
@@ -29,3 +29,22 @@ const { currentPage = "" } = Astro.props;
         <a href="/" class="hover:text-zinc-100 transition-colors">Projects</a> -->
     </div>
 </nav>
+
+<style>
+    .blinking-cursor::after {
+        content: "█";
+        animation: blink 1.2s step-end infinite;
+        font-weight: 400;
+        margin-left: 0px;
+        color: #fff; /* zinc-400 */
+    }
+    @keyframes blink {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
