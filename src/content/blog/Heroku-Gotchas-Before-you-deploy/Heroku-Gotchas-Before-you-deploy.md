@@ -6,19 +6,21 @@ description: Few things you need to know before pushing to Heroku. Free dynos th
 ogImage: "Heroku-Gotchas-Before-you-deploy.png"
 ---
 
-## Hi everyone ,
+![Cover](./cover.jpg)
 
----
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@bruno_kelzer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bruno Kelzer</a> on <a href="https://unsplash.com/photos/closed-elevator-dendZhhfkTc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+## Hi everyone ,
 
 I'm pretty sure that you have heard about ,
 [Heroku](https://www.heroku.com/) .
 if not don't worry ,i got you covered. Heroku is a popular cloud PaaS(Platform as a service), which deliver awesome cloud solutions. Sounds cool right .
 
----
 
 ![Heroku logo](7jqmr55jkd2uk4ztitem.png)
 
----
 
 ## So let's get start 🤗 ,
 
@@ -26,7 +28,6 @@ if not don't worry ,i got you covered. Heroku is a popular cloud PaaS(Platform a
 
 ## what exactly is a heroku dyno?
 
----
 
 usually when you host a web app in heroku , your app will run on a Heroku dyno.
 dyno is a fancy name for container , where our app live but what is a container ? Hmmmmmmmmm.... that's a good question .
@@ -41,7 +42,6 @@ Container's need their own article, because it is a huge topic. So i will not go
 
 ### let's start with gotchas👇
 
----
 
 
 1. Heroku **"free tier"** dynos(now you have a little idea about it) are going to sleep state, in 30 minutes of inactivity.
@@ -60,10 +60,8 @@ Container's need their own article, because it is a huge topic. So i will not go
 
 #### Fact : Did you knew that Heroku is build on top of AWS 🔥.
 
----
 
 #### So, did I miss anything, You can leave a comment and I'll include in this article? And I will update this article frequently with new gotchas, so keep in touch 😉.
 
----
 
 ## Cheers 🥂 , Have a Nice day.

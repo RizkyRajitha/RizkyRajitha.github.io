@@ -6,31 +6,32 @@ publishedDate: "2019-11-18"
 ogImage: "How-i-build-my-first-npm-package command-line-chat-application.png"
 ---
 
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@oulashin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sean Oulashin</a> on <a href="https://unsplash.com/photos/seashore-during-golden-hour-KMn4VEeEPR8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
 ## Hello everyone,
 
 
 I recently started developing a command line chat application . This idea was floating with me for quite sometime , i actually made a prototype few months ago , but it was for proof of concept kind of thing. So i recently build it with more features and little more tidy 😂 .</span>
 
----
 
 ### What exactly i build
 
----
 
 ![aloha logo](aloha_y6rz3f.png)
 
----
 
 Well ,[Aloha-cli-chat](https://www.npmjs.com/package/aloha-cli-chat) is a real time command line chat application build with Nodejs. So this is a chat application , but it runs on your command line!.</span>
 
 for sometime i was goofing around with pusher services for my University second year project, and i came across with [pusher chatkit](https://pusher.com/chatkit) service. It is a awesome out of the box real time chat service you can integrate with many different environments. So i wanted to test it out. I could have implemented a node react web app to test , but it was very common. I wanted to do something different. so with some research i decided to build a command line chat application, it was easy to start with, and matched with my NodeJs skill set .</span>
 <br/>
 
----
 
 ### How i made it
 
----
 
 Aloha-cli-chat's command line interface and backend server both are build with NodeJs. I used Mongodb for storing user data.but most hard part is done by pusher chatkit.
 
@@ -44,11 +45,9 @@ in a successful authentication , our system will issue a `auth token` from pushe
 
 ![high level overview](6tijxtzwqnuukcwyqjth.png)
 
----
 
 ### What i learned by building this
 
----
 
 well ,
 I learned how to publish a npm package .
@@ -60,7 +59,7 @@ PRs and issues are welcome .
 
 [git repo](https://github.com/RizkyRajitha/alohacli)
 
- Thanks for Reading 🙌
+Thanks for Reading 🙌
 
 what are your plans ? 💭
 

@@ -5,8 +5,14 @@ publishedDate : "2020-05-03"
 description : Squeezed some performance out of the blog swapped the hero background to live NASA Astronomy Pictures, added react-bootstrap and IcoMoon, and cut load time by 30%.
 ogImage: "optimizing-blog.png"
 ---
-## Hi everyone ,
-____
+
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@tuaans_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tuaans</a> on <a href="https://unsplash.com/photos/tall-radio-tower-against-a-cloudy-sky-DRnoXMw43Fc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+## Hi everyone,
 
 
 Recently I did some optimizations to this blog, so here i'll talk about them.

@@ -7,6 +7,13 @@ ogImage: "mistakes-i-made-deploying-Lambda-function.png"
 featured: true
 ---
 
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@mahavirshah?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mahavir Shah</a> on <a href="https://unsplash.com/photos/a-shell-gas-station-with-a-sky-background-WuMIQSkGZZU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+
 ## Hi Everyone,
 
 

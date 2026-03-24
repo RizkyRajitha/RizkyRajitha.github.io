@@ -6,10 +6,15 @@ slug: Sending-messages-with-Telegram-bot
 ogImage: "Realtime-Anemometer-Project.png"
 featured: true
 ---
+
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@lereverdo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Valeria Reverdo</a> on <a href="https://unsplash.com/photos/a-white-envelope-on-a-black-background-Axli9F0n26A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+
 ## Hi everyone,
-
-____
-
 
 In this tutorial, we're going to build a telegram bot ,and send messages to a group with a simple HTTP request.
 
@@ -22,30 +27,24 @@ so go to telegram app on your phone, or log in with [telegram web](https://web.t
 and then search for bot father.
 create a new bot `/newbot`
 
-____
 
 ![create new bot](f61uzk32yd17rjoo8lc8.jpg)
 
-____
 
 now follow along with instructions.
 
 type a name for your bot
 I had a hard time finding a username 😆
 
-____
 
 ![create new bot](8muki02hmur8c1emb3xx.jpg)
 
-____
 
 now you'll get a token to authenticate with your bot.
 
-____
 
 ![create new bot](q0uwbdndewa1wy5gamea.jpg)
 
-____
 
 <span style="font-size:1.2rem ; color:#ff5420;">
  keep the access token securely. Anyone with access token can manipulate your bot
@@ -54,7 +53,6 @@ ____
 
 alright, now we have the access token. The next question is how to send messages with the bot.
 
-____
 
 #### we will create a group with our bot. And then our bot will massage to that group
 it's simple as that😎
@@ -67,10 +65,8 @@ search with the username of your bot
 add our bot to the group
 ![create new bot](tecbrgdanamugyhi2ber.jpg)
 
-____
 
 after adding give admin permission to our bot, to give access to the bot to send messages to the group (not all the permissions are necessary but I will give because this is a demo group and nothing harmful will happen ).
-____
 
 ![create new bot](f8n3zcaodh3fh7xyrxq6.jpg)
 
@@ -98,14 +94,11 @@ and Send.
 
 if you get something like this, try few more times. I don't know the exact cause, but it sometimes returns empty arrays.(make sure you have some messages in the group)
 
-____
 ![create new bot](ybfbvfi933tbguv2zmjg.jpg)
 
-____
 
 hopefully, you'll receive something similar to this.
 
-____
 
 ![create new bot](ss5vjl1rb21xfp6lzuiz.jpg)
 
@@ -127,23 +120,18 @@ ex - Hello%20World (spaces is replaced with %20)
 
 checkout [w3school](https://www.w3schools.com/tags/ref_urlencode.asp) for more info
 
-____
 ![create new bot](e1n9y2kf7xy53jxsxmlj.jpg)
 
-____
 
 and `wubba lubba dub dub` your message is sent
 
-____
 
 ![create new bot](v3c57ifyl2npx5g3m63m.jpg)
 
-____
 
 
 #### This is a great way to monitor and notify your apps state. I use this for the backend of my web apps to report errors. you can also use it with frontends, CLI applications regardless of the language. you can use this creatively to do many things because this needs no 3rd party libraries or dependencies, just a simple HTTP request will do the work.
 
-____
 
 ### Thanks for following along with me 🙌
 

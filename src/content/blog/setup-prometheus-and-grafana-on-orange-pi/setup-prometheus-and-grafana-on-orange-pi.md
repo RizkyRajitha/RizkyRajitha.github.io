@@ -6,6 +6,14 @@ description: "Setup Prometheus and Grafana on Orange Pi For Monitoring Orange Pi
 ogImage: "setup-prometheus-and-grafana-on-orange-pi.png"
 ---
 
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@tuaans_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tuaans</a> on <a href="https://unsplash.com/photos/tall-radio-tower-against-a-cloudy-sky-DRnoXMw43Fc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+    
+
 ## Hi everyone ,
 
 Hope yall are doing well,

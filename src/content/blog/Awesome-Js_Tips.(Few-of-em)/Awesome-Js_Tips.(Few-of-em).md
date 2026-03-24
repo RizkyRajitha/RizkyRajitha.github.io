@@ -1,14 +1,21 @@
 ---
-title: Awesome Js Tips.(Few of em )
+title: Awesome Js Tips.(Few of em)
 slug: Awesome-Js_Tips.(Few-of-em)
 publishedDate: "2019-11-26"
 ogImage: "Awesome-Js_Tips.(Few-of-em).png"
 description: Quick dive into two super-handy JavaScript features most devs overlook. Promise.all() for firing off multiple async tasks at once (perfect for bulk S3 uploads) and for...of loops that actually let you break early unlike forEach.
 ---
 
-## Hi everyone ,
+![Cover](./cover.jpg)
 
----
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@cherstve_pechivo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Liana S</a> on <a href="https://unsplash.com/photos/abstract-yellow-flowers-with-soft-focus-and-warm-light-4Vzs0NASt7A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+
+
+## Hi everyone,
+
 
 In this post, I'll walk you through with some awesome javascript features, that are super important in many situations.
 these are fairly popular but many of us don't use them.so I will give some examples where they come in handy
@@ -76,7 +83,6 @@ loop1: for (let element1 of arr1) {//define a breakpoint
   }
 }
 ```
-
 
 #### So, did i miss anything 👀,You can leave a comment and i'll include your awesome tips in this article.And i will keep this post updated with my findings.
 
