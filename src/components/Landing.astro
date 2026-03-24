@@ -9,7 +9,8 @@ const posts = await getCollection("blog");
 const featuredPosts = posts
     .sort(
         (a, b) =>
-            new Date(b.data.publishedDate) - new Date(a.data.publishedDate),
+            new Date(b.data.publishedDate).getTime() -
+            new Date(a.data.publishedDate).getTime(),
     )
     .filter((p) => p.data.featured);
 ---
@@ -19,13 +20,17 @@ const featuredPosts = posts
 <main class="">
     <div class="animate-fade-in">
         <header class="mb-16 space-y-4">
-            <div class="flex items-center justify-between gap-2">
-                <h4
-                    class="text-4xl md:text-4xl font-bold tracking-tight text-zinc-100 mb-1"
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 sm:gap-2 w-full"
+            >
+                <h1
+                    class="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight text-center sm:text-left text-zinc-100 mb-1 w-full sm:w-auto"
                 >
                     Rajitha Gunathilake
-                </h4>
-                <div class="flex items-center gap-2">
+                </h1>
+                <div
+                    class="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-2 w-full sm:w-auto"
+                >
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
@@ -58,13 +63,17 @@ const featuredPosts = posts
                     </div>
                 </div>
             </div>
-            <div class="flex items-center justify-between gap-2">
-                <h4
-                    class="text-xl md:text-xl font-bold tracking-tight text-zinc-100"
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-2 w-full mt-8 sm:mt-0"
+            >
+                <h2
+                    class="text-xl md:text-xl font-bold tracking-tight text-center sm:text-left text-zinc-100 w-full sm:w-auto"
                 >
                     DevOps Engineer
-                </h4>
-                <div class="flex items-center gap-2">
+                </h2>
+                <div
+                    class="flex items-center justify-center sm:justify-end gap-2 w-full sm:w-auto mt-2 sm:mt-0"
+                >
                     <Icon name="fa7-solid:location-dot" class="w-4 h-4" />
                     <span>Sri lanka</span>
                 </div>
@@ -88,12 +97,11 @@ const featuredPosts = posts
 
         <div class="mb-16 space-y-4">
             <div class="flex justify-between pb-8 align-middle items-end">
-                <a
-                    href="/blog"
+                <h3
                     class="text-2xl md:text-3xl font-semibold tracking-tight text-zinc-100"
                 >
                     Blog
-                </a>
+                </h3>
                 <a href="/blog" class="font-bold">View All</a>
             </div>
             <div class="flex flex-col gap-12">
