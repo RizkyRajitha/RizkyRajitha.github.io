@@ -6,6 +6,12 @@ publishedDate: "2021-01-23"
 ogImage: "Realtime-Anemometer-Project.png"
 ---
 
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@sanderweeteling?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sander Weeteling</a> on <a href="https://unsplash.com/photos/black-and-white-airplane-flying-in-the-sky-iGDg_f_mlWo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
 ## Hello everyone,
 
 Hope yall are doing well, and safe with this pandemic situation.<br>

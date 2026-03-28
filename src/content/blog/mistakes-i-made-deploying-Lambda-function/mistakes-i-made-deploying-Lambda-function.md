@@ -4,7 +4,15 @@ slug: mistakes-i-made-deploying-Lambda-function
 description: The real (and painful) problems I ran into while building an S3-triggered AWS Lambda video transcoder with FFmpeg plus how I fixed them.
 publishedDate: "2021-05-04T13:23:58.858Z"
 ogImage: "mistakes-i-made-deploying-Lambda-function.png"
+featured: true
 ---
+
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@mahavirshah?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mahavir Shah</a> on <a href="https://unsplash.com/photos/a-shell-gas-station-with-a-sky-background-WuMIQSkGZZU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
 
 ## Hi Everyone,
 

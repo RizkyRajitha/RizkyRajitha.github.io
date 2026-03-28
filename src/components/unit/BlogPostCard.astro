@@ -1,44 +1,57 @@
 ---
+import { Icon } from "astro-icon/components";
 import { DateTime } from "luxon";
-// const BASE_URL = import.meta.env.;
 
 const { post } = Astro.props;
-console.log("post - - - - ");
-console.log(post.data);
 
 const relative = DateTime.fromISO(
     post.data.publishedDate.toISOString(),
 ).toRelative();
-console.log(relative);
+
+const formattedDate = DateTime.fromISO(
+    post.data.publishedDate.toISOString(),
+).toFormat("LLL dd, yyyy");
 ---
 
-<div class="card mb-4">
-    <div class="card-body postcard">
-        <h2 class="card-title">{post.data.title}</h2>
-        <p class="card-text">{post.data.description}</p>
-        <a href={`/post/${post.id}`} class="btn btn-outline-primary">
-            Read More &rarr;
-        </a>
+<article class="relative flex flex-col items-start">
+    <div
+        class="relative z-20 flex items-center gap-3 text-sm text-zinc-500 mb-3 font-mono"
+    >
+        <Icon name="fa7-solid:clock" class="w-4 h-4" />
+        <span
+            class="group/tooltip relative cursor-help border-b border-dotted border-zinc-600 hover:border-zinc-400 transition-colors"
+        >
+            {relative}
+            <span
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-zinc-200 shadow-lg z-10 before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[5px] before:border-transparent before:border-t-zinc-800"
+            >
+                {formattedDate}
+            </span>
+        </span>
     </div>
-    <div class="card-footer postcard postedat">
-        Posted {relative}
-    </div>
-</div>
 
-<style>
-    .postcard {
-        background-color: #243447;
-        /* background-color: black; */
-        display: inline !important;
-    }
+    <a href={`/post/${post.id}`} class="group block w-full">
+        <span class="absolute inset-0 z-0" aria-hidden="true"></span>
+        <h2
+            class="relative z-10 text-lg md:text-xl font-medium text-zinc-200 group-hover:text-white capitalize transition-colors mb-3"
+        >
+            {post.data.title}
+        </h2>
 
-    h2,
-    p {
-        color: #fff;
-        /* Example: Sets all text color to blue */
-    }
+        <p
+            class="relative z-10 text-zinc-400 leading-relaxed text-justify max-w-2xl group-hover:text-zinc-300 transition-colors"
+        >
+            {post.data.description}
+        </p>
 
-    .postedat {
-        color: #758293;
-    }
-</style>
+        <div
+            class="relative z-10 mt-4 flex items-center text-sm font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors"
+        >
+            Read article
+            <span
+                class="ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                >→</span
+            >
+        </div>
+    </a>
+</article>

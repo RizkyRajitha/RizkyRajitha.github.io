@@ -1,114 +1,114 @@
 ---
-import "../styles/index.css";
-import backDropImage from "../assets/backdrop.jpg";
-import { getImage } from "astro:assets";
-import sharp from "sharp";
-import { fileURLToPath } from "node:url";
 import { Icon } from "astro-icon/components";
-import path from "node:path";
+import BlogPostCard from "../components/unit/BlogPostCard.astro";
+import BlogFooter from "./unit/BlogFooter.astro";
+import Navigation from "./unit/Navigation.astro";
+import { getCollection } from "astro:content";
 
-const fullImage = await getImage({
-    src: backDropImage,
-    format: "webp",
-    quality: 85,
-});
-
-const imagePath = path.resolve(process.cwd(), "src/assets/backdrop.jpg");
-
-const tinyBuffer = await sharp(imagePath)
-    .resize(300, 300, { fit: "cover" })
-    .blur(5)
-    .jpeg({ quality: 20 })
-    .toBuffer();
-
-const base64Placeholder = `data:image/jpeg;base64,${tinyBuffer.toString("base64")}`;
-// console.log(base64Placeholder);
+const posts = await getCollection("blog");
+const featuredPosts = posts
+    .sort(
+        (a, b) =>
+            new Date(b.data.publishedDate).getTime() -
+            new Date(a.data.publishedDate).getTime(),
+    )
+    .filter((p) => p.data.featured);
 ---
 
-<div>
-    <main>
-        <div
-            class="bg-placeholder"
-            style={`background-image: url('${base64Placeholder}');`}
-        >
-        </div>
+<Navigation currentPage="about" />
 
-        <img id="bg-full" src={fullImage.src} alt="" aria-hidden="true" />
-
-        <div class="parallaxTextdiv">
-            <span class="parallaxText">Hi </span>
-            <br />
-            <span class="parallaxText">Nice to meet you </span>
-            <br />
-            <span class="parallaxText">I'am Rajitha </span>
-            <br />
-
-            <a class="btn visitblogbtn btn-outline-primary" href="/blog">
-                visit my blog
-            </a>
-        </div>
-    </main>
-    <footer class="landingpagefooter">
-        Photo by <a
-            href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            >NASA</a
-        > on <a
-            href="https://unsplash.com/photos/hubble-space-telescope-above-earths-atmosphere-S3hQU-5_yjg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            >Unsplash</a
-        >
-
-        <div class="landingpagefooterdiv">
-            <div class="landingpagefooterdivitembr"></div>
-            <div class="landingpagefooterdivitem">
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="landingpagefooterdivitemlink"
-                    href="https://github.com/RizkyRajitha"
+<main class="">
+    <div class="animate-fade-in">
+        <header class="mb-16 space-y-4">
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 sm:gap-2 w-full"
+            >
+                <h1
+                    class="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight text-center sm:text-left text-zinc-100 mb-1 w-full sm:w-auto"
                 >
-                    <Icon name="fa7-brands:github" height={60} width={60} />
-                </a>
-            </div>
-            <div class="landingpagefooterdivitem">
-                <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    class="landingpagefooterdivitemlink"
-                    href="https://twitter.com/RizkyRajitha"
+                    Rajitha Gunathilake
+                </h1>
+                <div
+                    class="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-2 w-full sm:w-auto"
                 >
-                    <span class="icon-twitter iconsfooter"></span>
-                    <Icon name="fa7-brands:twitter" height={60} width={60} />
-                </a>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class=""
+                        href="https://github.com/RizkyRajitha"
+                    >
+                        <Icon name="fa7-brands:github" class="w-8 h-8" />
+                    </a>
+
+                    <div class="">
+                        <a
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            class=""
+                            href="https://twitter.com/RizkyRajitha"
+                        >
+                            <Icon name="fa7-brands:twitter" class="w-8 h-8" />
+                        </a>
+                    </div>
+
+                    <div class="">
+                        <a
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            class=""
+                            href="https://dev.to/rizkyrajitha"
+                        >
+                            <Icon name="fa7-brands:dev" class="w-8 h-8" />
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="landingpagefooterdivitem">
-                <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    class="landingpagefooterdivitemlink"
-                    href="https://dev.to/rizkyrajitha"
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-2 w-full mt-8 sm:mt-0"
+            >
+                <h2
+                    class="text-xl md:text-xl font-bold tracking-tight text-center sm:text-left text-zinc-100 w-full sm:w-auto"
                 >
-                    <Icon name="fa7-brands:dev" height={60} width={60} />
-                </a>
+                    DevOps Engineer
+                </h2>
+                <div
+                    class="flex items-center justify-center sm:justify-end gap-2 w-full sm:w-auto mt-2 sm:mt-0"
+                >
+                    <Icon name="fa7-solid:location-dot" class="w-4 h-4" />
+                    <span>Sri lanka</span>
+                </div>
             </div>
-            <div class="landingpagefooterdivitembr"></div>
+
+            <!-- <p class="text-zinc-400 text-lg max-w-xl leading-relaxed mb-0">
+                Hi visitor,
+            </p>
+            <p class="text-zinc-400 text-lg max-w-xl leading-relaxed mb-0">
+                I'am Rajitha
+            </p>
+            <p class="text-zinc-400 text-lg max-w-xl leading-relaxed mb-0">
+                Nice to meet you
+            </p>
+            <p class="text-zinc-400 text-lg max-w-xl leading-relaxed mb-0">
+                I am a DevOps Engineer Based in Sri Lanka
+            </p> -->
+        </header>
+
+        <div class="flex flex-col gap-12"></div>
+
+        <div class="mb-16 space-y-4">
+            <div class="flex justify-between pb-8 align-middle items-end">
+                <h3
+                    class="text-2xl md:text-3xl font-semibold tracking-tight text-zinc-100"
+                >
+                    Blog
+                </h3>
+                <a href="/blog" class="font-bold underline underline-offset-4">View All</a>
+            </div>
+            <div class="flex flex-col gap-12">
+                {featuredPosts.map((post) => <BlogPostCard post={post} />)}
+            </div>
         </div>
-    </footer>
-</div>
+    </div>
+</main>
 
-<script>
-    const full = document.getElementById("bg-full") as HTMLImageElement;
-    const placeholder = document.querySelector(
-        ".bg-placeholder",
-    ) as HTMLElement;
-
-    const reveal = () => {
-        full.classList.add("loaded");
-        placeholder.classList.add("fade-out");
-    };
-
-    if (full.complete) {
-        reveal();
-    } else {
-        full.addEventListener("load", reveal);
-    }
-</script>
+<BlogFooter />

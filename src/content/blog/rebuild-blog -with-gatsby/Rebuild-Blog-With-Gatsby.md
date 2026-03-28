@@ -1,14 +1,19 @@
 ---
-title: Rebuild Blog With Gatsby ☄
+title: Rebuild Blog With Gatsby
 slug: Rebuild-Blog-With-Gatsby-☄
 publishedDate: "2020-08-23"
 description: Completely rebuilt the blog in Gatsby for lightning speed and better SEO, complete with Markdown posts, client-side comments, daily NASA APOD backgrounds via GitHub Actions, and SSR.
-ogImage: "Rebuild-Blog-With-Gatsby.png"
+ogImage: "rebuild-blog-with-gatsby.png"
 ---
 
-## Hi everyone ,
+![Cover](./cover.jpg)
 
----
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@maritaextrabold?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marita Kavelashvili</a> on <a href="https://unsplash.com/photos/aerial-photo-of-green-trees-ugnrXk1129g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
+
+
+## Hi everyone,
 
 I saw [Gatsby](https://www.gatsbyjs.org/) quite some time ago and I was blown out by it's speed. So I decided to move my blog to Gatsby and here's how I did it.
 
@@ -29,4 +34,4 @@ It eased the workflow quite a lot since now everything is built and published by
 
 [Blog Repo](https://github.com/RizkyRajitha/RizkyRajitha.github.io)
 
-## Thanks for reading folks see y'all in next one 🙌.
+### Thanks for reading folks see y'all in next one 🙌.

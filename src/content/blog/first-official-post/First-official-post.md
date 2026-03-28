@@ -4,11 +4,17 @@ slug: first-official-post
 publishedDate: "2019-11-10"
 description: Welcome to very first post on my personal blog, a fully custom MERN stack blog with Bootstrap frontend, comments, view counter, GitHub Pages + Heroku setup. The journey awaits.
 ogImage: "First-official-post.png"
+featured: true
 ---
+
+
+![Cover](./cover.jpg)
+
+<p align="center" style="font-size:12px;">
+Photo by <a href="https://unsplash.com/@williamtm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Hook</a> on <a href="https://unsplash.com/photos/white-airplane-flying-under-the-blue-sky-Wtn654UyGYA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</p>
 
 ## Hi everyone,
-
----
 
 This is the first official post of my personal Blog. 
 I won’t bore you with some code example , for now 😉.
