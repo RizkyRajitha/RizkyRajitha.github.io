@@ -5,7 +5,7 @@ import Navigation from "../components/unit/Navigation.astro";
 import { DateTime } from "luxon";
 import "@fontsource/space-mono";
 
-const baseUrl = "https://rizkyrajitha.com";
+const origin = Astro.url.origin;
 
 const { post } = Astro.props;
 
@@ -35,7 +35,7 @@ const formattedDate = DateTime.fromISO(
 
         <meta
             name="og:image"
-            content={`${baseUrl}/ogimage/${post.data.ogImage}`}
+            content={`${origin}/ogimg/${post.data.ogImage}`}
         />
 
         <meta property="og:locale" content="en_US" />
@@ -207,14 +207,16 @@ const formattedDate = DateTime.fromISO(
     }
 
     .blog-content a {
-        color: theme("colors.zinc.100");
+        /* color: theme("colors.zinc.100"); */
+        /* color: #7389f4; */
+        color: #6688ff;
         text-decoration: underline;
         text-underline-offset: 3px;
         transition: color 0.2s;
     }
 
     .blog-content a:hover {
-        color: white;
+        color: #bdc1f9;
     }
 
     .blog-content blockquote {

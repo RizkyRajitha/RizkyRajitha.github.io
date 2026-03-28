@@ -3,7 +3,7 @@ title: Rebuild Blog With Gatsby
 slug: Rebuild-Blog-With-Gatsby-☄
 publishedDate: "2020-08-23"
 description: Completely rebuilt the blog in Gatsby for lightning speed and better SEO, complete with Markdown posts, client-side comments, daily NASA APOD backgrounds via GitHub Actions, and SSR.
-ogImage: "Rebuild-Blog-With-Gatsby.png"
+ogImage: "rebuild-blog-with-gatsby.png"
 ---
 
 ![Cover](./cover.jpg)

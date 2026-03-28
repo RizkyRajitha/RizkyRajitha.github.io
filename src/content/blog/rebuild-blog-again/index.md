@@ -3,7 +3,7 @@ title: Rebuild Blog Again
 slug: rebuilding-blog-again
 publishedDate: "2026-03-25"
 description: I rebuilt my blog Again...
-ogImage: "Rebuild-Blog-With-Gatsby.png"
+ogImage: "rebuilding-blog-again.png"
 featured: true
 ---
 

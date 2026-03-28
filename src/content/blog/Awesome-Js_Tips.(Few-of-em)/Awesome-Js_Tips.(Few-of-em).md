@@ -1,5 +1,5 @@
 ---
-title: Awesome Js Tips.(Few of em)
+title: Awesome Js Tips. (Few of em)
 slug: Awesome-Js_Tips.(Few-of-em)
 publishedDate: "2019-11-26"
 ogImage: "Awesome-Js_Tips.(Few-of-em).png"
