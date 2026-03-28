@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Blog from "../components/Blog.astro";
-import IndexLayout from "../layouts/IndexLayout.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
 
 const posts = await getCollection("blog");
 const sortedPosts = posts.sort(
@@ -9,6 +9,6 @@ const sortedPosts = posts.sort(
 );
 ---
 
-<IndexLayout>
+<BlogLayout>
     <Blog posts={sortedPosts} />
-</IndexLayout>
+</BlogLayout>
