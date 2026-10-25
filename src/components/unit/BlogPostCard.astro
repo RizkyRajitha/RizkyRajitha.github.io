@@ -1,12 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 import { DateTime } from "luxon";
+import RelativeTime from "./RelativeTime.astro";
 
 const { post } = Astro.props;
-
-const relative = DateTime.fromISO(
-    post.data.publishedDate.toISOString(),
-).toRelative();
 
 const formattedDate = DateTime.fromISO(
     post.data.publishedDate.toISOString(),
@@ -21,7 +18,7 @@ const formattedDate = DateTime.fromISO(
         <span
             class="group/tooltip relative cursor-help border-b border-dotted border-zinc-600 hover:border-zinc-400 transition-colors"
         >
-            {relative}
+            <RelativeTime date={post.data.publishedDate} />
             <span
                 class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-zinc-200 shadow-lg z-10 before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[5px] before:border-transparent before:border-t-zinc-800"
             >

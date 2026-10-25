@@ -1,0 +1,23 @@
+---
+// Renders "x ago" at build time as a fallback, then the script below
+// recalculates it in the browser so it stays current after deploy.
+import { formatRelative } from "../../utils/relativeTime";
+
+interface Props {
+    date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()} data-relative-time>{formatRelative(date)}</time>
+
+<script>
+    import { formatRelative } from "../../utils/relativeTime";
+
+    document
+        .querySelectorAll<HTMLTimeElement>("time[data-relative-time]")
+        .forEach((el) => {
+            el.textContent = formatRelative(new Date(el.dateTime));
+        });
+</script>
