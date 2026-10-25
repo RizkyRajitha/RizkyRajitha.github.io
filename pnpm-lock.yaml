@@ -9,43 +9,43 @@ importers:
   .:
     dependencies:
       '@astrojs/mdx':
-        specifier: ^5.0.2
+        specifier: 5.0.2
         version: 5.0.2(astro@6.0.8(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.59.0))
       '@fontsource-variable/inter':
-        specifier: ^5.2.8
+        specifier: 5.2.8
         version: 5.2.8
       '@fontsource/space-mono':
-        specifier: ^5.2.9
+        specifier: 5.2.9
         version: 5.2.9
       '@iconify-json/fa7-brands':
-        specifier: ^1.2.2
+        specifier: 1.2.2
         version: 1.2.2
       '@iconify-json/fa7-regular':
-        specifier: ^1.2.3
+        specifier: 1.2.3
         version: 1.2.3
       '@iconify-json/fa7-solid':
-        specifier: ^1.2.4
+        specifier: 1.2.4
         version: 1.2.4
       '@tailwindcss/vite':
-        specifier: ^4.2.2
+        specifier: 4.2.2
         version: 4.2.2(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0))
       astro:
-        specifier: ^6.0.8
+        specifier: 6.0.8
         version: 6.0.8(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.59.0)
       astro-icon:
-        specifier: ^1.1.5
+        specifier: 1.1.5
         version: 1.1.5
       luxon:
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2
       sharp:
-        specifier: ^0.34.5
+        specifier: 0.34.5
         version: 0.34.5
       tailwindcss:
-        specifier: ^4.2.2
+        specifier: 4.2.2
         version: 4.2.2
       unist-util-visit:
-        specifier: ^5.1.0
+        specifier: 5.1.0
         version: 5.1.0
 
 packages:
